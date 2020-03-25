@@ -34,3 +34,26 @@ In plain English, list the content of the current directory `ls` using the long 
 ** `man rm`
 
 '''
+{nbsp} +
+
+=== Switching GitHub remote URLs from HTTPS to SSH and back
+:resource1: https://help.github.com/en/github/using-git/changing-a-remotes-url#switching-remote-urls-from-ssh-to-https
+
+[source,sh]
+----
+git remote -v
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+----
+
+First we check what kind of remote URLs we have, using option `-v` of command `git remote`,
+afterwards we change the remote URL to either HTTPS or SSH using one of the last two commands
+(note the two different URL styles for setting the remote name `origin`)
+{nbsp} +
+{nbsp} +
+{nbsp} +
+*Resources:*
+
+* {resource1}[switching remote urls]
+
+'''
