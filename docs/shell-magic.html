@@ -109,6 +109,36 @@ You have been warned!
 </ul>
 </div>
 <hr>
+<div class="paragraph">
+<p>&#160;<br></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="switching-github-remote-urls-from-https-to-ssh-and-back">Switching GitHub remote URLs from HTTPS to SSH and back</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sh" data-lang="sh">git remote -v
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>First we check what kind of remote URLs we have, using option <code>-v</code> of command <code>git remote</code>,
+afterwards we change the remote URL to either HTTPS or SSH using one of the last two commands
+(note the two different URL styles for setting the remote name <code>origin</code>)
+&#160;<br>
+&#160;<br>
+&#160;<br>
+<strong>Resources:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://help.github.com/en/github/using-git/changing-a-remotes-url#switching-remote-urls-from-ssh-to-https">switching remote urls</a></p>
+</li>
+</ul>
+</div>
+<hr>
 </div>
   </div><a class="u-url" href="/blog/shell-magic" hidden></a>
 </article>
