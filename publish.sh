@@ -1,3 +1,5 @@
+#!/bin/sh
+
 rm -rf _site/
 jekyll build
 rm -rf docs/
@@ -7,4 +9,4 @@ cp _site/*.xml docs/
 cp -r _site/assets docs/
 git add docs/
 git commit -m "published new blog version"
-git push origin master
+git push git@github.com:vladflore/blog.git master
