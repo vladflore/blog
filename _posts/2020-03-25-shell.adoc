@@ -1,0 +1,36 @@
+---
+layout: post
+title: Shell magic
+permalink: /shell-magic
+---
+
+On this page I'll be posting some shell magic which I came across in my daily business.
+
+WARNING: Please be advised that some of them could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
+Some of them might also require sudo access, so I am just going to assume that you know what you are doing.
+You have been warned!
+
+*Environment*: Ubuntu 18.04.4 LTS
+ +
+ +
+ +
+
+=== Forcibly removing all directories and their content recursively
+
+[source,sh]
+ls -l | grep '^d' | awk '{print $9}' | xargs rm -rf
+
+In plain English, list the content of the current directory `ls` using the long listing format `-l`, filter out everything else that is not a directory `grep '^d'`, extract the 9^th^ column (the last containing the name of the directory) `awk '{print $9}'`, pass each name of the directory as an argument to the command `rm`, which removes recursively `-r` and forcibly `-f` the respective directory.
+{nbsp} +
+{nbsp} +
+{nbsp} +
+*Resources:*
+
+* feel free to use the `man` command to read more about the commands above
+** `man ls`
+** `man grep`
+** `man awk`
+** `man xargs`
+** `man rm`
+
+'''
