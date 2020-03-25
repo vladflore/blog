@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Software Craftsmanship
-permalink: /software-craftsmanship
+permalink: /sw-craftsmanship
 ---
 Last year I had the opportunity to put together and hold a presentation at a conference organized
 by the [company](https://www.virtual7.de/){:target="_blank"} I am currently working for. As you might have guessed from the post's title
