@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-03-25T13:34:12+01:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Shell magic</title><link href="http://localhost:4000/blog/shell-magic" rel="alternate" type="text/html" title="Shell magic" /><published>2020-03-25T00:00:00+01:00</published><updated>2020-03-25T00:00:00+01:00</updated><id>http://localhost:4000/blog/shell</id><content type="html" xml:base="http://localhost:4000/blog/shell-magic">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;On this page I&amp;#8217;ll be posting some shell magic which I came across in my daily business.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock warning&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Warning&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+Please be advised that some of them could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
+Some of them might also require sudo access, so I am just going to assume that you know what you are doing.
+You have been warned!
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Environment&lt;/strong&gt;: Ubuntu 18.04.4 LTS
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;forcibly-removing-all-directories-and-their-content-recursively&quot;&gt;Forcibly removing all directories and their content recursively&lt;/h3&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;ls -l | grep '^d' | awk '{print $9}' | xargs rm -rf&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In plain English, list the content of the current directory &lt;code&gt;ls&lt;/code&gt; using the long listing format &lt;code&gt;-l&lt;/code&gt;, filter out everything else that is not a directory &lt;code&gt;grep '^d'&lt;/code&gt;, extract the 9&lt;sup&gt;th&lt;/sup&gt; column (the last containing the name of the directory) &lt;code&gt;awk '{print $9}'&lt;/code&gt;, pass each name of the directory as an argument to the command &lt;code&gt;rm&lt;/code&gt;, which removes recursively &lt;code&gt;-r&lt;/code&gt; and forcibly &lt;code&gt;-f&lt;/code&gt; the respective directory.
+&amp;#160;&lt;br&gt;
+&amp;#160;&lt;br&gt;
+&amp;#160;&lt;br&gt;
+&lt;strong&gt;Resources:&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;feel free to use the &lt;code&gt;man&lt;/code&gt; command to read more about the commands above&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;man ls&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;man grep&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;man awk&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;man xargs&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;man rm&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">On this page I&amp;#8217;ll be posting some shell magic which I came across in my daily business.</summary></entry><entry><title type="html">Hello World</title><link href="http://localhost:4000/blog/hello-world" rel="alternate" type="text/html" title="Hello World" /><published>2020-02-10T00:00:00+01:00</published><updated>2020-02-10T00:00:00+01:00</updated><id>http://localhost:4000/blog/first-post</id><content type="html" xml:base="http://localhost:4000/blog/hello-world">&lt;p&gt;Hello Internet,&lt;/p&gt;
+
+&lt;p&gt;so this is my first blog post, which I hope will be one of many more to come. This is more of a &lt;em&gt;hello world&lt;/em&gt; kind of post, 
+a way to cut my teeth into blogging and see if it’s something I would like doing.&lt;/p&gt;
+
+&lt;p&gt;Should you wonder by now why &lt;em&gt;hello world&lt;/em&gt;,
+well just ask someone who works in IT and has learned at least one programming language.&lt;/p&gt;
+
+&lt;p&gt;The majority of the posts will be of technical nature and will server primarily the purpose of conveying knowledge
+that I gathered or stumbled upon over the time.&lt;/p&gt;
+
+&lt;p&gt;Quite often I find myself in the position of having to do something I have already done
+before, and quite often I regret not having documented that something…This blog is about changing all that and allowing me
+and others to tap into that information I once used/had in order to make use of it again.&lt;/p&gt;
+
+&lt;p&gt;I guess time will tell if this was a worthwhile endeavor or not.&lt;/p&gt;
+
+&lt;p&gt;Happy reading,&lt;/p&gt;
+
+&lt;p&gt;Vlad&lt;/p&gt;</content><author><name></name></author><summary type="html">Hello Internet,</summary></entry><entry><title type="html">Software Craftsmanship</title><link href="http://localhost:4000/blog/sw-craftsmanship" rel="alternate" type="text/html" title="Software Craftsmanship" /><published>2020-02-10T00:00:00+01:00</published><updated>2020-02-10T00:00:00+01:00</updated><id>http://localhost:4000/blog/software-craftsmanship</id><content type="html" xml:base="http://localhost:4000/blog/sw-craftsmanship">&lt;p&gt;Last year I had the opportunity to put together and hold a presentation at a conference organized
+by the &lt;a href=&quot;https://www.virtual7.de/&quot; target=&quot;_blank&quot;&gt;company&lt;/a&gt; I am currently working for. As you might have guessed from the post’s title
+it was a presentation about the &lt;strong&gt;craftsmanship&lt;/strong&gt; behind &lt;strong&gt;creating software&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Creating software is no easy task, creating software &lt;strong&gt;responsibly&lt;/strong&gt; is even harder, but this should not discourage one to do so.&lt;/p&gt;
+
+&lt;p&gt;By adhering to some healthy coding habits one can and will write code that will not make others cringe when looking at it.
+Remember, &lt;em&gt;we write code for people not for computers&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The presentation is powered by the &lt;a href=&quot;https://revealjs.com/#/&quot; target=&quot;_blank&quot;&gt;reveal.js framework&lt;/a&gt; 
+and it can be found at this &lt;a href=&quot;https://vladflore.github.io/software-craftsmanship/#/&quot; target=&quot;_blank&quot;&gt;link on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Last year I had the opportunity to put together and hold a presentation at a conference organized by the company I am currently working for. As you might have guessed from the post’s title it was a presentation about the craftsmanship behind creating software.</summary></entry></feed>
