@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shell magic
+title: Shell Magic
 permalink: /shell-magic
 ---
 
@@ -20,13 +20,13 @@ You have been warned!
 [source,sh]
 ls -l | grep '^d' | awk '{print $9}' | xargs rm -rf
 
-In plain English, list the content of the current directory `ls` using the long listing format `-l`, filter out everything else that is not a directory `grep '^d'`, extract the 9^th^ column (the last containing the name of the directory) `awk '{print $9}'`, pass each name of the directory as an argument to the command `rm`, which removes recursively `-r` and forcibly `-f` the respective directory.
+In plain English, list the content of the current directory `ls` using the long listing format `-l`, filter out everything else that is not a directory `grep '^d'`, extract the 9^th^ column (the last containing the name of the directory) `awk '{print $9}'`, pass each name of the directory as an argument `xargs` to the command `rm`, which removes recursively `-r` and forcibly `-f` the respective directory.
 {nbsp} +
 {nbsp} +
 {nbsp} +
 *Resources:*
 
-* feel free to use the `man` command to read more about the commands above
+* feel free to use the `man` command to read more about the commands above:
 ** `man ls`
 ** `man grep`
 ** `man awk`

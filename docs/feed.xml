@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog/" rel="alternate" type="text/html" /><updated>2020-03-25T14:34:52+01:00</updated><id>/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Shell magic</title><link href="/blog/shell-magic" rel="alternate" type="text/html" title="Shell magic" /><published>2020-03-25T00:00:00+01:00</published><updated>2020-03-25T00:00:00+01:00</updated><id>/blog/shell</id><content type="html" xml:base="/blog/shell-magic">&lt;div class=&quot;paragraph&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog/" rel="alternate" type="text/html" /><updated>2020-03-25T14:42:40+01:00</updated><id>/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Shell Magic</title><link href="/blog/shell-magic" rel="alternate" type="text/html" title="Shell Magic" /><published>2020-03-25T00:00:00+01:00</published><updated>2020-03-25T00:00:00+01:00</updated><id>/blog/shell</id><content type="html" xml:base="/blog/shell-magic">&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;On this page I&amp;#8217;ll be posting some shell magic which I came across in my daily business.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;admonitionblock warning&quot;&gt;
@@ -29,7 +29,7 @@ You have been warned!
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;In plain English, list the content of the current directory &lt;code&gt;ls&lt;/code&gt; using the long listing format &lt;code&gt;-l&lt;/code&gt;, filter out everything else that is not a directory &lt;code&gt;grep '^d'&lt;/code&gt;, extract the 9&lt;sup&gt;th&lt;/sup&gt; column (the last containing the name of the directory) &lt;code&gt;awk '{print $9}'&lt;/code&gt;, pass each name of the directory as an argument to the command &lt;code&gt;rm&lt;/code&gt;, which removes recursively &lt;code&gt;-r&lt;/code&gt; and forcibly &lt;code&gt;-f&lt;/code&gt; the respective directory.
+&lt;p&gt;In plain English, list the content of the current directory &lt;code&gt;ls&lt;/code&gt; using the long listing format &lt;code&gt;-l&lt;/code&gt;, filter out everything else that is not a directory &lt;code&gt;grep '^d'&lt;/code&gt;, extract the 9&lt;sup&gt;th&lt;/sup&gt; column (the last containing the name of the directory) &lt;code&gt;awk '{print $9}'&lt;/code&gt;, pass each name of the directory as an argument &lt;code&gt;xargs&lt;/code&gt; to the command &lt;code&gt;rm&lt;/code&gt;, which removes recursively &lt;code&gt;-r&lt;/code&gt; and forcibly &lt;code&gt;-f&lt;/code&gt; the respective directory.
 &amp;#160;&lt;br&gt;
 &amp;#160;&lt;br&gt;
 &amp;#160;&lt;br&gt;
@@ -38,7 +38,7 @@ You have been warned!
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;feel free to use the &lt;code&gt;man&lt;/code&gt; command to read more about the commands above&lt;/p&gt;
+&lt;p&gt;feel free to use the &lt;code&gt;man&lt;/code&gt; command to read more about the commands above:&lt;/p&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
