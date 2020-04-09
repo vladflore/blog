@@ -2,15 +2,17 @@
 layout: post
 title: Shell Magic
 permalink: /shell-magic
+modified_date: 2020-04-09
 ---
-On this page I'll be posting some shell magic which I came across in my daily business.
 
-_Please be advised that some of them could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
+> **_NOTE 1:_** This page contains some shell _magic_ which I came across in my daily business. I will update this page continuously
+and this will be reflected in the date information displayed under the post name and after the tilda sign.
+
+> **_NOTE 2:_** _Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
 Some of them might also require sudo access, so I am just going to assume that you know what you are doing.
 You have been warned!_
 
-
-All the commands have been tried on _Ubuntu 18.04.4 LTS_
+> **_NOTE 3:_** All the commands have been tried on _Ubuntu 18.04.4 LTS_
 
 <br/>
 
