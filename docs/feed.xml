@@ -1,10 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog/" rel="alternate" type="text/html" /><updated>2020-04-09T19:21:31+02:00</updated><id>/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Time to learn</title><link href="/blog/best-time-to-learn" rel="alternate" type="text/html" title="Time to learn" /><published>2020-04-09T00:00:00+02:00</published><updated>2020-04-09T00:00:00+02:00</updated><id>/blog/best-time-to-learn</id><content type="html" xml:base="/blog/best-time-to-learn">&lt;p&gt;Here goes the post!&lt;/p&gt;</content><author><name></name></author><summary type="html">Here goes the post!</summary></entry><entry><title type="html">Shell Magic</title><link href="/blog/shell-magic" rel="alternate" type="text/html" title="Shell Magic" /><published>2020-03-25T00:00:00+01:00</published><updated>2020-03-25T00:00:00+01:00</updated><id>/blog/shell</id><content type="html" xml:base="/blog/shell-magic">&lt;p&gt;On this page I’ll be posting some shell magic which I came across in my daily business.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog/" rel="alternate" type="text/html" /><updated>2020-04-09T20:18:42+02:00</updated><id>/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Time to Learn</title><link href="/blog/best-time-to-learn" rel="alternate" type="text/html" title="Time to Learn" /><published>2020-04-09T00:00:00+02:00</published><updated>2020-04-09T00:00:00+02:00</updated><id>/blog/best-time-to-learn</id><content type="html" xml:base="/blog/best-time-to-learn">&lt;p&gt;Here goes the post!&lt;/p&gt;</content><author><name>Vlad</name></author><summary type="html">Here goes the post!</summary></entry><entry><title type="html">Shell Magic</title><link href="/blog/shell-magic" rel="alternate" type="text/html" title="Shell Magic" /><published>2020-03-25T00:00:00+01:00</published><updated>2020-03-25T00:00:00+01:00</updated><id>/blog/shell</id><content type="html" xml:base="/blog/shell-magic">&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 1:&lt;/em&gt;&lt;/strong&gt; This page contains some shell &lt;em&gt;magic&lt;/em&gt; which I came across in my daily business. I will update this page continuously
+and this will be reflected on this page in the date information displayed under the post name.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;em&gt;Please be advised that some of them could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 2:&lt;/em&gt;&lt;/strong&gt; &lt;em&gt;Please be advised that some commands listed here could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
 Some of them might also require sudo access, so I am just going to assume that you know what you are doing.
 You have been warned!&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;All the commands have been tried on &lt;em&gt;Ubuntu 18.04.4 LTS&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 3:&lt;/em&gt;&lt;/strong&gt; All the commands have been tried on &lt;em&gt;Ubuntu 18.04.4 LTS&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -72,7 +79,7 @@ last argument of the previous command, and open &lt;code class=&quot;highlighter
       &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;man zip&lt;/code&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">On this page I’ll be posting some shell magic which I came across in my daily business.</summary></entry><entry><title type="html">Hello World</title><link href="/blog/hello-world" rel="alternate" type="text/html" title="Hello World" /><published>2020-02-10T00:00:00+01:00</published><updated>2020-02-10T00:00:00+01:00</updated><id>/blog/first-post</id><content type="html" xml:base="/blog/hello-world">&lt;p&gt;Hello Internet,&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Vlad</name></author><summary type="html">NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.</summary></entry><entry><title type="html">Hello World</title><link href="/blog/hello-world" rel="alternate" type="text/html" title="Hello World" /><published>2020-02-10T00:00:00+01:00</published><updated>2020-02-10T00:00:00+01:00</updated><id>/blog/first-post</id><content type="html" xml:base="/blog/hello-world">&lt;p&gt;Hello Internet,&lt;/p&gt;
 
 &lt;p&gt;so this is my first blog post, which I hope will be one of many more to come. This is more of a &lt;em&gt;hello world&lt;/em&gt; kind of post, 
 a way to cut my teeth into blogging and see if it’s something I would like doing.&lt;/p&gt;
