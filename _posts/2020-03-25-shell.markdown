@@ -1,0 +1,72 @@
+---
+layout: post
+title: Shell Magic
+permalink: /shell-magic
+---
+On this page I'll be posting some shell magic which I came across in my daily business.
+
+_Please be advised that some of them could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
+Some of them might also require sudo access, so I am just going to assume that you know what you are doing.
+You have been warned!_
+
+
+All the commands have been tried on _Ubuntu 18.04.4 LTS_
+
+<br/>
+
+### <a name="1"></a> 1. Forcibly removing all directories and their content recursively
+
+{% highlight sh %}
+ls -l | grep '^d' | awk '{print $9}' | xargs rm -rf
+{% endhighlight %}
+
+In plain English, list the content of the current directory `ls` using the long listing format `-l`, filter out everything else that is not a directory `grep '^d'`, extract the 9^th^ column (the last containing the name of the directory) `awk '{print $9}'`, pass each name of the directory as an argument `xargs` to the command `rm`, which removes recursively `-r` and forcibly `-f` the respective directory.
+
+**Resources:**
+
+* feel free to use the `man` command to read more about the commands above:
+    * `man ls`
+    * `man grep`
+    * `man awk`
+    * `man xargs`
+    * `man rm`
+    
+---
+<br/>
+
+### <a name="2"></a> 2. Switching between GitHub remote URLs (HTTPS vs. SSH)
+
+{% highlight sh %}
+git remote -v
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+{% endhighlight %}
+
+First we check what kind of remote URLs we have, using option `-v` of command `git remote`,
+afterwards we change the remote URL to either HTTPS or SSH using one of the last two commands
+(note the two different URL styles for setting the remote name `origin`). Do not forget
+to replace the `USERNAME` and `REPOSITORY` with the real values.
+
+**Resources:**
+
+* [switching remote urls][resource1]
+
+[resource1]: https://help.github.com/en/github/using-git/changing-a-remotes-url#switching-remote-urls-from-ssh-to-https
+
+---
+<br/>
+
+### <a name="3"></a> 3. Searching for files and creating an archive out of them
+
+{% highlight sh %}
+find . -type f \( -name file1 -o -name file2 \) | zip -@ -j files
+mv files.zip ~/tmp
+cd $_
+xdg-open .
+{% endhighlight %}
+
+**Resources:**
+
+* feel free to use the `man` command to read more about the commands above:
+    * `man find`
+    * `man zip`

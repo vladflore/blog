@@ -15,7 +15,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-25T00:00:00+01:00" />
 <script type="application/ld+json">
-{"headline":"Shell Magic","dateModified":"2020-03-25T00:00:00+01:00","datePublished":"2020-03-25T00:00:00+01:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/shell-magic"},"url":"/blog/shell-magic","description":"On this page I’ll be posting some shell magic which I came across in my daily business.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Shell Magic","dateModified":"2020-03-25T00:00:00+01:00","datePublished":"2020-03-25T00:00:00+01:00","url":"/blog/shell-magic","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/shell-magic"},"description":"On this page I’ll be posting some shell magic which I came across in my daily business.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Vlad's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -30,7 +30,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger"><a class="page-link" href="/about">About</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -47,85 +47,74 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p>On this page I’ll be posting some shell magic which I came across in my daily business.</p>
 
-<p>WARNING: Please be advised that some of them could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
+<p><em>Please be advised that some of them could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
 Some of them might also require sudo access, so I am just going to assume that you know what you are doing.
-You have been warned!</p>
+You have been warned!</em></p>
 
-<p><em>Environment</em>: Ubuntu 18.04.4 LTS
- +
- +
- +</p>
+<p>All the commands have been tried on <em>Ubuntu 18.04.4 LTS</em></p>
 
-<p>=== Forcibly removing all directories and their content recursively</p>
+<p><br /></p>
 
-<p>[source,sh]
-ls -l | grep ‘^d’ | awk ‘{print $9}’ | xargs rm -rf</p>
+<h3 id="-1-forcibly-removing-all-directories-and-their-content-recursively"><a name="1"></a> 1. Forcibly removing all directories and their content recursively</h3>
 
-<p>In plain English, list the content of the current directory <code class="highlighter-rouge">ls</code> using the long listing format <code class="highlighter-rouge">-l</code>, filter out everything else that is not a directory <code class="highlighter-rouge">grep '^d'</code>, extract the 9^th^ column (the last containing the name of the directory) <code class="highlighter-rouge">awk '{print $9}'</code>, pass each name of the directory as an argument <code class="highlighter-rouge">xargs</code> to the command <code class="highlighter-rouge">rm</code>, which removes recursively <code class="highlighter-rouge">-r</code> and forcibly <code class="highlighter-rouge">-f</code> the respective directory.
-{nbsp} +
-{nbsp} +
-{nbsp} +
-<em>Resources:</em></p>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">ls</span> <span class="nt">-l</span> | <span class="nb">grep</span> <span class="s1">'^d'</span> | <span class="nb">awk</span> <span class="s1">'{print $9}'</span> | xargs <span class="nb">rm</span> <span class="nt">-rf</span></code></pre></figure>
+
+<p>In plain English, list the content of the current directory <code class="highlighter-rouge">ls</code> using the long listing format <code class="highlighter-rouge">-l</code>, filter out everything else that is not a directory <code class="highlighter-rouge">grep '^d'</code>, extract the 9^th^ column (the last containing the name of the directory) <code class="highlighter-rouge">awk '{print $9}'</code>, pass each name of the directory as an argument <code class="highlighter-rouge">xargs</code> to the command <code class="highlighter-rouge">rm</code>, which removes recursively <code class="highlighter-rouge">-r</code> and forcibly <code class="highlighter-rouge">-f</code> the respective directory.</p>
+
+<p><strong>Resources:</strong></p>
 
 <ul>
   <li>feel free to use the <code class="highlighter-rouge">man</code> command to read more about the commands above:
-** <code class="highlighter-rouge">man ls</code>
-** <code class="highlighter-rouge">man grep</code>
-** <code class="highlighter-rouge">man awk</code>
-** <code class="highlighter-rouge">man xargs</code>
-** <code class="highlighter-rouge">man rm</code></li>
+    <ul>
+      <li><code class="highlighter-rouge">man ls</code></li>
+      <li><code class="highlighter-rouge">man grep</code></li>
+      <li><code class="highlighter-rouge">man awk</code></li>
+      <li><code class="highlighter-rouge">man xargs</code></li>
+      <li><code class="highlighter-rouge">man rm</code></li>
+    </ul>
+  </li>
 </ul>
 
-<p>’’’
-{nbsp} +</p>
+<hr />
+<p><br /></p>
 
-<p>=== Switching GitHub remote URLs from HTTPS to SSH and back
-:resource1: https://help.github.com/en/github/using-git/changing-a-remotes-url#switching-remote-urls-from-ssh-to-https</p>
+<h3 id="-2-switching-between-github-remote-urls-https-vs-ssh"><a name="2"></a> 2. Switching between GitHub remote URLs (HTTPS vs. SSH)</h3>
 
-<h2 id="sourcesh">[source,sh]</h2>
-<p>git remote -v
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">git remote <span class="nt">-v</span>
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
-git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
-—-</p>
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git</code></pre></figure>
 
 <p>First we check what kind of remote URLs we have, using option <code class="highlighter-rouge">-v</code> of command <code class="highlighter-rouge">git remote</code>,
 afterwards we change the remote URL to either HTTPS or SSH using one of the last two commands
-(note the two different URL styles for setting the remote name <code class="highlighter-rouge">origin</code>)
-{nbsp} +
-{nbsp} +
-{nbsp} +
-<em>Resources:</em></p>
+(note the two different URL styles for setting the remote name <code class="highlighter-rouge">origin</code>). Do not forget
+to replace the <code class="highlighter-rouge">USERNAME</code> and <code class="highlighter-rouge">REPOSITORY</code> with the real values.</p>
+
+<p><strong>Resources:</strong></p>
 
 <ul>
-  <li>{resource1}[switching remote urls]</li>
+  <li><a href="https://help.github.com/en/github/using-git/changing-a-remotes-url#switching-remote-urls-from-ssh-to-https">switching remote urls</a></li>
 </ul>
 
-<p>’’’</p>
+<hr />
+<p><br /></p>
 
-<p>{nbsp} +</p>
+<h3 id="-3-searching-for-files-and-creating-an-archive-out-of-them"><a name="3"></a> 3. Searching for files and creating an archive out of them</h3>
 
-<p>=== Searching for files and creating an archive out of them</p>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">find <span class="nb">.</span> <span class="nt">-type</span> f <span class="se">\(</span> <span class="nt">-name</span> file1 <span class="nt">-o</span> <span class="nt">-name</span> file2 <span class="se">\)</span> | zip -@ <span class="nt">-j</span> files
+<span class="nb">mv </span>files.zip ~/tmp
+<span class="nb">cd</span> <span class="nv">$_</span>
+xdg-open .</code></pre></figure>
 
-<h2 id="sourceshlinenums">[source,sh,linenums]</h2>
-<p>find . -type f ( -name Contact.java -o -name ContactList.java  -o -name ContactController.java -o -name ContactListController.java -o -name AddContactActivity.java -o -name EditContactActivity.java ) | zip -@ -j files
-mv files.zip ~/vladflore.dev/sandbox/coursera/sad/dp/
-cd $_
-xdg-open .
-—-
-//TODO add description</p>
-
-<p>{nbsp} +
-{nbsp} +
-{nbsp} +
-<em>Resources:</em></p>
+<p><strong>Resources:</strong></p>
 
 <ul>
   <li>feel free to use the <code class="highlighter-rouge">man</code> command to read more about the commands above:
-** <code class="highlighter-rouge">man find</code>
-** <code class="highlighter-rouge">man zip</code></li>
+    <ul>
+      <li><code class="highlighter-rouge">man find</code></li>
+      <li><code class="highlighter-rouge">man zip</code></li>
+    </ul>
+  </li>
 </ul>
-
-<p>’’’</p>
 
   </div><a class="u-url" href="/shell-magic" hidden></a>
 </article>

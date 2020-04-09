@@ -10,7 +10,7 @@ cp _site/*.html docs/
 cp _site/*.xml docs/
 cp -r _site/assets docs/
 echo git add docs/
-#git add docs/
+git add docs/
 echo git commit new blog version
 git commit -m "published new blog version"
 echo git push to GitHub
