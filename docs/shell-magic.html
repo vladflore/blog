@@ -4,23 +4,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Shell Magic | Vlad’s Blog</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="Shell Magic" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="On this page I&#8217;ll be posting some shell magic which I came across in my daily business." />
-<meta property="og:description" content="On this page I&#8217;ll be posting some shell magic which I came across in my daily business." />
+<meta name="description" content="On this page I’ll be posting some shell magic which I came across in my daily business." />
+<meta property="og:description" content="On this page I’ll be posting some shell magic which I came across in my daily business." />
 <link rel="canonical" href="/blog/shell-magic" />
 <meta property="og:url" content="/blog/shell-magic" />
 <meta property="og:site_name" content="Vlad’s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-25T00:00:00+01:00" />
 <script type="application/ld+json">
-{"headline":"Shell Magic","dateModified":"2020-03-25T00:00:00+01:00","datePublished":"2020-03-25T00:00:00+01:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/shell-magic"},"url":"/blog/shell-magic","description":"On this page I&#8217;ll be posting some shell magic which I came across in my daily business.","@context":"https://schema.org"}</script>
+{"headline":"Shell Magic","dateModified":"2020-03-25T00:00:00+01:00","datePublished":"2020-03-25T00:00:00+01:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/shell-magic"},"url":"/blog/shell-magic","description":"On this page I’ll be posting some shell magic which I came across in my daily business.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/blog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Vlad's Blog" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Vlad's Blog" /></head>
 <body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Vlad&#39;s Blog</a><nav class="site-nav">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Vlad&#39;s Blog</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -30,7 +30,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/blog/about">About me</a></div>
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -45,115 +45,102 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <div class="paragraph">
-<p>On this page I&#8217;ll be posting some shell magic which I came across in my daily business.</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-Please be advised that some of them could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
+    <p>On this page I’ll be posting some shell magic which I came across in my daily business.</p>
+
+<p>WARNING: Please be advised that some of them could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
 Some of them might also require sudo access, so I am just going to assume that you know what you are doing.
-You have been warned!
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Environment</strong>: Ubuntu 18.04.4 LTS
-<br>
-<br>
-<br></p>
-</div>
-<div class="sect2">
-<h3 id="forcibly-removing-all-directories-and-their-content-recursively">Forcibly removing all directories and their content recursively</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">ls -l | grep '^d' | awk '{print $9}' | xargs rm -rf</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In plain English, list the content of the current directory <code>ls</code> using the long listing format <code>-l</code>, filter out everything else that is not a directory <code>grep '^d'</code>, extract the 9<sup>th</sup> column (the last containing the name of the directory) <code>awk '{print $9}'</code>, pass each name of the directory as an argument <code>xargs</code> to the command <code>rm</code>, which removes recursively <code>-r</code> and forcibly <code>-f</code> the respective directory.
-&#160;<br>
-&#160;<br>
-&#160;<br>
-<strong>Resources:</strong></p>
-</div>
-<div class="ulist">
+You have been warned!</p>
+
+<p><em>Environment</em>: Ubuntu 18.04.4 LTS
+ +
+ +
+ +</p>
+
+<p>=== Forcibly removing all directories and their content recursively</p>
+
+<p>[source,sh]
+ls -l | grep ‘^d’ | awk ‘{print $9}’ | xargs rm -rf</p>
+
+<p>In plain English, list the content of the current directory <code class="highlighter-rouge">ls</code> using the long listing format <code class="highlighter-rouge">-l</code>, filter out everything else that is not a directory <code class="highlighter-rouge">grep '^d'</code>, extract the 9^th^ column (the last containing the name of the directory) <code class="highlighter-rouge">awk '{print $9}'</code>, pass each name of the directory as an argument <code class="highlighter-rouge">xargs</code> to the command <code class="highlighter-rouge">rm</code>, which removes recursively <code class="highlighter-rouge">-r</code> and forcibly <code class="highlighter-rouge">-f</code> the respective directory.
+{nbsp} +
+{nbsp} +
+{nbsp} +
+<em>Resources:</em></p>
+
 <ul>
-<li>
-<p>feel free to use the <code>man</code> command to read more about the commands above:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>man ls</code></p>
-</li>
-<li>
-<p><code>man grep</code></p>
-</li>
-<li>
-<p><code>man awk</code></p>
-</li>
-<li>
-<p><code>man xargs</code></p>
-</li>
-<li>
-<p><code>man rm</code></p>
-</li>
+  <li>feel free to use the <code class="highlighter-rouge">man</code> command to read more about the commands above:
+** <code class="highlighter-rouge">man ls</code>
+** <code class="highlighter-rouge">man grep</code>
+** <code class="highlighter-rouge">man awk</code>
+** <code class="highlighter-rouge">man xargs</code>
+** <code class="highlighter-rouge">man rm</code></li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<hr>
-<div class="paragraph">
-<p>&#160;<br></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="switching-github-remote-urls-from-https-to-ssh-and-back">Switching GitHub remote URLs from HTTPS to SSH and back</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-sh" data-lang="sh">git remote -v
+
+<p>’’’
+{nbsp} +</p>
+
+<p>=== Switching GitHub remote URLs from HTTPS to SSH and back
+:resource1: https://help.github.com/en/github/using-git/changing-a-remotes-url#switching-remote-urls-from-ssh-to-https</p>
+
+<h2 id="sourcesh">[source,sh]</h2>
+<p>git remote -v
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
-git remote set-url origin https://github.com/USERNAME/REPOSITORY.git</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>First we check what kind of remote URLs we have, using option <code>-v</code> of command <code>git remote</code>,
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+—-</p>
+
+<p>First we check what kind of remote URLs we have, using option <code class="highlighter-rouge">-v</code> of command <code class="highlighter-rouge">git remote</code>,
 afterwards we change the remote URL to either HTTPS or SSH using one of the last two commands
-(note the two different URL styles for setting the remote name <code>origin</code>)
-&#160;<br>
-&#160;<br>
-&#160;<br>
-<strong>Resources:</strong></p>
-</div>
-<div class="ulist">
+(note the two different URL styles for setting the remote name <code class="highlighter-rouge">origin</code>)
+{nbsp} +
+{nbsp} +
+{nbsp} +
+<em>Resources:</em></p>
+
 <ul>
-<li>
-<p><a href="https://help.github.com/en/github/using-git/changing-a-remotes-url#switching-remote-urls-from-ssh-to-https">switching remote urls</a></p>
-</li>
+  <li>{resource1}[switching remote urls]</li>
 </ul>
-</div>
-<hr>
-</div>
-  </div><a class="u-url" href="/blog/shell-magic" hidden></a>
+
+<p>’’’</p>
+
+<p>{nbsp} +</p>
+
+<p>=== Searching for files and creating an archive out of them</p>
+
+<h2 id="sourceshlinenums">[source,sh,linenums]</h2>
+<p>find . -type f ( -name Contact.java -o -name ContactList.java  -o -name ContactController.java -o -name ContactListController.java -o -name AddContactActivity.java -o -name EditContactActivity.java ) | zip -@ -j files
+mv files.zip ~/vladflore.dev/sandbox/coursera/sad/dp/
+cd $_
+xdg-open .
+—-
+//TODO add description</p>
+
+<p>{nbsp} +
+{nbsp} +
+{nbsp} +
+<em>Resources:</em></p>
+
+<ul>
+  <li>feel free to use the <code class="highlighter-rouge">man</code> command to read more about the commands above:
+** <code class="highlighter-rouge">man find</code>
+** <code class="highlighter-rouge">man zip</code></li>
+</ul>
+
+<p>’’’</p>
+
+  </div><a class="u-url" href="/shell-magic" hidden></a>
 </article>
 
       </div>
     </main><footer class="site-footer h-card">
-    <data class="u-url" href="/blog/"></data>
+    <data class="u-url" href="/"></data>
     <div class="wrapper">
         <h2 class="footer-heading">Vlad&#39;s Blog</h2>
         <div class="footer-col-wrapper">
             <div class="footer-col footer-col-1">
                 <ul class="contact-list">
-                    <li class="p-name">Vlad&#39;s Blog</li><li><a class="u-email" href="mailto:flore.vlad@gmail.com">flore.vlad@gmail.com</a></li></ul>
+                    <li class="p-name">Vlad&#39;s Blog</li></ul>
             </div>
-            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/vladflore"><svg class="svg-icon"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">vladflore</span></a></li><li><a href="https://www.twitter.com/vlad_flore"><svg class="svg-icon"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">vlad_flore</span></a></li></ul>
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/vladflore"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">vladflore</span></a></li><li><a href="https://www.twitter.com/vlad_flore"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">vlad_flore</span></a></li></ul>
 </div>
             <div class="footer-col footer-col-3">
                 <p>A place to share stuff about IT and life.</p>

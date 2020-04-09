@@ -1,98 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog/" rel="alternate" type="text/html" /><updated>2020-03-25T15:53:06+01:00</updated><id>/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Shell Magic</title><link href="/blog/shell-magic" rel="alternate" type="text/html" title="Shell Magic" /><published>2020-03-25T00:00:00+01:00</published><updated>2020-03-25T00:00:00+01:00</updated><id>/blog/shell</id><content type="html" xml:base="/blog/shell-magic">&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;On this page I&amp;#8217;ll be posting some shell magic which I came across in my daily business.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;admonitionblock warning&quot;&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class=&quot;icon&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;Warning&lt;/div&gt;
-&lt;/td&gt;
-&lt;td class=&quot;content&quot;&gt;
-Please be advised that some of them could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog/" rel="alternate" type="text/html" /><updated>2020-04-09T16:49:47+02:00</updated><id>/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Time to learn</title><link href="/blog/best-time-to-learn" rel="alternate" type="text/html" title="Time to learn" /><published>2020-04-09T00:00:00+02:00</published><updated>2020-04-09T00:00:00+02:00</updated><id>/blog/best-time-to-learn</id><content type="html" xml:base="/blog/best-time-to-learn">&lt;p&gt;Here goes the post!&lt;/p&gt;</content><author><name></name></author><summary type="html">Here goes the post!</summary></entry><entry><title type="html">Shell Magic</title><link href="/blog/shell-magic" rel="alternate" type="text/html" title="Shell Magic" /><published>2020-03-25T00:00:00+01:00</published><updated>2020-03-25T00:00:00+01:00</updated><id>/blog/shell</id><content type="html" xml:base="/blog/shell-magic">&lt;p&gt;On this page I’ll be posting some shell magic which I came across in my daily business.&lt;/p&gt;
+
+&lt;p&gt;WARNING: Please be advised that some of them could have unwanted effects if you are not completely sure of what they are doing and how they are doing it.
 Some of them might also require sudo access, so I am just going to assume that you know what you are doing.
-You have been warned!
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;strong&gt;Environment&lt;/strong&gt;: Ubuntu 18.04.4 LTS
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;forcibly-removing-all-directories-and-their-content-recursively&quot;&gt;Forcibly removing all directories and their content recursively&lt;/h3&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;ls -l | grep '^d' | awk '{print $9}' | xargs rm -rf&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;In plain English, list the content of the current directory &lt;code&gt;ls&lt;/code&gt; using the long listing format &lt;code&gt;-l&lt;/code&gt;, filter out everything else that is not a directory &lt;code&gt;grep '^d'&lt;/code&gt;, extract the 9&lt;sup&gt;th&lt;/sup&gt; column (the last containing the name of the directory) &lt;code&gt;awk '{print $9}'&lt;/code&gt;, pass each name of the directory as an argument &lt;code&gt;xargs&lt;/code&gt; to the command &lt;code&gt;rm&lt;/code&gt;, which removes recursively &lt;code&gt;-r&lt;/code&gt; and forcibly &lt;code&gt;-f&lt;/code&gt; the respective directory.
-&amp;#160;&lt;br&gt;
-&amp;#160;&lt;br&gt;
-&amp;#160;&lt;br&gt;
-&lt;strong&gt;Resources:&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
+You have been warned!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Environment&lt;/em&gt;: Ubuntu 18.04.4 LTS
+ +
+ +
+ +&lt;/p&gt;
+
+&lt;p&gt;=== Forcibly removing all directories and their content recursively&lt;/p&gt;
+
+&lt;p&gt;[source,sh]
+ls -l | grep ‘^d’ | awk ‘{print $9}’ | xargs rm -rf&lt;/p&gt;
+
+&lt;p&gt;In plain English, list the content of the current directory &lt;code class=&quot;highlighter-rouge&quot;&gt;ls&lt;/code&gt; using the long listing format &lt;code class=&quot;highlighter-rouge&quot;&gt;-l&lt;/code&gt;, filter out everything else that is not a directory &lt;code class=&quot;highlighter-rouge&quot;&gt;grep '^d'&lt;/code&gt;, extract the 9^th^ column (the last containing the name of the directory) &lt;code class=&quot;highlighter-rouge&quot;&gt;awk '{print $9}'&lt;/code&gt;, pass each name of the directory as an argument &lt;code class=&quot;highlighter-rouge&quot;&gt;xargs&lt;/code&gt; to the command &lt;code class=&quot;highlighter-rouge&quot;&gt;rm&lt;/code&gt;, which removes recursively &lt;code class=&quot;highlighter-rouge&quot;&gt;-r&lt;/code&gt; and forcibly &lt;code class=&quot;highlighter-rouge&quot;&gt;-f&lt;/code&gt; the respective directory.
+{nbsp} +
+{nbsp} +
+{nbsp} +
+&lt;em&gt;Resources:&lt;/em&gt;&lt;/p&gt;
+
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;feel free to use the &lt;code&gt;man&lt;/code&gt; command to read more about the commands above:&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;man ls&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;man grep&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;man awk&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;man xargs&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;man rm&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
+  &lt;li&gt;feel free to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;man&lt;/code&gt; command to read more about the commands above:
+** &lt;code class=&quot;highlighter-rouge&quot;&gt;man ls&lt;/code&gt;
+** &lt;code class=&quot;highlighter-rouge&quot;&gt;man grep&lt;/code&gt;
+** &lt;code class=&quot;highlighter-rouge&quot;&gt;man awk&lt;/code&gt;
+** &lt;code class=&quot;highlighter-rouge&quot;&gt;man xargs&lt;/code&gt;
+** &lt;code class=&quot;highlighter-rouge&quot;&gt;man rm&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;hr&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&amp;#160;&lt;br&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;switching-github-remote-urls-from-https-to-ssh-and-back&quot;&gt;Switching GitHub remote URLs from HTTPS to SSH and back&lt;/h3&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;git remote -v
+
+&lt;p&gt;’’’
+{nbsp} +&lt;/p&gt;
+
+&lt;p&gt;=== Switching GitHub remote URLs from HTTPS to SSH and back
+:resource1: https://help.github.com/en/github/using-git/changing-a-remotes-url#switching-remote-urls-from-ssh-to-https&lt;/p&gt;
+
+&lt;h2 id=&quot;sourcesh&quot;&gt;[source,sh]&lt;/h2&gt;
+&lt;p&gt;git remote -v
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
-git remote set-url origin https://github.com/USERNAME/REPOSITORY.git&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;First we check what kind of remote URLs we have, using option &lt;code&gt;-v&lt;/code&gt; of command &lt;code&gt;git remote&lt;/code&gt;,
+git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+—-&lt;/p&gt;
+
+&lt;p&gt;First we check what kind of remote URLs we have, using option &lt;code class=&quot;highlighter-rouge&quot;&gt;-v&lt;/code&gt; of command &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote&lt;/code&gt;,
 afterwards we change the remote URL to either HTTPS or SSH using one of the last two commands
-(note the two different URL styles for setting the remote name &lt;code&gt;origin&lt;/code&gt;)
-&amp;#160;&lt;br&gt;
-&amp;#160;&lt;br&gt;
-&amp;#160;&lt;br&gt;
-&lt;strong&gt;Resources:&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
+(note the two different URL styles for setting the remote name &lt;code class=&quot;highlighter-rouge&quot;&gt;origin&lt;/code&gt;)
+{nbsp} +
+{nbsp} +
+{nbsp} +
+&lt;em&gt;Resources:&lt;/em&gt;&lt;/p&gt;
+
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://help.github.com/en/github/using-git/changing-a-remotes-url#switching-remote-urls-from-ssh-to-https&quot;&gt;switching remote urls&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
+  &lt;li&gt;{resource1}[switching remote urls]&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/div&gt;
-&lt;hr&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">On this page I&amp;#8217;ll be posting some shell magic which I came across in my daily business.</summary></entry><entry><title type="html">Hello World</title><link href="/blog/hello-world" rel="alternate" type="text/html" title="Hello World" /><published>2020-02-10T00:00:00+01:00</published><updated>2020-02-10T00:00:00+01:00</updated><id>/blog/first-post</id><content type="html" xml:base="/blog/hello-world">&lt;p&gt;Hello Internet,&lt;/p&gt;
+
+&lt;p&gt;’’’&lt;/p&gt;
+
+&lt;p&gt;{nbsp} +&lt;/p&gt;
+
+&lt;p&gt;=== Searching for files and creating an archive out of them&lt;/p&gt;
+
+&lt;h2 id=&quot;sourceshlinenums&quot;&gt;[source,sh,linenums]&lt;/h2&gt;
+&lt;p&gt;find . -type f ( -name Contact.java -o -name ContactList.java  -o -name ContactController.java -o -name ContactListController.java -o -name AddContactActivity.java -o -name EditContactActivity.java ) | zip -@ -j files
+mv files.zip ~/vladflore.dev/sandbox/coursera/sad/dp/
+cd $_
+xdg-open .
+—-
+//TODO add description&lt;/p&gt;
+
+&lt;p&gt;{nbsp} +
+{nbsp} +
+{nbsp} +
+&lt;em&gt;Resources:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;feel free to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;man&lt;/code&gt; command to read more about the commands above:
+** &lt;code class=&quot;highlighter-rouge&quot;&gt;man find&lt;/code&gt;
+** &lt;code class=&quot;highlighter-rouge&quot;&gt;man zip&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;’’’&lt;/p&gt;</content><author><name></name></author><summary type="html">On this page I’ll be posting some shell magic which I came across in my daily business.</summary></entry><entry><title type="html">Hello World</title><link href="/blog/hello-world" rel="alternate" type="text/html" title="Hello World" /><published>2020-02-10T00:00:00+01:00</published><updated>2020-02-10T00:00:00+01:00</updated><id>/blog/first-post</id><content type="html" xml:base="/blog/hello-world">&lt;p&gt;Hello Internet,&lt;/p&gt;
 
 &lt;p&gt;so this is my first blog post, which I hope will be one of many more to come. This is more of a &lt;em&gt;hello world&lt;/em&gt; kind of post, 
 a way to cut my teeth into blogging and see if it’s something I would like doing.&lt;/p&gt;
