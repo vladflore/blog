@@ -105,6 +105,11 @@ to replace the <code class="highlighter-rouge">USERNAME</code> and <code class="
 <span class="nb">cd</span> <span class="nv">$_</span>
 xdg-open .</code></pre></figure>
 
+<p>First we search in the current <code class="highlighter-rouge">.</code> directory for entries denoting files <code class="highlighter-rouge">-type f</code> having the name <code class="highlighter-rouge">-name</code> <em>file1</em> or <code class="highlighter-rouge">-o</code> <em>file2</em>.
+The <code class="highlighter-rouge">zip</code> command takes the list of files <code class="highlighter-rouge">-@</code> and creates an archive with the name <em>files</em> containing only the files without
+storing the directories where they reside. After moving <code class="highlighter-rouge">mv</code> the archive to the <em>tmp</em> directory we <code class="highlighter-rouge">cd</code> into it, <code class="highlighter-rouge">$_</code> references the
+last argument of the previous command, and open <code class="highlighter-rouge">xdg-open</code> the current directory <code class="highlighter-rouge">.</code> with the appropriate program - in my case this is <em>Files</em>.</p>
+
 <p><strong>Resources:</strong></p>
 
 <ul>
