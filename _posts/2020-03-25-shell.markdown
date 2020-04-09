@@ -65,6 +65,11 @@ cd $_
 xdg-open .
 {% endhighlight %}
 
+First we search in the current `.` directory for entries denoting files `-type f` having the name `-name` _file1_ or `-o` _file2_.
+The `zip` command takes the list of files `-@` and creates an archive with the name _files_ containing only the files without
+storing the directories where they reside. After moving `mv` the archive to the _tmp_ directory we `cd` into it, `$_` references the
+last argument of the previous command, and open `xdg-open` the current directory `.` with the appropriate program - in my case this is _Files_.
+
 **Resources:**
 
 * feel free to use the `man` command to read more about the commands above:
