@@ -2,7 +2,7 @@
 layout: post
 title: Shell Magic
 permalink: /shell-magic
-modified_date: 2020-04-09
+modified_date: 2020-04-14
 author: Vlad
 ---
 
@@ -78,3 +78,40 @@ last argument of the previous command, and open `xdg-open` the current directory
 * feel free to use the `man` command to read more about the commands above:
     * `man find`
     * `man zip`
+
+---
+<br/>
+
+### <a name="4"></a> 4. Manage processes from the Terminal
+
+{% highlight sh %}
+# display Linux processes
+top
+
+# top improved, you might need to install it
+htop
+
+# list all running processes and look for a specific process
+ps -A | grep chrome
+
+# display processes in a tree like format
+pstree
+
+# look up a process based on name
+pgrep chome
+
+# kills process identified by the PID, use -9 or -KILL to force kill
+kill PID
+
+# kill process given its name
+pkill chrome
+killall chrome
+
+# allows killing graphical programs
+# run it and your cursor will turn into x, then click a program's window
+xkill
+{% endhighlight %}
+
+**Resources:**
+
+* feel free to use the `man` command to read more about the commands above
