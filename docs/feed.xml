@@ -1,4 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog/" rel="alternate" type="text/html" /><updated>2020-04-09T20:18:42+02:00</updated><id>/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Time to Learn</title><link href="/blog/best-time-to-learn" rel="alternate" type="text/html" title="Time to Learn" /><published>2020-04-09T00:00:00+02:00</published><updated>2020-04-09T00:00:00+02:00</updated><id>/blog/best-time-to-learn</id><content type="html" xml:base="/blog/best-time-to-learn">&lt;p&gt;Here goes the post!&lt;/p&gt;</content><author><name>Vlad</name></author><summary type="html">Here goes the post!</summary></entry><entry><title type="html">Shell Magic</title><link href="/blog/shell-magic" rel="alternate" type="text/html" title="Shell Magic" /><published>2020-03-25T00:00:00+01:00</published><updated>2020-03-25T00:00:00+01:00</updated><id>/blog/shell</id><content type="html" xml:base="/blog/shell-magic">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog/" rel="alternate" type="text/html" /><updated>2020-04-14T16:30:03+02:00</updated><id>/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Time to Learn</title><link href="/blog/best-time-to-learn" rel="alternate" type="text/html" title="Time to Learn" /><published>2020-04-14T00:00:00+02:00</published><updated>2020-04-14T00:00:00+02:00</updated><id>/blog/best-time-to-learn</id><content type="html" xml:base="/blog/best-time-to-learn">&lt;p&gt;&lt;em&gt;There is no better time than now&lt;/em&gt;, or at least this is what they say and I kind of tend to agree with it. If I wanted to really stretch it, I would say that the best time was &lt;em&gt;yesterday&lt;/em&gt; and the next best time is &lt;em&gt;now&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;This applies also to learning, especially learning and even more so if you are in the Information Technology / Computer Science field, as I am.&lt;/p&gt;
+
+&lt;p&gt;Because I am currently enjoying some free time from work and having even less distractions as before, please read &lt;em&gt;Coronavirus (COVID-19)&lt;/em&gt;, I decided to tackle different subjects or start/continue with different projects and areas of interests, which up until now didn’t get the time they really deserved.&lt;/p&gt;
+
+&lt;p&gt;So in this short post I will list some of the things I took upon myself, maybe some of them will rise your interest too. This list will most likely change, but currently this is what I’m keeping myself busy with:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;What&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Preparing for &lt;a href=&quot;https://education.oracle.com/java-se-8-programmer-ii/pexam_1Z0-809&quot;&gt;Java 8 OCP&lt;/a&gt; exam&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Preparing for &lt;a href=&quot;https://tanzu.vmware.com/training/certification/spring-professional-certification&quot;&gt;Spring Professional Certification&lt;/a&gt; exam&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Working through &lt;a href=&quot;https://www.coursera.org/specializations/software-design-architecture&quot;&gt;Coursera Software Architecture and Design Specialization&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Working through &lt;a href=&quot;https://app.pluralsight.com/paths/skill/domain-driven-design&quot;&gt;Pluralsight Domain Driven Design Path&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Getting aquainted with the &lt;a href=&quot;https://www.vim.org/&quot;&gt;vim&lt;/a&gt; text editor&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Going through &lt;a href=&quot;https://missing.csail.mit.edu/&quot;&gt;the missing semester of your CS education&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Working through &lt;a href=&quot;https://school.cucumber.io/courses/bdd-with-cucumber-java&quot;&gt;BDD with Cucumber (Java)&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;This is just a top 7, but much more is in the pipeline. It is kind of overwhelming if you think at all the possibilities to educate yourself and to boost your carreer. With so many online platforms offering education, more or less for free, it is a shame not to try out one or two things…or seven ;)&lt;/p&gt;
+
+&lt;p&gt;Do take a look at &lt;a href=&quot;https://www.coursera.org/&quot;&gt;Coursera&lt;/a&gt;, &lt;a href=&quot;https://www.udemy.com/&quot;&gt;Udemy&lt;/a&gt;, &lt;a href=&quot;https://www.edx.org/&quot;&gt;edX&lt;/a&gt;, &lt;a href=&quot;https://training.linuxfoundation.org/&quot;&gt;The Linux Foundation&lt;/a&gt;, &lt;a href=&quot;https://openlearning.mit.edu/&quot;&gt;MIT Open Learning&lt;/a&gt;. You are in for a treat!&lt;/p&gt;
+
+&lt;p&gt;Happy learning!&lt;/p&gt;</content><author><name>Vlad</name></author><summary type="html">There is no better time than now, or at least this is what they say and I kind of tend to agree with it. If I wanted to really stretch it, I would say that the best time was yesterday and the next best time is now.</summary></entry><entry><title type="html">Shell Magic</title><link href="/blog/shell-magic" rel="alternate" type="text/html" title="Shell Magic" /><published>2020-03-25T00:00:00+01:00</published><updated>2020-03-25T00:00:00+01:00</updated><id>/blog/shell</id><content type="html" xml:base="/blog/shell-magic">&lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 1:&lt;/em&gt;&lt;/strong&gt; This page contains some shell &lt;em&gt;magic&lt;/em&gt; which I came across in my daily business. I will update this page continuously
 and this will be reflected on this page in the date information displayed under the post name.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -79,6 +122,43 @@ last argument of the previous command, and open &lt;code class=&quot;highlighter
       &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;man zip&lt;/code&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-4-manage-processes-from-the-terminal&quot;&gt;&lt;a name=&quot;4&quot;&gt;&lt;/a&gt; 4. Manage processes from the Terminal&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# display Linux processes&lt;/span&gt;
+top
+
+&lt;span class=&quot;c&quot;&gt;# top improved, you might need to install it&lt;/span&gt;
+htop
+
+&lt;span class=&quot;c&quot;&gt;# list all running processes and look for a specific process&lt;/span&gt;
+ps &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;chrome
+
+&lt;span class=&quot;c&quot;&gt;# display processes in a tree like format&lt;/span&gt;
+pstree
+
+&lt;span class=&quot;c&quot;&gt;# look up a process based on name&lt;/span&gt;
+pgrep chome
+
+&lt;span class=&quot;c&quot;&gt;# kills process identified by the PID, use -9 or -KILL to force kill&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;kill &lt;/span&gt;PID
+
+&lt;span class=&quot;c&quot;&gt;# kill process given its name&lt;/span&gt;
+pkill chrome
+killall chrome
+
+&lt;span class=&quot;c&quot;&gt;# allows killing graphical programs&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# run it and your cursor will turn into x, then click a program's window&lt;/span&gt;
+xkill&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Resources:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;feel free to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;man&lt;/code&gt; command to read more about the commands above&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>Vlad</name></author><summary type="html">NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.</summary></entry><entry><title type="html">Hello World</title><link href="/blog/hello-world" rel="alternate" type="text/html" title="Hello World" /><published>2020-02-10T00:00:00+01:00</published><updated>2020-02-10T00:00:00+01:00</updated><id>/blog/first-post</id><content type="html" xml:base="/blog/hello-world">&lt;p&gt;Hello Internet,&lt;/p&gt;
 
 &lt;p&gt;so this is my first blog post, which I hope will be one of many more to come. This is more of a &lt;em&gt;hello world&lt;/em&gt; kind of post, 

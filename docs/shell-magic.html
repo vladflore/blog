@@ -18,7 +18,8 @@
 <script type="application/ld+json">
 {"@type":"BlogPosting","headline":"Shell Magic","dateModified":"2020-03-25T00:00:00+01:00","datePublished":"2020-03-25T00:00:00+01:00","url":"/blog/shell-magic","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/shell-magic"},"author":{"@type":"Person","name":"Vlad"},"description":"NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/blog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Vlad's Blog" /></head>
+<link rel="stylesheet" href="/blog/assets/main.css">
+  <link rel="stylesheet" href="/blog/assets/css/custom.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="Vlad's Blog" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Vlad&#39;s Blog</a><nav class="site-nav">
@@ -43,8 +44,8 @@
         <p class="post-meta">
             created on:
             <time class="dt-published" datetime="2020-03-25T00:00:00+01:00" itemprop="datePublished">Mar 25, 2020
-            </time><time class="dt-published" datetime="2020-04-09T00:00:00+02:00" itemprop="datePublished">
-                <span style="color: #a61717;">(last modified on: Apr 9, 2020)</span>
+            </time><time class="dt-published" datetime="2020-04-14T00:00:00+02:00" itemprop="datePublished">
+                <span style="color: #a61717;">(last modified on: Apr 14, 2020)</span>
             </time>&nbsp;by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Vlad</span></span></p>
     </header>
 
@@ -132,6 +133,43 @@ last argument of the previous command, and open <code class="highlighter-rouge">
   </li>
 </ul>
 
+<hr />
+<p><br /></p>
+
+<h3 id="-4-manage-processes-from-the-terminal"><a name="4"></a> 4. Manage processes from the Terminal</h3>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># display Linux processes</span>
+top
+
+<span class="c"># top improved, you might need to install it</span>
+htop
+
+<span class="c"># list all running processes and look for a specific process</span>
+ps <span class="nt">-A</span> | <span class="nb">grep </span>chrome
+
+<span class="c"># display processes in a tree like format</span>
+pstree
+
+<span class="c"># look up a process based on name</span>
+pgrep chome
+
+<span class="c"># kills process identified by the PID, use -9 or -KILL to force kill</span>
+<span class="nb">kill </span>PID
+
+<span class="c"># kill process given its name</span>
+pkill chrome
+killall chrome
+
+<span class="c"># allows killing graphical programs</span>
+<span class="c"># run it and your cursor will turn into x, then click a program's window</span>
+xkill</code></pre></figure>
+
+<p><strong>Resources:</strong></p>
+
+<ul>
+  <li>feel free to use the <code class="highlighter-rouge">man</code> command to read more about the commands above</li>
+</ul>
+
     </div><a class="u-url" href="/blog/shell-magic" hidden></a>
 </article>
 
@@ -151,7 +189,10 @@ last argument of the previous command, and open <code class="highlighter-rouge">
                 <p>A place to share stuff about IT and life.</p>
             </div>
         </div>
-        <h4>&copy;  2020 | All rights reserved. </h4>
+        <div align="center" class="copyright">
+            &copy; Vlad 2020 | All rights reserved<br>
+            powered by <a href="https://jekyllrb.com/" target="_blank">jekyll</a> and <a href="https://github.com/jekyll/minima" target="_blank">minima theme</a>
+        </div>
     </div>
 </footer>
 </body>
