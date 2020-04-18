@@ -3,6 +3,7 @@ layout: post
 title: Time to Learn
 permalink: /best-time-to-learn
 author: Vlad
+modified_date: 2020-04-18
 ---
 
 *There is no better time than now*, or at least this is what they say and I kind of tend to agree with it. If I wanted to really stretch it, I would say that the best time was *yesterday* and the next best time is *now*.
@@ -18,10 +19,10 @@ So in this short post I will list some of the things I took upon myself, maybe s
 | Preparing for [Java 8 OCP] exam                                                   |
 | Preparing for [Spring Professional Certification] exam                            |
 | Working through [Coursera Software Architecture and Design Specialization]        |
-| Working through [Pluralsight Domain Driven Design Path]                           |
-| Getting aquainted with the [vim] text editor                                        |
+| ~~Working through [Pluralsight Domain Driven Design Path]~~<br>following up with Eric Evans's and Vaughn Vernon's books|
+| Getting aquainted with the [vim] text editor                                      |
 | Going through [the missing semester of your CS education]                         |
-| Working through [BDD with Cucumber (Java)]                         |
+| Working through [BDD with Cucumber (Java)]                                        |
 
 This is just a top 7, but much more is in the pipeline. It is kind of overwhelming if you think at all the possibilities to educate yourself and to boost your carreer. With so many online platforms offering education, more or less for free, it is a shame not to try out one or two things...or seven ;)
 
