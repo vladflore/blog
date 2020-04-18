@@ -8,7 +8,14 @@ layout: default
   </header>
 
   <div class="post-content">
-    {{ content }}
+    <div style="width:75%; float:left;">
+      {{ content }}
+    </div>
+    <div>
+      {%- if page.name == 'about.markdown' -%}
+      <img src="./assets/images/me.jpg" width="25%" height="25%" alt="Vlad"/>
+      {%- endif -%}
+    </div>
   </div>
 
 </article>
