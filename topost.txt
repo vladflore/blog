@@ -1,0 +1,88 @@
+SonarQube needs to be configured to support mutation analysis:
+
+install the plugin, see [link](https://github.com/devcon5io/mutation-analysis-plugin)
+create a new quality profile to use the sonar way and mutation rules and set it as default, see [link](https://dzone.com/articles/mutation-testing-with-sonarqube)
+
+`mvn clean verify org.pitest:pitest-maven:mutationCoverage sonar:sonar -Dsonar.host.url=http://18.188.1.132:9000`
+
+
+chmod 400 aws-key-pair.pem
+ssh -i "aws-key-pair.pem" ubuntu@ec2-18-216-64-208.us-east-2.compute.amazonaws.com
+
+vi /opt/sonarqube/bin/linux-x86-64/sonar.sh
+RUN_AS_USER=sonarqube
+
+vi /opt/sonarqube/conf/sonar.properties
+sonar.jdbc.username=sonarqube
+sonar.jdbc.password=welcome1
+sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube
+sonar.web.javaAdditionalOpts=-server
+sonar.web.host=0.0.0.0
+
+---------------------do I really need these settings ?------------------------------------------
+vi /etc/security/limits.d/99-sonarqube.conf
+sonarqube   -   nofile   65536
+sonarqube   -   nproc    4096
+
+vi /etc/sysctl.conf
+vm.max_map_count=262144 <-- has to be set otherwise the server will not start
+fs.file-max=65536
+------------------------------------------------------------------------------------------------
+
+create the user sonarqube and change owner for sonarqube installation folder (/opt/sonarqube)
+sudo adduser --system --no-create-home --group --disabled-login sonarqube
+chown -R sonarqube:sonarqube /opt/sonarqube
+
+download the sonarqube server zip, unzip and move to /opt/sonarqube
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.3.0.34182.zip
+unzip sonarqube-8.3.0.34182.zip
+sudo mv sonarqube-8.3.0.34182 /opt/sonarqube
+
+create the postgresql database and user for the sonarqube
+sudo su - postgres
+psql
+CREATE USER sonarqube WITH PASSWORD 'welcome1';
+CREATE DATABASE sonarqube OWNER sonarqube;
+GRANT ALL PRIVILEGES ON DATABASE sonarqube TO sonarqube;
+\q
+
+before executing this command add the apt repository as per link https://www.postgresql.org/download/linux/ubuntu/
+sudo apt install postgresql-12
+
+sudo apt install openjdk-11-jdk
+
+sudo apt install unzip
+
+sudo apt update && sudo apt upgrade
+
+
+other commands:
+
+cat /etc/passwd | awk -F: '{print$1}' | sort
+
+
+ISSUES
+------
+
+1.
+
+ERROR: [1] bootstrap checks failed
+[1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
+2020.05.06 13:30:31 WARN  app[][o.s.a.p.AbstractManagedProcess] Process exited with exit value [es]: 78
+
+solution: add vm.max_map_count=262144 to /etc/sysctl.conf then reboot the machine
+
+2.
+cannot access browser link http://<IPv4 Public IP>:9000/
+add inbound rule(tcp for port 9000) for the security group the instance belongs to
+
+
+
+
+
+
+https://medium.com/@harith.sankalpa/a-complete-guide-to-install-sonarqube-server-in-amazon-linux-ed1fee227d81
+https://techexpert.tips/sonarqube/sonarqube-installation-on-the-cloud-aws-ec2/
+https://www.baeldung.com/sonar-qube
+
+

@@ -33,6 +33,11 @@ theme: minima
 plugins:
   - jekyll-feed
 
+# Disqus Comments
+disqus:
+  # Leave shortname blank to disable comments site-wide.
+  shortname: https-vladflore-github-io-blog
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

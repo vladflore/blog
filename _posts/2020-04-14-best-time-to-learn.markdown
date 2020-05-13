@@ -4,6 +4,7 @@ title: Time to Learn
 permalink: /best-time-to-learn
 author: Vlad
 modified_date: 2020-04-18
+comments: false
 ---
 
 *There is no better time than now*, or at least this is what they say and I kind of tend to agree with it. If I wanted to really stretch it, I would say that the best time was *yesterday* and the next best time is *now*.
