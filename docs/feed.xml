@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-05-13T10:41:59+02:00</updated><id>https://vladflore.github.io/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">SonarQube on AWS EC2</title><link href="https://vladflore.github.io/blog/sonarqube" rel="alternate" type="text/html" title="SonarQube on AWS EC2" /><published>2020-05-13T00:00:00+02:00</published><updated>2020-05-13T00:00:00+02:00</updated><id>https://vladflore.github.io/blog/aws-ec2-sonarqube</id><content type="html" xml:base="https://vladflore.github.io/blog/sonarqube">&lt;p&gt;Content to come.&lt;/p&gt;</content><author><name>Vlad</name></author><summary type="html">Content to come.</summary></entry><entry><title type="html">Code Kata</title><link href="https://vladflore.github.io/blog/code-kata" rel="alternate" type="text/html" title="Code Kata" /><published>2020-05-13T00:00:00+02:00</published><updated>2020-05-13T00:00:00+02:00</updated><id>https://vladflore.github.io/blog/code-katas</id><content type="html" xml:base="https://vladflore.github.io/blog/code-kata">&lt;p&gt;Content to come.&lt;/p&gt;</content><author><name>Vlad</name></author><summary type="html">Content to come.</summary></entry><entry><title type="html">Time to Learn</title><link href="https://vladflore.github.io/blog/best-time-to-learn" rel="alternate" type="text/html" title="Time to Learn" /><published>2020-04-14T00:00:00+02:00</published><updated>2020-04-14T00:00:00+02:00</updated><id>https://vladflore.github.io/blog/best-time-to-learn</id><content type="html" xml:base="https://vladflore.github.io/blog/best-time-to-learn">&lt;p&gt;&lt;em&gt;There is no better time than now&lt;/em&gt;, or at least this is what they say and I kind of tend to agree with it. If I wanted to really stretch it, I would say that the best time was &lt;em&gt;yesterday&lt;/em&gt; and the next best time is &lt;em&gt;now&lt;/em&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-05-16T22:10:17+02:00</updated><id>https://vladflore.github.io/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Time to Learn</title><link href="https://vladflore.github.io/blog/best-time-to-learn" rel="alternate" type="text/html" title="Time to Learn" /><published>2020-04-14T00:00:00+02:00</published><updated>2020-04-14T00:00:00+02:00</updated><id>https://vladflore.github.io/blog/best-time-to-learn</id><content type="html" xml:base="https://vladflore.github.io/blog/best-time-to-learn">&lt;p&gt;&lt;em&gt;There is no better time than now&lt;/em&gt;, or at least this is what they say and I kind of tend to agree with it. If I wanted to really stretch it, I would say that the best time was &lt;em&gt;yesterday&lt;/em&gt; and the next best time is &lt;em&gt;now&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;This applies also to learning, especially learning and even more so if you are in the Information Technology / Computer Science field, as I am.&lt;/p&gt;
 
@@ -67,7 +67,7 @@ You have been warned!&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Resources:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;feel free to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;man&lt;/code&gt; command to read more about the commands above:
+  &lt;li&gt;feel free to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;man&lt;/code&gt; command to read more about the programs above:
     &lt;ul&gt;
       &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;man ls&lt;/code&gt;&lt;/li&gt;
       &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;man grep&lt;/code&gt;&lt;/li&gt;
@@ -159,7 +159,55 @@ xkill&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;feel free to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;man&lt;/code&gt; command to read more about the commands above&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Vlad</name></author><summary type="html">NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.</summary></entry><entry><title type="html">Hello World</title><link href="https://vladflore.github.io/blog/hello-world" rel="alternate" type="text/html" title="Hello World" /><published>2020-02-10T00:00:00+01:00</published><updated>2020-02-10T00:00:00+01:00</updated><id>https://vladflore.github.io/blog/first-post</id><content type="html" xml:base="https://vladflore.github.io/blog/hello-world">&lt;p&gt;Hello Internet,&lt;/p&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-5-print-content-of-path-line-by-line&quot;&gt;&lt;a name=&quot;5&quot;&gt;&lt;/a&gt; 5. Print content of $PATH line-by-line&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;':'&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'\n'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Pipes the content, obtained via &lt;code class=&quot;highlighter-rouge&quot;&gt;echo&lt;/code&gt;, of the &lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt; variable into the translate &lt;code class=&quot;highlighter-rouge&quot;&gt;tr&lt;/code&gt; command which
+replaces each occurrence of &lt;code class=&quot;highlighter-rouge&quot;&gt;:&lt;/code&gt; with a new line &lt;code class=&quot;highlighter-rouge&quot;&gt;\n&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Another example:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;line1:line2 | &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;':'&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'\n'&lt;/span&gt;
+line1
+line2&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Resources:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;feel free to use &lt;code class=&quot;highlighter-rouge&quot;&gt;man tr&lt;/code&gt; to read more about the command&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-6-show-all-users&quot;&gt;&lt;a name=&quot;6&quot;&gt;&lt;/a&gt; 6. Show all users&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /etc/passwd | &lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;'{print$1}'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The content of the file &lt;code class=&quot;highlighter-rouge&quot;&gt;passwd&lt;/code&gt; is pipped into the &lt;code class=&quot;highlighter-rouge&quot;&gt;awk&lt;/code&gt;, which takes each line
+and splits it into columns by the defined &lt;code class=&quot;highlighter-rouge&quot;&gt;-F&lt;/code&gt; separator &lt;code class=&quot;highlighter-rouge&quot;&gt;:&lt;/code&gt;
+printing out the first value (the user name).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resources:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;man awk&lt;/code&gt; to read more about &lt;code class=&quot;highlighter-rouge&quot;&gt;awk&lt;/code&gt; language&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-7-show-all-hidden-files&quot;&gt;&lt;a name=&quot;7&quot;&gt;&lt;/a&gt; 7. Show all hidden files&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-lap&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; / | &lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'{print $9}'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'^\.'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;List &lt;code class=&quot;highlighter-rouge&quot;&gt;ls&lt;/code&gt; all &lt;code class=&quot;highlighter-rouge&quot;&gt;-a&lt;/code&gt; content of the current directory using the long listing format &lt;code class=&quot;highlighter-rouge&quot;&gt;-l&lt;/code&gt; appending &lt;code class=&quot;highlighter-rouge&quot;&gt;-p&lt;/code&gt; a forward slash &lt;code class=&quot;highlighter-rouge&quot;&gt;/&lt;/code&gt; if the entry is a directory, then print only those lines which do not end with a forward slash (&lt;code class=&quot;highlighter-rouge&quot;&gt;grep&lt;/code&gt; performs a pattern matching, while &lt;code class=&quot;highlighter-rouge&quot;&gt;-v&lt;/code&gt; inverts the match). &lt;code class=&quot;highlighter-rouge&quot;&gt;awk&lt;/code&gt; prints out the nineth column of the line - the name, and the last &lt;code class=&quot;highlighter-rouge&quot;&gt;grep&lt;/code&gt; shows only those which begin with a &lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt;.&lt;/p&gt;</content><author><name>Vlad</name></author><summary type="html">NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.</summary></entry><entry><title type="html">Hello World</title><link href="https://vladflore.github.io/blog/hello-world" rel="alternate" type="text/html" title="Hello World" /><published>2020-02-10T00:00:00+01:00</published><updated>2020-02-10T00:00:00+01:00</updated><id>https://vladflore.github.io/blog/first-post</id><content type="html" xml:base="https://vladflore.github.io/blog/hello-world">&lt;p&gt;Hello Internet,&lt;/p&gt;
 
 &lt;p&gt;so this is my first blog post, which I hope will be one of many more to come. This is more of a &lt;em&gt;hello world&lt;/em&gt; kind of post, 
 a way to cut my teeth into blogging and see if it’s something I would like doing.&lt;/p&gt;
