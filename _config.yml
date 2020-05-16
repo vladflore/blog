@@ -59,3 +59,4 @@ exclude:
   - vendor/ruby/
   - publish.sh
   - topost.txt
+  - docs/

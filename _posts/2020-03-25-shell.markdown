@@ -2,7 +2,7 @@
 layout: post
 title: Shell Magic
 permalink: /shell-magic
-modified_date: 2020-04-14
+modified_date: 2020-05-17
 author: Vlad
 comments: true
 ---
@@ -28,7 +28,7 @@ In plain English, list the content of the current directory `ls` using the long 
 
 **Resources:**
 
-* feel free to use the `man` command to read more about the commands above:
+* feel free to use the `man` command to read more about the programs above:
     * `man ls`
     * `man grep`
     * `man awk`
@@ -116,3 +116,56 @@ xkill
 **Resources:**
 
 * feel free to use the `man` command to read more about the commands above
+
+---
+<br/>
+
+### <a name="5"></a> 5. Print content of $PATH line-by-line
+
+{% highlight sh %}
+echo $PATH | tr ':' '\n'
+{% endhighlight %}
+
+Pipes the content, obtained via `echo`, of the `PATH` variable into the translate `tr` command which
+replaces each occurrence of `:` with a new line `\n`.
+
+Another example:
+
+{% highlight sh %}
+echo line1:line2 | tr ':' '\n'
+line1
+line2
+{% endhighlight %}
+
+**Resources:**
+
+* feel free to use `man tr` to read more about the command
+
+---
+<br/>
+
+### <a name="6"></a> 6. Show all users
+
+{% highlight sh %}
+cat /etc/passwd | awk -F: '{print$1}'
+{% endhighlight %}
+
+The content of the file `passwd` is pipped into the `awk`, which takes each line
+and splits it into columns by the defined `-F` separator `:`
+printing out the first value (the user name).
+
+**Resources:**
+
+* `man awk` to read more about `awk` language
+
+---
+<br/>
+
+### <a name="7"></a> 7. Show all hidden files
+
+{% highlight sh %}
+ls -lap | grep -v / | awk '{print $9}' | grep '^\.'
+{% endhighlight %}
+
+List `ls` all `-a` content of the current directory using the long listing format `-l` appending `-p` a forward slash `/` if the entry is a directory, then print only those lines which do not end with a forward slash (`grep` performs a pattern matching, while `-v` inverts the match). `awk` prints out the nineth column of the line - the name, and the last `grep` shows only those which begin with a `.`.
+
