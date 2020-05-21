@@ -10,12 +10,11 @@ I'm not that big on talking about myself, so I'm just gonna keep it short and to
 
 _**Q:**_ Who are you, Vlad?
 
-_**A:**_ Just a man on this planet, currently living in Germany and working as a software engineer.
-Check my [Linkedin][Linkedin] and [Xing][Xing] profiles should you want to learn more.
+_**A:**_ Just a man on this planet, currently living in Germany and working as a software engineer. I love learning new things and challenging myself with new endeavours, especially when it comes to Computer Science and Technology. I also like travelling and exploring new places. Check my [Linkedin][Linkedin](English) and [Xing][Xing](German) profiles should you want to learn more about the professional Vlad.
 
 _**Q:**_ Why a blog?
 
-_**A:**_ I always kinda wanted to have one, but I never had the time, or the inspiration, to put one together and keep it up to date.
+_**A:**_ I always wanted to have one, but I never had the time, or the inspiration, to put one together and keep it up to date.
 Because I do not give up that easily, I said to myself it was time to give it another chance.
 
 _**Q:**_ What will you be blogging about?
