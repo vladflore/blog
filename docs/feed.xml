@@ -1,4 +1,177 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-05-16T22:10:17+02:00</updated><id>https://vladflore.github.io/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Time to Learn</title><link href="https://vladflore.github.io/blog/best-time-to-learn" rel="alternate" type="text/html" title="Time to Learn" /><published>2020-04-14T00:00:00+02:00</published><updated>2020-04-14T00:00:00+02:00</updated><id>https://vladflore.github.io/blog/best-time-to-learn</id><content type="html" xml:base="https://vladflore.github.io/blog/best-time-to-learn">&lt;p&gt;&lt;em&gt;There is no better time than now&lt;/em&gt;, or at least this is what they say and I kind of tend to agree with it. If I wanted to really stretch it, I would say that the best time was &lt;em&gt;yesterday&lt;/em&gt; and the next best time is &lt;em&gt;now&lt;/em&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-04T22:51:35+02:00</updated><id>https://vladflore.github.io/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">SonarQube on AWS EC2</title><link href="https://vladflore.github.io/blog/sonarqube" rel="alternate" type="text/html" title="SonarQube on AWS EC2" /><published>2020-06-04T00:00:00+02:00</published><updated>2020-06-04T00:00:00+02:00</updated><id>https://vladflore.github.io/blog/aws-ec2-sonarqube</id><content type="html" xml:base="https://vladflore.github.io/blog/sonarqube">&lt;p&gt;In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-motivation-behind&quot;&gt;The motivation behind&lt;/h3&gt;
+
+&lt;p&gt;I wanted a SonarQube Server running in the cloud so that my GitHub projects could benefit of it. It is always a good idea to have some quality checks performed on your code and some way to drill down through them and get an idea on how good or bad your code is. I also didn’t want to set up my own cloud, so I just sticked with AWS EC2 solution, despite the fact that it is not always for free.&lt;/p&gt;
+
+&lt;p&gt;Make sure to check the documentation and the billing policies to not have any surprises at the end of the month. In case you do not need the instances to run all the time you can stop them and only start them when you need them. A stopped instance is billed differently and less than a running one.&lt;/p&gt;
+
+&lt;p&gt;As I said, I want to use Sonar for my GitHub projects, which means I want it configured specifically to my needs, which are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the quality checks (history) should be persisted, a.k.a, an in-memory database will not suffice. I will use PostgreSQL 12.&lt;/li&gt;
+  &lt;li&gt;I want mutation testing (MT) enabled and I want to use the MT rules together with the default rules to check the code. As for the language I will initially start with Java.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Having said this, let’s start with the installation.&lt;/p&gt;
+
+&lt;h3 id=&quot;step-1&quot;&gt;Step 1&lt;/h3&gt;
+
+&lt;h4 id=&quot;get-an-aws-ec2-instance-up-and-running&quot;&gt;Get an AWS EC2 instance up and running.&lt;/h4&gt;
+
+&lt;p&gt;There is not much to say here, go to the &lt;a href=&quot;https://console.aws.amazon.com/&quot;&gt;AWS Console&lt;/a&gt;, check the documentation and follow the steps, it’s pretty intuitive and no brainer at all. After having done that - the instance is running and you can SSH into it, proceed with the next step.&lt;/p&gt;
+
+&lt;h3 id=&quot;step-2&quot;&gt;Step 2&lt;/h3&gt;
+
+&lt;h4 id=&quot;prepare-the-ec2-instance-for-sonarqube-installation&quot;&gt;Prepare the EC2 instance for SonarQube installation.&lt;/h4&gt;
+
+&lt;p&gt;You won’t have pretty much anything pre-installed so you’ll have to do it yourself.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE:&lt;/em&gt;&lt;/strong&gt; most of the commands require sudo access, so…you have been warned!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;update-the-system&quot;&gt;Update the system&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt upgrade&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;install-unzip-tool&quot;&gt;Install unzip tool&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;unzip&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;install-java-11&quot;&gt;Install Java 11&lt;/h4&gt;
+
+&lt;p&gt;SonarQube 8.3 requires Java - Oracle JRE 11 or OpenJDK 11 - installed on the machine, I’ll go with OpenJDK.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;openjdk-11-jdk&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;install-postgresql-12&quot;&gt;Install PostgreSQL 12&lt;/h4&gt;
+
+&lt;p&gt;Bbefore running the command &lt;em&gt;add the PostgreSQL apt repository&lt;/em&gt; as documented &lt;a href=&quot;https://www.postgresql.org/download/linux/ubuntu/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;postgresql-12&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;prepare-postgresql-for-sonarqube&quot;&gt;Prepare PostgreSQL for SonarQube&lt;/h4&gt;
+
+&lt;p&gt;This basically means creating the user and the database.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# change current user to postgres&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# (this was created for you as part of the PostgreSQL installation)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;su - postgres
+&lt;span class=&quot;c&quot;&gt;# go into PostgreSQL&lt;/span&gt;
+psql&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;c1&quot;&gt;--- create the user&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;USER&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sonarqube&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WITH&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PASSWORD&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'yourPassword'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;--- create the database&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sonarqube&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;OWNER&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sonarqube&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;--- grant the privileges&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;PRIVILEGES&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sonarqube&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sonarqube&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;--- exit PostgreSQL&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;q&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;add-inbound-rule-for-the-security-group-the-instance-belongs-to&quot;&gt;Add inbound rule for the security group the instance belongs to&lt;/h4&gt;
+
+&lt;p&gt;In order to allow requests to be made to SonarQube you have to add an inbound rule for the security group the EC2 instance belongs to. Find the security group your instance has (on the &lt;code class=&quot;highlighter-rouge&quot;&gt;Instances&lt;/code&gt; page, check for the &lt;code class=&quot;highlighter-rouge&quot;&gt;Security Groups&lt;/code&gt; column in the table which displays your instances, go to that SG and edit the &lt;code class=&quot;highlighter-rouge&quot;&gt;Inbound Rules&lt;/code&gt; by adding a new one for &lt;code class=&quot;highlighter-rouge&quot;&gt;TCP&lt;/code&gt; and port &lt;code class=&quot;highlighter-rouge&quot;&gt;9000&lt;/code&gt;).&lt;/p&gt;
+
+&lt;h3 id=&quot;step-3&quot;&gt;Step 3&lt;/h3&gt;
+
+&lt;h4 id=&quot;download-the-sonarqube-server&quot;&gt;Download the SonarQube Server.&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.3.0.34182.zip
+unzip sonarqube-8.3.0.34182.zip
+&lt;span class=&quot;c&quot;&gt;# move the unzipped folder under /opt&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo mv &lt;/span&gt;sonarqube-8.3.0.34182 /opt/sonarqube&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;step-4&quot;&gt;Step 4&lt;/h3&gt;
+
+&lt;h4 id=&quot;create-user-for-sonarqube&quot;&gt;Create user for SonarQube.&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;adduser &lt;span class=&quot;nt&quot;&gt;--system&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-create-home&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--group&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disabled-login&lt;/span&gt; sonarqube
+&lt;span class=&quot;nb&quot;&gt;sudo chown&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; sonarqube:sonarqube /opt/sonarqube&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;step-5&quot;&gt;Step 5&lt;/h3&gt;
+
+&lt;h4 id=&quot;configure-sonarqube-properties-and-launch-scripts&quot;&gt;Configure SonarQube properties and launch scripts.&lt;/h4&gt;
+
+&lt;p&gt;Edit &lt;code class=&quot;highlighter-rouge&quot;&gt;sonar.properties&lt;/code&gt; and add the following properties:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;vi /opt/sonarqube/conf/sonar.properties&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sonar.jdbc.username=sonarqube
+sonar.jdbc.password=yourPassword
+sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube
+sonar.web.javaAdditionalOpts=-server
+sonar.web.host=0.0.0.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Edit &lt;code class=&quot;highlighter-rouge&quot;&gt;sysctl.conf&lt;/code&gt; and set the property &lt;code class=&quot;highlighter-rouge&quot;&gt;vm.max_map_count&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;262144&lt;/code&gt;. SonarQube will most likely not start without it!&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;vi /etc/sysctl.conf&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vm.max_map_count=262144
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Edit &lt;code class=&quot;highlighter-rouge&quot;&gt;sonar.sh&lt;/code&gt; and set the variable &lt;code class=&quot;highlighter-rouge&quot;&gt;RUN_AS_USER&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;sonarqube&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;vi /opt/sonarqube/bin/linux-x86-64/sonar.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RUN_AS_USER=sonarqube
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;At this point you should have everything in place to be able to start the SonarQube and access it in the browser.&lt;/p&gt;
+
+&lt;h4 id=&quot;start-sonarqube&quot;&gt;Start SonarQube&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# navigate to the Sonar installation location&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt/sonarqube/bin/linux-x86-64
+&lt;span class=&quot;c&quot;&gt;# start Sonar&lt;/span&gt;
+./sonar.sh start&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Call &lt;code class=&quot;highlighter-rouge&quot;&gt;http://&amp;lt;IPv4 Public IP&amp;gt;:9000/&lt;/code&gt; in the browser, where &lt;code class=&quot;highlighter-rouge&quot;&gt;IPv4 Public IP&lt;/code&gt; stands for the public IP, which you can take from the Description information of your EC2 instance. 
+You should see your SonarQube page.&lt;/p&gt;
+
+&lt;p&gt;Now let’s configure Sonar.&lt;/p&gt;
+
+&lt;h4 id=&quot;configure-sonarqube&quot;&gt;Configure SonarQube&lt;/h4&gt;
+
+&lt;p&gt;First step is to &lt;em&gt;enable the mutation testing support&lt;/em&gt;, which means that you have to &lt;em&gt;install a plugin&lt;/em&gt;.
+For this login with the default credentials &lt;code class=&quot;highlighter-rouge&quot;&gt;admin/admin&lt;/code&gt;, go to &lt;code class=&quot;highlighter-rouge&quot;&gt;Administration -&amp;gt; Marketplace&lt;/code&gt; and search for &lt;code class=&quot;highlighter-rouge&quot;&gt;Mutation Analysis&lt;/code&gt; &lt;a href=&quot;https://github.com/devcon5io/mutation-analysis-plugin&quot;&gt;plugin&lt;/a&gt; and install it.
+Restart the server.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/sonar-mt-plugin.png&quot; alt=&quot;sonar-mt-plugin&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, we need to create a new &lt;em&gt;quality profile&lt;/em&gt;, which will contain the &lt;em&gt;default SonarQube Java rules&lt;/em&gt; and the &lt;em&gt;Mutation Analysis rules&lt;/em&gt; and set it as the &lt;em&gt;default profile for Java&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Follow the steps listed on &lt;a href=&quot;https://dzone.com/articles/mutation-testing-with-sonarqube&quot;&gt;this article&lt;/a&gt; under the section &lt;em&gt;Enable the Mutation Analysis Rules&lt;/em&gt; to achieve the above mentioned.&lt;/p&gt;
+
+&lt;p&gt;When finished it should look something similar to this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/sonar-mt-java-rules.png&quot; alt=&quot;sonar-mt-plugin&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now SonarQube should be able to interpret the mutation testing results too.&lt;/p&gt;
+
+&lt;p&gt;Before drilling down through your project and hunting down your mutations you have to upload the mutation analysis for the project in question.&lt;/p&gt;
+
+&lt;p&gt;I am using Maven as a build automation tool for my project and my &lt;code class=&quot;highlighter-rouge&quot;&gt;pom.xml&lt;/code&gt; is updated accordingly.&lt;/p&gt;
+
+&lt;p&gt;At a minimum, you need the &lt;code class=&quot;highlighter-rouge&quot;&gt;pitest-junit5-plugin&lt;/code&gt; dependency, the &lt;code class=&quot;highlighter-rouge&quot;&gt;sonar-maven-plugin&lt;/code&gt; plugin and the &lt;code class=&quot;highlighter-rouge&quot;&gt;pitest-maven&lt;/code&gt; plugin. For Java code coverage do not forget about &lt;code class=&quot;highlighter-rouge&quot;&gt;jacoco-maven-plugin&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Check the &lt;a href=&quot;https://github.com/vladflore/gildedrose-refactoring-kata/blob/master/pom.xml&quot;&gt;GitHub repo&lt;/a&gt; to see how the pom.xml looks like.&lt;/p&gt;
+
+&lt;p&gt;After your project is all set up, the following command should suffice to perform a code analysis of your code. Note that the value for &lt;code class=&quot;highlighter-rouge&quot;&gt;sonar.host.url&lt;/code&gt; should be changed
+accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;mvn clean verify org.pitest:pitest-maven:mutationCoverage sonar:sonar &lt;span class=&quot;nt&quot;&gt;-Dsonar&lt;/span&gt;.host.url&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;http://&amp;lt;IPv4 Public IP&amp;gt;:9000&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And voilà the analysis of my project at that point in time (including the mutation analysis):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/sonar-analysis.png&quot; alt=&quot;sonar-mt-plugin&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now go write those unit tests, kill those mutants and reach a 90%+ code coverage. I dare you! ;)&lt;/p&gt;
+
+&lt;p&gt;Happy code crafting!&lt;/p&gt;</content><author><name>Vlad</name></author><summary type="html">In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.</summary></entry><entry><title type="html">Time to Learn</title><link href="https://vladflore.github.io/blog/best-time-to-learn" rel="alternate" type="text/html" title="Time to Learn" /><published>2020-04-14T00:00:00+02:00</published><updated>2020-04-14T00:00:00+02:00</updated><id>https://vladflore.github.io/blog/best-time-to-learn</id><content type="html" xml:base="https://vladflore.github.io/blog/best-time-to-learn">&lt;p&gt;&lt;em&gt;There is no better time than now&lt;/em&gt;, or at least this is what they say and I kind of tend to agree with it. If I wanted to really stretch it, I would say that the best time was &lt;em&gt;yesterday&lt;/em&gt; and the next best time is &lt;em&gt;now&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;This applies also to learning, especially learning and even more so if you are in the Information Technology / Computer Science field, as I am.&lt;/p&gt;
 
@@ -14,7 +187,7 @@
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Preparing for &lt;a href=&quot;https://education.oracle.com/java-se-8-programmer-ii/pexam_1Z0-809&quot;&gt;Java 8 OCP&lt;/a&gt; exam&lt;/td&gt;
+      &lt;td&gt;&lt;del&gt;Preparing for &lt;a href=&quot;https://education.oracle.com/java-se-8-programmer-ii/pexam_1Z0-809&quot;&gt;Java 8 OCP&lt;/a&gt; exam&lt;/del&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Preparing for &lt;a href=&quot;https://tanzu.vmware.com/training/certification/spring-professional-certification&quot;&gt;Spring Professional Certification&lt;/a&gt; exam&lt;/td&gt;
