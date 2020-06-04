@@ -160,14 +160,14 @@ Now let's configure Sonar.
 #### Configure SonarQube
 
 First step is to _enable the mutation testing support_, which means that you have to _install a plugin_.
-For this login with the default credentials `admin/admin`, go to `Administration -> Marketplace` and search for `Mutation Analysis` [plugin][mt-plugin] and install it.
+For this, login with the default credentials `admin/admin`, go to `Administration -> Marketplace` and search for `Mutation Analysis` [plugin][mt-plugin] and install it.
 Restart the server.
 
 ![sonar-mt-plugin](./assets/images/sonar-mt-plugin.png)
 
 Next, we need to create a new _quality profile_, which will contain the _default SonarQube Java rules_ and the _Mutation Analysis rules_ and set it as the _default profile for Java_.
 
-Follow the steps listed on [this article][mt-config] under the section _Enable the Mutation Analysis Rules_ to achieve the above mentioned.
+Follow the steps listed in [this article][mt-config] under the section _Enable the Mutation Analysis Rules_ to achieve the above mentioned.
 
 When finished it should look something similar to this:
 
