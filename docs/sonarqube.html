@@ -16,7 +16,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-06-04T00:00:00+02:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"SonarQube on AWS EC2","dateModified":"2020-06-04T00:00:00+02:00","datePublished":"2020-06-04T00:00:00+02:00","url":"https://vladflore.github.io/blog/sonarqube","mainEntityOfPage":{"@type":"WebPage","@id":"https://vladflore.github.io/blog/sonarqube"},"author":{"@type":"Person","name":"Vlad"},"description":"In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.","@context":"https://schema.org"}</script>
+{"headline":"SonarQube on AWS EC2","dateModified":"2020-06-04T00:00:00+02:00","datePublished":"2020-06-04T00:00:00+02:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://vladflore.github.io/blog/sonarqube"},"url":"https://vladflore.github.io/blog/sonarqube","author":{"@type":"Person","name":"Vlad"},"description":"In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/main.css">
   <link rel="stylesheet" href="/blog/assets/css/custom.css"><link type="application/atom+xml" rel="alternate" href="https://vladflore.github.io/blog/feed.xml" title="Vlad's Blog" /></head>
@@ -187,14 +187,14 @@ You should see your SonarQube page.</p>
 <h4 id="configure-sonarqube">Configure SonarQube</h4>
 
 <p>First step is to <em>enable the mutation testing support</em>, which means that you have to <em>install a plugin</em>.
-For this login with the default credentials <code class="highlighter-rouge">admin/admin</code>, go to <code class="highlighter-rouge">Administration -&gt; Marketplace</code> and search for <code class="highlighter-rouge">Mutation Analysis</code> <a href="https://github.com/devcon5io/mutation-analysis-plugin">plugin</a> and install it.
+For this, login with the default credentials <code class="highlighter-rouge">admin/admin</code>, go to <code class="highlighter-rouge">Administration -&gt; Marketplace</code> and search for <code class="highlighter-rouge">Mutation Analysis</code> <a href="https://github.com/devcon5io/mutation-analysis-plugin">plugin</a> and install it.
 Restart the server.</p>
 
 <p><img src="./assets/images/sonar-mt-plugin.png" alt="sonar-mt-plugin" /></p>
 
 <p>Next, we need to create a new <em>quality profile</em>, which will contain the <em>default SonarQube Java rules</em> and the <em>Mutation Analysis rules</em> and set it as the <em>default profile for Java</em>.</p>
 
-<p>Follow the steps listed on <a href="https://dzone.com/articles/mutation-testing-with-sonarqube">this article</a> under the section <em>Enable the Mutation Analysis Rules</em> to achieve the above mentioned.</p>
+<p>Follow the steps listed in <a href="https://dzone.com/articles/mutation-testing-with-sonarqube">this article</a> under the section <em>Enable the Mutation Analysis Rules</em> to achieve the above mentioned.</p>
 
 <p>When finished it should look something similar to this:</p>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-04T22:51:35+02:00</updated><id>https://vladflore.github.io/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">SonarQube on AWS EC2</title><link href="https://vladflore.github.io/blog/sonarqube" rel="alternate" type="text/html" title="SonarQube on AWS EC2" /><published>2020-06-04T00:00:00+02:00</published><updated>2020-06-04T00:00:00+02:00</updated><id>https://vladflore.github.io/blog/aws-ec2-sonarqube</id><content type="html" xml:base="https://vladflore.github.io/blog/sonarqube">&lt;p&gt;In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-04T23:07:55+02:00</updated><id>https://vladflore.github.io/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">SonarQube on AWS EC2</title><link href="https://vladflore.github.io/blog/sonarqube" rel="alternate" type="text/html" title="SonarQube on AWS EC2" /><published>2020-06-04T00:00:00+02:00</published><updated>2020-06-04T00:00:00+02:00</updated><id>https://vladflore.github.io/blog/aws-ec2-sonarqube</id><content type="html" xml:base="https://vladflore.github.io/blog/sonarqube">&lt;p&gt;In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-motivation-behind&quot;&gt;The motivation behind&lt;/h3&gt;
 
@@ -137,14 +137,14 @@ You should see your SonarQube page.&lt;/p&gt;
 &lt;h4 id=&quot;configure-sonarqube&quot;&gt;Configure SonarQube&lt;/h4&gt;
 
 &lt;p&gt;First step is to &lt;em&gt;enable the mutation testing support&lt;/em&gt;, which means that you have to &lt;em&gt;install a plugin&lt;/em&gt;.
-For this login with the default credentials &lt;code class=&quot;highlighter-rouge&quot;&gt;admin/admin&lt;/code&gt;, go to &lt;code class=&quot;highlighter-rouge&quot;&gt;Administration -&amp;gt; Marketplace&lt;/code&gt; and search for &lt;code class=&quot;highlighter-rouge&quot;&gt;Mutation Analysis&lt;/code&gt; &lt;a href=&quot;https://github.com/devcon5io/mutation-analysis-plugin&quot;&gt;plugin&lt;/a&gt; and install it.
+For this, login with the default credentials &lt;code class=&quot;highlighter-rouge&quot;&gt;admin/admin&lt;/code&gt;, go to &lt;code class=&quot;highlighter-rouge&quot;&gt;Administration -&amp;gt; Marketplace&lt;/code&gt; and search for &lt;code class=&quot;highlighter-rouge&quot;&gt;Mutation Analysis&lt;/code&gt; &lt;a href=&quot;https://github.com/devcon5io/mutation-analysis-plugin&quot;&gt;plugin&lt;/a&gt; and install it.
 Restart the server.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;./assets/images/sonar-mt-plugin.png&quot; alt=&quot;sonar-mt-plugin&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Next, we need to create a new &lt;em&gt;quality profile&lt;/em&gt;, which will contain the &lt;em&gt;default SonarQube Java rules&lt;/em&gt; and the &lt;em&gt;Mutation Analysis rules&lt;/em&gt; and set it as the &lt;em&gt;default profile for Java&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;Follow the steps listed on &lt;a href=&quot;https://dzone.com/articles/mutation-testing-with-sonarqube&quot;&gt;this article&lt;/a&gt; under the section &lt;em&gt;Enable the Mutation Analysis Rules&lt;/em&gt; to achieve the above mentioned.&lt;/p&gt;
+&lt;p&gt;Follow the steps listed in &lt;a href=&quot;https://dzone.com/articles/mutation-testing-with-sonarqube&quot;&gt;this article&lt;/a&gt; under the section &lt;em&gt;Enable the Mutation Analysis Rules&lt;/em&gt; to achieve the above mentioned.&lt;/p&gt;
 
 &lt;p&gt;When finished it should look something similar to this:&lt;/p&gt;
 
