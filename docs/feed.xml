@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-04T23:07:55+02:00</updated><id>https://vladflore.github.io/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">SonarQube on AWS EC2</title><link href="https://vladflore.github.io/blog/sonarqube" rel="alternate" type="text/html" title="SonarQube on AWS EC2" /><published>2020-06-04T00:00:00+02:00</published><updated>2020-06-04T00:00:00+02:00</updated><id>https://vladflore.github.io/blog/aws-ec2-sonarqube</id><content type="html" xml:base="https://vladflore.github.io/blog/sonarqube">&lt;p&gt;In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-28T15:01:25+02:00</updated><id>https://vladflore.github.io/blog/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Code Kata</title><link href="https://vladflore.github.io/blog/code-kata" rel="alternate" type="text/html" title="Code Kata" /><published>2020-06-28T00:00:00+02:00</published><updated>2020-06-28T00:00:00+02:00</updated><id>https://vladflore.github.io/blog/code-katas</id><content type="html" xml:base="https://vladflore.github.io/blog/code-kata">&lt;p&gt;Lately I’ve been taking a keen interest in the idea of &lt;em&gt;writing code and getting better at it&lt;/em&gt;, and what I mean by this is not just 
+the fact of &lt;em&gt;writing code&lt;/em&gt; itself and &lt;em&gt;making it work&lt;/em&gt;, but also improving your &lt;em&gt;coding skills&lt;/em&gt;, and &lt;em&gt;the way you code&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;When we write code we tend to concentrate on the code itself, on solving the problem, not necessarily on the way we produce that code, 
+let alone how we navigate it…one can always use the mouse right? If you are working professionally in a project you don’t always have the time to &lt;em&gt;think&lt;/em&gt; about
+the way you write code. Writing it, making it work and getting it accepted (only &lt;strong&gt;clean code&lt;/strong&gt; should have the privilege of reaching the main development line) is enough of a challenge.&lt;/p&gt;
+
+&lt;p&gt;So, what then? Well, you could have a pet project, which could give you the time to &lt;em&gt;take a step back&lt;/em&gt;, &lt;em&gt;reflect&lt;/em&gt;, &lt;em&gt;think&lt;/em&gt; about &lt;em&gt;how&lt;/em&gt; you are producing code.
+This could indeed work, the challenge is to have an idea to get you started and keep you motivated to continue. It is for sure a way to improve your craft, but we could do
+even better than that. &lt;strong&gt;Code Kata&lt;/strong&gt;s for the win!&lt;/p&gt;
+
+&lt;p&gt;A &lt;a href=&quot;https://en.wikipedia.org/wiki/Kata&quot;&gt;Kata&lt;/a&gt; is, according to Wikipedia&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;a detailed choreographed pattern of martial arts movements made to be practised alone, and within groups and in unison when training”.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A &lt;a href=&quot;http://codekata.com&quot;&gt;Code Kata&lt;/a&gt; tries to bring the element of practice to the software development. It’s when/where you practice the skill you want to acquire 
+or improve.&lt;/p&gt;
+
+&lt;p&gt;If you want to take a deeper dive into this, check &lt;a href=&quot;https://www.amazon.com/Coding-Dojo-Handbook-Emily-Bache/dp/919811803X&quot;&gt;this book by Emily Bache&lt;/a&gt;, where you can find more on code katas, the notion of coding dojo und much more.
+Do not forget to check the &lt;a href=&quot;https://github.com/emilybache&quot;&gt;GH repository&lt;/a&gt;, for some refactoring katas, that you could do - multiple programming languages supported.&lt;/p&gt;
+
+&lt;p&gt;You want to practice on your own or in a group, &lt;a href=&quot;https://cyber-dojo.org/&quot;&gt;check this site&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;The idea is that by doing katas you get to hon your coding skills, and pretty much everything else related to this that you want to improve, navigating and 
+editing a text file, getting better and faster at writing code, writing more professional (clean-)code, learning an IDE, or some other text editing tool, like vim.
+The possibilities are unlimited.&lt;/p&gt;
+
+&lt;p&gt;Another point worth mentioning is that you can also take on some more difficult tasks, like algorithmic problem solving, and improve your problem 
+solving skills, brushing upon those algorithms you have probably not used anymore since college/university, learning new ones, getting reads for a 
+technical interview for top companies and so on.&lt;/p&gt;
+
+&lt;p&gt;Have a look at these links (there are many more out there, just google &lt;em&gt;coding challenges&lt;/em&gt;) and give it a try:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.hackerrank.com&quot;&gt;hakerrank&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.codewars.com&quot;&gt;codewars&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://leetcode.com/&quot;&gt;leetcode&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Another resource worth mentioning, which I totally love, is &lt;a href=&quot;https://www.jetbrains.com/academy/&quot;&gt;JetBrains Academy&lt;/a&gt;. You can become a fully fledged Java Developer by taking the 
+Java Developer track. They also offer similar tracks for Python and Kotlin. The best of it is that you can learn to program by creating 
+working applications. You also get daily challenges which bring you points also known as gems, which you then can spend. Overall is a wonderful experience, 
+one you should not miss.&lt;/p&gt;
+
+&lt;p&gt;As you can see, there are tons of resources to get you going as a programmer or to help you improve as one, you just have to dedicate time to it 
+and to practice, because, as we all know, practice makes perfect!&lt;/p&gt;
+
+&lt;p&gt;Now, go and sharpen your skills and do not be afraid to experiment and learn new things!&lt;/p&gt;</content><author><name>Vlad</name></author><summary type="html">Lately I’ve been taking a keen interest in the idea of writing code and getting better at it, and what I mean by this is not just the fact of writing code itself and making it work, but also improving your coding skills, and the way you code.</summary></entry><entry><title type="html">SonarQube on AWS EC2</title><link href="https://vladflore.github.io/blog/sonarqube" rel="alternate" type="text/html" title="SonarQube on AWS EC2" /><published>2020-06-04T00:00:00+02:00</published><updated>2020-06-04T00:00:00+02:00</updated><id>https://vladflore.github.io/blog/aws-ec2-sonarqube</id><content type="html" xml:base="https://vladflore.github.io/blog/sonarqube">&lt;p&gt;In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you’ll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-motivation-behind&quot;&gt;The motivation behind&lt;/h3&gt;
 
@@ -193,13 +240,13 @@ accordingly to contain the IP of your EC2 instance hosting the SonarQube Server.
       &lt;td&gt;Preparing for &lt;a href=&quot;https://tanzu.vmware.com/training/certification/spring-professional-certification&quot;&gt;Spring Professional Certification&lt;/a&gt; exam&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Working through &lt;a href=&quot;https://www.coursera.org/specializations/software-design-architecture&quot;&gt;Coursera Software Architecture and Design Specialization&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;del&gt;Working through &lt;a href=&quot;https://www.coursera.org/specializations/software-design-architecture&quot;&gt;Coursera Software Architecture and Design Specialization&lt;/a&gt;&lt;/del&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;del&gt;Working through &lt;a href=&quot;https://app.pluralsight.com/paths/skill/domain-driven-design&quot;&gt;Pluralsight Domain Driven Design Path&lt;/a&gt;&lt;/del&gt;&lt;br /&gt;following up with Eric Evans’s and Vaughn Vernon’s books&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Getting aquainted with the &lt;a href=&quot;https://www.vim.org/&quot;&gt;vim&lt;/a&gt; text editor&lt;/td&gt;
+      &lt;td&gt;Getting acquainted with the &lt;a href=&quot;https://www.vim.org/&quot;&gt;vim&lt;/a&gt; text editor&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Going through &lt;a href=&quot;https://missing.csail.mit.edu/&quot;&gt;the missing semester of your CS education&lt;/a&gt;&lt;/td&gt;
