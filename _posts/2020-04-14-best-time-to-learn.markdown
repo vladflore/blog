@@ -3,7 +3,7 @@ layout: post
 title: Time to Learn
 permalink: /best-time-to-learn
 author: Vlad
-modified_date: 2020-06-04
+modified_date: 2020-06-28
 comments: false
 ---
 
@@ -19,9 +19,9 @@ So in this short post I will list some of the things I took upon myself, maybe s
 | ----------------------------------------------------------------------------------|
 | ~~Preparing for [Java 8 OCP] exam~~                                               |
 | Preparing for [Spring Professional Certification] exam                            |
-| Working through [Coursera Software Architecture and Design Specialization]        |
+| ~~Working through [Coursera Software Architecture and Design Specialization]~~    |
 | ~~Working through [Pluralsight Domain Driven Design Path]~~<br>following up with Eric Evans's and Vaughn Vernon's books|
-| Getting aquainted with the [vim] text editor                                      |
+| Getting acquainted with the [vim] text editor                                      |
 | Going through [the missing semester of your CS education]                         |
 | Working through [BDD with Cucumber (Java)]                                        |
 
