@@ -23,7 +23,7 @@ name: Vlad Flore
 email: # your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   A place to share stuff about IT and life.
-baseurl: /blog
+# baseurl: /blog
 url: https://vladflore.github.io
 twitter_username: vlad_flore
 github_username:  vladflore
