@@ -4,7 +4,6 @@ rm -rf docs
 mkdir docs
 jekyll build
 cp -r _site/** docs
-cp CNAME docs
 git add docs
 git commit -m "published new blog version"
 git push git@github.com:vladflore/blog.git master

@@ -60,3 +60,4 @@ exclude:
   - publish.sh
   - topost.txt
   - docs/
+  - drafts-raw/
