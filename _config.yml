@@ -63,3 +63,4 @@ exclude:
   - topost.txt
   - docs/
   - drafts-raw/
+  - README.md
