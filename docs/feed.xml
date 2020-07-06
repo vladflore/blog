@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/" rel="alternate" type="text/html" /><updated>2020-07-04T12:15:08+02:00</updated><id>https://vladflore.github.io/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Code Kata</title><link href="https://vladflore.github.io/code-kata" rel="alternate" type="text/html" title="Code Kata" /><published>2020-06-28T00:00:00+02:00</published><updated>2020-06-28T00:00:00+02:00</updated><id>https://vladflore.github.io/code-katas</id><content type="html" xml:base="https://vladflore.github.io/code-kata">&lt;p&gt;Lately I’ve been taking a keen interest in the idea of &lt;em&gt;writing code and getting better at it&lt;/em&gt;, and what I mean by this is not just 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/" rel="alternate" type="text/html" /><updated>2020-07-06T19:34:37+02:00</updated><id>https://vladflore.github.io/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Pet Project</title><link href="https://vladflore.github.io/pet-project-part1" rel="alternate" type="text/html" title="Pet Project" /><published>2020-07-06T00:00:00+02:00</published><updated>2020-07-06T00:00:00+02:00</updated><id>https://vladflore.github.io/pet-project-part1</id><content type="html" xml:base="https://vladflore.github.io/pet-project-part1">&lt;h2 id=&quot;whats-all-about&quot;&gt;What’s all about?&lt;/h2&gt;
+
+&lt;p&gt;This post is the first from a series of posts about &lt;em&gt;my&lt;/em&gt; experience of building a small web application. 
+You may already ask yourself, why building a web application? Well, what is the best way of &lt;em&gt;learning something new&lt;/em&gt; or &lt;em&gt;sharpening/acquiring some skills&lt;/em&gt;?
+You are right, &lt;em&gt;&lt;strong&gt;practice&lt;/strong&gt;&lt;/em&gt; is the best way of achieving that.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-motivation-behind&quot;&gt;The motivation behind&lt;/h2&gt;
+
+&lt;p&gt;There are hundreds of applications you could choose from to practise your programming skills, to learn a new language or framework, to generally challenge yourself by having to make something from scratch all by yourself. 
+The &lt;em&gt;feeling good&lt;/em&gt; effect when you have finished your project will increase tenfold when your application will provide you with some real-life help. 
+This is another reason I decided to go for it and try to build a… shopping list web application.&lt;/p&gt;
+
+&lt;h2 id=&quot;outline-of-the-shopping-list-application&quot;&gt;Outline of the shopping list application&lt;/h2&gt;
+
+&lt;h3 id=&quot;business-outline&quot;&gt;Business outline&lt;/h3&gt;
+
+&lt;p&gt;As mentioned I will build a shopping list web application, which over the time will, hopefully, reach its purpose, which is to ease my shopping experience 
+and help me get rid of that never-ending Google Drive document ;)&lt;/p&gt;
+
+&lt;p&gt;As this is a one-man-show I will be the one to play the roles of:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Project Manager&lt;/li&gt;
+  &lt;li&gt;Product Owner&lt;/li&gt;
+  &lt;li&gt;Architect&lt;/li&gt;
+  &lt;li&gt;Technical Lead&lt;/li&gt;
+  &lt;li&gt;Software Developer&lt;/li&gt;
+  &lt;li&gt;Software Tester&lt;/li&gt;
+  &lt;li&gt;DevOps&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &lt;em&gt;&lt;strong&gt;first iteration&lt;/strong&gt;&lt;/em&gt; should bring the app to the point where:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;multiple shopping lists can be created&lt;/li&gt;
+  &lt;li&gt;items can be added to the respective shopping lists&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;technical-outline&quot;&gt;Technical outline&lt;/h3&gt;
+
+&lt;p&gt;I will split the app into three main areas, namely &lt;strong&gt;backend&lt;/strong&gt;, &lt;strong&gt;frontend&lt;/strong&gt; and &lt;strong&gt;devops&lt;/strong&gt;. 
+Each of them will include different technologies, language, frameworks, tools etc. as necessary.&lt;/p&gt;
+
+&lt;p&gt;Note on the versions: normally will go for the latest and greatest, but this might change as necessary.&lt;/p&gt;
+
+&lt;h4 id=&quot;backend&quot;&gt;Backend&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Spring Framework&lt;/li&gt;
+  &lt;li&gt;Spring Boot&lt;/li&gt;
+  &lt;li&gt;Java&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;frontend&quot;&gt;Frontend&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Angular&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;devops&quot;&gt;DevOps&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;GitHub&lt;/li&gt;
+  &lt;li&gt;GitHub Actions / Jenkins&lt;/li&gt;
+  &lt;li&gt;AWS&lt;/li&gt;
+  &lt;li&gt;Ansible&lt;/li&gt;
+  &lt;li&gt;SonarQube&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Additionally, I will enumerate the tools I will be using too (install the ones you are missing and pull up their documentation):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Git (Version Control System)&lt;/li&gt;
+  &lt;li&gt;IntelliJ - Community or Ultimate (Integrated Development Environment) / Visual Studio Code&lt;/li&gt;
+  &lt;li&gt;Bash / &lt;a href=&quot;https://fishshell.com/&quot;&gt;Fish&lt;/a&gt; (Shells)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tmux&quot;&gt;tmux&lt;/a&gt; (Terminal Multiplexer)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-cli.html&quot;&gt;Spring Boot CLI&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hub.github.com/&quot;&gt;hub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At a minimum, you should have an IDE, Git, Bash, Spring Boot CLI and hub.&lt;/p&gt;
+
+&lt;h2 id=&quot;initial-preparation&quot;&gt;Initial preparation&lt;/h2&gt;
+&lt;p&gt;Let’s first set up the project skeleton considering the above.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# find a suitable location for the new project and&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# create the directory for it&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;shopping-list &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;shopping-list
+
+&lt;span class=&quot;c&quot;&gt;# initialize a Spring Boot project - we'll be using the Spring Boot CLI&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# this will create a folder named backend containing the Spring Boot Maven project&lt;/span&gt;
+spring init &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; shopping-list-backend &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; com.example &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;web,h2,data-jpa &lt;span class=&quot;nt&quot;&gt;--description&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;shopping list backend powered by spring boot&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; shopping-list-backend backend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now it is time to initialize the GH repository, we’ll be doing this from the command line too (we’ll be needing &lt;em&gt;hub&lt;/em&gt; for this).&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;
+&amp;lt;your-project-location&amp;gt;/shopping-list
+&lt;span class=&quot;c&quot;&gt;# initialize a git repository and commit the current state of the project&lt;/span&gt;
+git init
+git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;initial commit&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# use hub to create a private GH repository named shopping-list-app&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# this command will also open the GH web page of the repository in question&lt;/span&gt;
+hub create &lt;span class=&quot;nt&quot;&gt;-po&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;shopping list app&quot;&lt;/span&gt; shopping-list-app
+
+&lt;span class=&quot;c&quot;&gt;# push the project to GitHub&lt;/span&gt;
+git push &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; origin master&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If everything went fine, you should have by now a new project folder, &lt;code class=&quot;highlighter-rouge&quot;&gt;shopping-list&lt;/code&gt;, containing the &lt;code class=&quot;highlighter-rouge&quot;&gt;backend&lt;/code&gt; component in which resides a Spring Boot project. The content of the application project is versioned and pushed to a GitHub repository called &lt;code class=&quot;highlighter-rouge&quot;&gt;shopping-list-app&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To ascertain that the backend project runs flawlessly feel free to do a &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn clean install&lt;/code&gt; inside the &lt;code class=&quot;highlighter-rouge&quot;&gt;backend&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;h2 id=&quot;final-words&quot;&gt;Final words&lt;/h2&gt;
+&lt;p&gt;Having done all the above gives us the grounds on which to further build our application.
+There are still some technical points to be addressed, before actually starting with the implementation, like hooking the project up to a SonarQube Server, adding an initial process of CI to it.&lt;/p&gt;
+
+&lt;p&gt;All of these will be addressed in a new post, so stay tuned!&lt;/p&gt;</content><author><name>Vlad</name></author><summary type="html">What’s all about?</summary></entry><entry><title type="html">Code Kata</title><link href="https://vladflore.github.io/code-kata" rel="alternate" type="text/html" title="Code Kata" /><published>2020-06-28T00:00:00+02:00</published><updated>2020-06-28T00:00:00+02:00</updated><id>https://vladflore.github.io/code-katas</id><content type="html" xml:base="https://vladflore.github.io/code-kata">&lt;p&gt;Lately I’ve been taking a keen interest in the idea of &lt;em&gt;writing code and getting better at it&lt;/em&gt;, and what I mean by this is not just 
 the fact of &lt;em&gt;writing code&lt;/em&gt; itself and &lt;em&gt;making it work&lt;/em&gt;, but also improving your &lt;em&gt;coding skills&lt;/em&gt;, and &lt;em&gt;the way you code&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;When we write code we tend to concentrate on the code itself, on solving the problem, not necessarily on the way we produce that code, 
