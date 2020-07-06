@@ -14,7 +14,7 @@ You are right, _**practice**_ is the best way of achieving that.
 ## The motivation behind
 
 There are hundreds of applications you could choose from to practise your programming skills, to learn a new language or framework, to generally challenge yourself by having to make something from scratch all by yourself. 
-The _feeling good_ effect when you have finished your project will increase tenfold when your application will provide with some real-life help. 
+The _feeling good_ effect when you have finished your project will increase tenfold when your application will provide you with some real-life help. 
 This is another reason I decided to go for it and try to build a... shopping list web application.
 
 ## Outline of the shopping list application
@@ -22,7 +22,7 @@ This is another reason I decided to go for it and try to build a... shopping lis
 ### Business outline
 
 As mentioned I will build a shopping list web application, which over the time will, hopefully, reach its purpose, which is to ease my shopping experience 
-and help me get rid of that never ending Google Drive document ;)
+and help me get rid of that never-ending Google Drive document ;)
 
 As this is a one-man-show I will be the one to play the roles of:
 * Project Manager
@@ -41,8 +41,9 @@ The _**first iteration**_ should bring the app to the point where:
 ### Technical outline
 
 I will split the app into three main areas, namely **backend**, **frontend** and **devops**. 
-Each of them will include different technologies, language, frameworks, tools etc. as necessary.
-Note on the versions: normally will go for the latest and greatest, but this could change as necessary.
+Each of them will include different technologies, language, frameworks, tools etc. as necessary. 
+
+Note on the versions: normally will go for the latest and greatest, but this might change as necessary.
 
 #### Backend
 * Spring Framework
@@ -70,7 +71,7 @@ Additionally, I will enumerate the tools I will be using too (install the ones y
 * [Spring Boot CLI]
 * [hub]
 
-At a minimum you should have: an IDE, Git, Bash, Spring Boot CLI and hub.
+At a minimum, you should have an IDE, Git, Bash, Spring Boot CLI and hub.
 
 ## Initial preparation
 Let's first set up the project skeleton considering the above.
@@ -80,14 +81,16 @@ Let's first set up the project skeleton considering the above.
 # create the directory for it
 mkdir shopping-list && cd shopping-list
 
-# initialize a Spring Boot - we'll be using the Spring Boot CLI
-# this will create a folder named backend containing the Spring Boot maven project
+# initialize a Spring Boot project - we'll be using the Spring Boot CLI
+# this will create a folder named backend containing the Spring Boot Maven project
 spring init -a shopping-list-backend -g com.example -d=web,h2,data-jpa --description "shopping list backend powered by spring boot" -n shopping-list-backend backend
 {% endhighlight %}
 
 Now it is time to initialize the GH repository, we'll be doing this from the command line too (we'll be needing _hub_ for this).
 
 {% highlight sh%}
+pwd
+<your-project-location>/shopping-list
 # initialize a git repository and commit the current state of the project
 git init
 git add .
@@ -96,9 +99,20 @@ git commit -m "initial commit"
 # use hub to create a private GH repository named shopping-list-app
 # this command will also open the GH web page of the repository in question
 hub create -po -d "shopping list app" shopping-list-app
+
+# push the project to GitHub
+git push -u origin master
 {% endhighlight %}
 
+If everything went fine, you should have by now a new project folder, `shopping-list`, containing the `backend` component in which resides a Spring Boot project. The content of the application project is versioned and pushed to a GitHub repository called `shopping-list-app`.
 
+To ascertain that the backend project runs flawlessly feel free to do a `mvn clean install` inside the `backend` folder.
+
+## Final words
+Having done all the above gives us the grounds on which to further build our application.
+There are still some technical points to be addressed, before actually starting with the implementation, like hooking the project up to a SonarQube Server, adding an initial process of CI to it.
+
+All of these will be addressed in a new post, so stay tuned!
 
 [tmux]: https://github.com/tmux
 [Fish]: https://fishshell.com/
