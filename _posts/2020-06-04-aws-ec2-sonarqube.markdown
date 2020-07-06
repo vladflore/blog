@@ -3,7 +3,6 @@ layout: post
 title: SonarQube on AWS EC2
 permalink: /sonarqube
 author: Vlad
-comments: true
 ---
 In this post I will share my experience with installing SonarQube on an AWS EC2 instance. What you'll see below are some steps and hints I followed when setting up a SonarQube Server on an EC2 machine.
 

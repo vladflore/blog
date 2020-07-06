@@ -4,7 +4,6 @@ title: Shell Magic
 permalink: /shell-magic
 modified_date: 2020-05-17
 author: Vlad
-comments: true
 ---
 
 > **_NOTE 1:_** This page contains some shell _magic_ which I came across in my daily business. I will update this page continuously

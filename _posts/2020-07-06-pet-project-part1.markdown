@@ -3,7 +3,6 @@ layout: post
 title: Pet Project
 permalink: /pet-project-part1
 author: Vlad
-comments: true
 ---
 ## What's all about?
 
@@ -104,9 +103,11 @@ hub create -po -d "shopping list app" shopping-list-app
 git push -u origin master
 {% endhighlight %}
 
-If everything went fine, you should have by now a new project folder, `shopping-list`, containing the `backend` component in which resides a Spring Boot project. The content of the application project is versioned and pushed to a GitHub repository called `shopping-list-app`.
+If everything went fine, we should have by now a new project folder, `shopping-list`, containing the `backend` component in which resides a Spring Boot project. The content of the application project is versioned and pushed to a GitHub repository called `shopping-list-app`.
 
-To ascertain that the backend project runs flawlessly feel free to do a `mvn clean install` inside the `backend` folder.
+To ascertain that the backend project runs flawlessly we can do a `mvn clean install` inside the `backend` folder.
+
+The project can be found on GitHub at this [link].
 
 ## Final words
 Having done all the above gives us the grounds on which to further build our application.
@@ -118,3 +119,4 @@ All of these will be addressed in a new post, so stay tuned!
 [Fish]: https://fishshell.com/
 [Spring Boot CLI]: https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-cli.html
 [hub]: https://hub.github.com/
+[link]: https://github.com/vladflore/shopping-list-app

@@ -3,7 +3,6 @@ layout: post
 title: Code Kata
 permalink: /code-kata
 author: Vlad
-comments: true
 ---
 Lately I've been taking a keen interest in the idea of _writing code and getting better at it_, and what I mean by this is not just 
 the fact of _writing code_ itself and _making it work_, but also improving your _coding skills_, and _the way you code_. 

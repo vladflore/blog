@@ -3,7 +3,6 @@ layout: post
 title: Hello World
 permalink: /hello-world
 author: Vlad
-comments: false
 ---
 Hello Internet,
 
