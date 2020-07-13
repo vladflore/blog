@@ -1,14 +1,19 @@
 ---
 layout: post
-title: Pet Project
+title: Pet Project (1/)
 permalink: /pet-project-part1
 author: Vlad
+modified_date: 2020-07-13
 ---
 ## What's all about?
 
-This post is the first from a series of posts about _my_ experience of building a small web application. 
+This is **part 1** of the **Pet Project series** about building a small web application from scratch.
+ 
 You may already ask yourself, why building a web application? Well, what is the best way of _learning something new_ or _sharpening/acquiring some skills_?
 You are right, _**practice**_ is the best way of achieving that.
+
+Project posts:
+* [part 2]({{ site.baseurl }}{% post_url 2020-07-13-pet-project-part2 %})
 
 ## The motivation behind
 
@@ -42,7 +47,7 @@ The _**first iteration**_ should bring the app to the point where:
 I will split the app into three main areas, namely **backend**, **frontend** and **devops**. 
 Each of them will include different technologies, language, frameworks, tools etc. as necessary. 
 
-Note on the versions: normally will go for the latest and greatest, but this might change as necessary.
+Note on the versions: I will normally go for the latest and greatest, but this might change as necessary.
 
 #### Backend
 * Spring Framework
@@ -70,7 +75,9 @@ Additionally, I will enumerate the tools I will be using too (install the ones y
 * [Spring Boot CLI]
 * [hub]
 
-At a minimum, you should have an IDE, Git, Bash, Spring Boot CLI and hub.
+I will update this list as necessary.
+
+At a minimum, you should have: an IDE, Git, Bash, Spring Boot CLI and hub.
 
 ## Initial preparation
 Let's first set up the project skeleton considering the above.
@@ -85,7 +92,7 @@ mkdir shopping-list && cd shopping-list
 spring init -a shopping-list-backend -g com.example -d=web,h2,data-jpa --description "shopping list backend powered by spring boot" -n shopping-list-backend backend
 {% endhighlight %}
 
-Now it is time to initialize the GH repository, we'll be doing this from the command line too (we'll be needing _hub_ for this).
+Now it is time to initialize the GH repository, we'll be doing this from the command line too (here comes _hub_ into play).
 
 {% highlight sh%}
 pwd
@@ -103,15 +110,15 @@ hub create -po -d "shopping list app" shopping-list-app
 git push -u origin master
 {% endhighlight %}
 
-If everything went fine, we should have by now a new project folder, `shopping-list`, containing the `backend` component in which resides a Spring Boot project. The content of the application project is versioned and pushed to a GitHub repository called `shopping-list-app`.
+If everything went fine, we should have now a new project folder, `shopping-list`, containing the `backend` component in which resides a Spring Boot project. The content of the application project is versioned and pushed to a GitHub repository called `shopping-list-app`.
 
-To ascertain that the backend project runs flawlessly we can do a `mvn clean install` inside the `backend` folder.
+To ascertain that the backend component is so far free of problems we can do a `mvn clean verify` inside the `backend` folder. 
 
-The project can be found on GitHub at this [link].
+The GitHub repository for this project can be found at this [link].
 
 ## Final words
 Having done all the above gives us the grounds on which to further build our application.
-There are still some technical points to be addressed, before actually starting with the implementation, like hooking the project up to a SonarQube Server, adding an initial process of CI to it.
+There are still some technical points to be addressed, before actually starting with the implementation, like hooking the project up to a SonarQube Server and defining a set of quality constraints.
 
 All of these will be addressed in a new post, so stay tuned!
 
