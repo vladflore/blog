@@ -148,7 +148,8 @@ Run the following command (change the Sonar host URL accordingly):
 mvn clean verify sonar:sonar -Dsonar.host.url=http://<IP-Address>:9000
 ```
 
-This should be it! Have a look at the screen below to see how it looks in my case.
+This should be it! Check the [commit](https://github.com/vladflore/shopping-list-app/commit/8b247db2a394b78978b5b9bc830b69d5efabab6c) with the changes 
+and have a look at the screen below to see how project on SonarQube looks in my case.
 
 ![sonar-mt-plugin](./assets/images/sonar-pet-project.png)
 
