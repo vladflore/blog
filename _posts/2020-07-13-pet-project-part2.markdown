@@ -145,7 +145,7 @@ We first have to add the `sonar-maven-plugin` to the pom file, as illustrated be
 Run the following command (change the Sonar host URL accordingly):
 
 ```
-mvn clean verify sonar:sonar -Dsonar.host.url=http://<IPv4 Public IP>:9000
+mvn clean verify sonar:sonar -Dsonar.host.url=http://<IP-Address>:9000
 ```
 
 This should be it! Have a look at the screen below to see how it looks in my case.
@@ -158,9 +158,7 @@ In this post we hooked up our backend project to SonarQube (I am using an instan
 added some code coverage constraints and mutation testing. This is more of a minimalistic configuration, feel free to explore more and 
 make changes as you see fit for your project. 
 
-Next we will finally start writing some code to implement the first iteration of the project, as stated in [part 1].
-
-See ya next time!
+Next, we will finally start writing some code to implement the first iteration of the project, as stated in [part 1] of this series.
 
 [part 1]: {{ site.baseurl }}{% post_url 2020-07-06-pet-project-part1 %}
 [SonarQube on EC2]: {{ site.baseurl }}{% post_url 2020-06-04-aws-ec2-sonarqube %}
