@@ -106,6 +106,16 @@ At a minimum we need to add the following to the `<plugins>` block:
     <groupId>org.pitest</groupId>
     <artifactId>pitest-maven</artifactId>
     <version>1.5.2</version>
+    <configuration>
+        <outputFormats>
+            <!--
+            XML for sonar and HTML to keep it as default
+            which would have been ignored if we had added only the XML
+            -->
+            <outputFormat>XML</outputFormat>
+            <outputFormat>HTML</outputFormat>
+        </outputFormats>
+    </configuration>
     <executions>
         <execution>
             <phase>test</phase>
@@ -127,9 +137,12 @@ At a minimum we need to add the following to the `<plugins>` block:
 This will bind the goal `org.pitest:pitest-maven:mutationCoverage` to the `test` phase, 
 which means it will run whenever the test phase runs, such as by `mvn clean verify`.
 
-> **_NOTE:_** bare in mind that mutation testing can slow your unit tests, so you might want to separate them from the other tests.
+> **_NOTE 1:_** bear in mind that mutation testing can slow your unit tests, so you might want to separate them from the other tests.
 >Without further configuring the plugin _**all**_ your tests will be mutated, which could lead to longer than expected test execution time.
 >Something similar should be done for the integration tests too. I will address all of this in the following posts, as the project progresses.
+
+> **_NOTE 2:_** I had to add some dummy logic to the project to avoid pitest from failing when it does not find any code to mutate, other than the code 
+>scaffolding done by Spring Boot CLI when generating a new Spring Boot project. Check [this link](https://github.com/hcoles/pitest/issues/781) for more on this matter.
 
 Before continuing with the next point, make sure your _SonarQube instance is running and configured correctly_ regarding mutation testing. 
 Check _Configure SonarQube_ section of [this post]({{ site.baseurl }}{% post_url 2020-06-04-aws-ec2-sonarqube %}) for some guidance. 
@@ -152,8 +165,8 @@ Run the following command (change the Sonar host URL accordingly):
 mvn clean verify sonar:sonar -Dsonar.host.url=http://<IP-Address>:9000
 ```
 
-This should be it! Check the [commit](https://github.com/vladflore/shopping-list-app/commit/8b247db2a394b78978b5b9bc830b69d5efabab6c) with the changes 
-and have a look at the screen below to see how project on SonarQube looks in my case.
+This should be it! Check the [state of the project](https://github.com/vladflore/shopping-list-app) 
+containing the changes mentioned above and have a look at the screen below to see how the project looks on SonarQube.
 
 ![sonar-mt-plugin](./assets/images/sonar-pet-project.png)
 
