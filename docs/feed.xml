@@ -1,8 +1,183 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/" rel="alternate" type="text/html" /><updated>2020-07-06T20:01:33+02:00</updated><id>https://vladflore.github.io/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Pet Project</title><link href="https://vladflore.github.io/pet-project-part1" rel="alternate" type="text/html" title="Pet Project" /><published>2020-07-06T00:00:00+02:00</published><updated>2020-07-06T00:00:00+02:00</updated><id>https://vladflore.github.io/pet-project-part1</id><content type="html" xml:base="https://vladflore.github.io/pet-project-part1">&lt;h2 id=&quot;whats-all-about&quot;&gt;What’s all about?&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/" rel="alternate" type="text/html" /><updated>2020-07-14T13:09:49+02:00</updated><id>https://vladflore.github.io/feed.xml</id><title type="html">Vlad’s Blog</title><subtitle>A place to share stuff about IT and life.</subtitle><entry><title type="html">Pet Project (2/)</title><link href="https://vladflore.github.io/pet-project-part2" rel="alternate" type="text/html" title="Pet Project (2/)" /><published>2020-07-13T00:00:00+02:00</published><updated>2020-07-13T00:00:00+02:00</updated><id>https://vladflore.github.io/pet-project-part2</id><content type="html" xml:base="https://vladflore.github.io/pet-project-part2">&lt;p&gt;This is &lt;strong&gt;part 2&lt;/strong&gt; of the &lt;strong&gt;Pet Project series&lt;/strong&gt; about building a small web application from scratch.&lt;/p&gt;
 
-&lt;p&gt;This post is the first from a series of posts about &lt;em&gt;my&lt;/em&gt; experience of building a small web application. 
-You may already ask yourself, why building a web application? Well, what is the best way of &lt;em&gt;learning something new&lt;/em&gt; or &lt;em&gt;sharpening/acquiring some skills&lt;/em&gt;?
+&lt;p&gt;Project posts:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/pet-project-part1&quot;&gt;part 1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As stated in the final words section of the &lt;a href=&quot;/pet-project-part1&quot;&gt;part 1&lt;/a&gt; post, there are still some technical points I want to address, before starting with
+the actual implementation: hooking up the project to a &lt;em&gt;SonarQube&lt;/em&gt; Server and define a set of &lt;em&gt;quality constraints&lt;/em&gt; for it.&lt;/p&gt;
+
+&lt;p&gt;Let’s start with hooking up the backend component to the SonarQube. I will be using the SonarQube instance I installed and configured 
+in a previous post. The post &lt;a href=&quot;/sonarqube&quot;&gt;SonarQube on EC2&lt;/a&gt; explains the steps required to get yourself a running instance of SonarQube. In case 
+you do not want to deal with AWS, you can as easily install SonarQube locally on your own working machine, be it physical or virtual.&lt;/p&gt;
+
+&lt;p&gt;Having the infrastructure up and running let us now update the backend component with respect to the quality constraints, and 
+by this I mean enabling code coverage, &lt;a href=&quot;https://en.wikipedia.org/wiki/Mutation_testing&quot;&gt;mutation testing&lt;/a&gt;, setting some code coverage metric constraints and 
+making the reports available in SonarQube.&lt;/p&gt;
+
+&lt;h3 id=&quot;enabling-code-coverage&quot;&gt;Enabling code coverage&lt;/h3&gt;
+&lt;p&gt;For this I will be using &lt;a href=&quot;https://www.eclemma.org/jacoco/trunk/doc/maven.html&quot;&gt;Maven JaCoCo Plug-in&lt;/a&gt;. Add &lt;code class=&quot;highlighter-rouge&quot;&gt;jacoco-maven-plugin&lt;/code&gt; to the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;build&amp;gt;&amp;lt;plugins&amp;gt;...&amp;lt;/plugins&amp;gt;&amp;lt;/build&amp;gt;&lt;/code&gt; 
+section of your &lt;code class=&quot;highlighter-rouge&quot;&gt;pom.xml&lt;/code&gt; file, as illustrated below.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.jacoco&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;jacoco-maven-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;0.8.5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;prepare-agent&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;report&lt;span class=&quot;nt&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;phase&amp;gt;&lt;/span&gt;prepare-package&lt;span class=&quot;nt&quot;&gt;&amp;lt;/phase&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;report&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now do a &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn clean verify&lt;/code&gt; and observe that unter &lt;code class=&quot;highlighter-rouge&quot;&gt;/target&lt;/code&gt; we now have a file called &lt;code class=&quot;highlighter-rouge&quot;&gt;jacoco.exec&lt;/code&gt; and another folder &lt;code class=&quot;highlighter-rouge&quot;&gt;/site/jacoco&lt;/code&gt;.
+The file can be interpreted by other applications, like Sonar, IntelliJ, or by plugins.
+The folder contains the code coverage report in multiple formats - HTML, XML and CSV.&lt;/p&gt;
+
+&lt;h3 id=&quot;adding-code-coverage-metrics-constraints&quot;&gt;Adding code coverage metrics constraints&lt;/h3&gt;
+&lt;p&gt;Adding constraints for some code coverage metrics requires configuring the jacoco plugin as below (put the block inside the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;plugin&amp;gt;&amp;lt;/plugin&amp;gt;&lt;/code&gt; tags):&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;rules&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;rule&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;element&amp;gt;&lt;/span&gt;BUNDLE&lt;span class=&quot;nt&quot;&gt;&amp;lt;/element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;limits&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;limit&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;counter&amp;gt;&lt;/span&gt;INSTRUCTION&lt;span class=&quot;nt&quot;&gt;&amp;lt;/counter&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;COVEREDRATIO&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;minimum&amp;gt;&lt;/span&gt;0.90&lt;span class=&quot;nt&quot;&gt;&amp;lt;/minimum&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/limit&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;limit&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;counter&amp;gt;&lt;/span&gt;CLASS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/counter&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;MISSEDCOUNT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;maximum&amp;gt;&lt;/span&gt;0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/maximum&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/limit&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/limits&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/rule&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;rule&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;element&amp;gt;&lt;/span&gt;CLASS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;excludes&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;exclude&amp;gt;&lt;/span&gt;*Test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/exclude&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/excludes&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;limits&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;limit&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;counter&amp;gt;&lt;/span&gt;LINE&lt;span class=&quot;nt&quot;&gt;&amp;lt;/counter&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;COVEREDRATIO&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;minimum&amp;gt;&lt;/span&gt;90%&lt;span class=&quot;nt&quot;&gt;&amp;lt;/minimum&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/limit&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/limits&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/rule&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/rules&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In this case I say that I want a minimum instruction coverage ratio of 90% for the whole application, our backend, no classes should be omitted, and at the class level 
+I want a minimum line coverage ratio of 90%, but not for the test classes.&lt;/p&gt;
+
+&lt;p&gt;Failing to meet these conditions will result in a build fail.&lt;/p&gt;
+
+&lt;p&gt;Check &lt;a href=&quot;https://www.eclemma.org/jacoco/trunk/doc/check-mojo.html#rules&quot;&gt;code coverage metrics&lt;/a&gt; documentation page for more details.&lt;/p&gt;
+
+&lt;h3 id=&quot;adding-mutation-testing&quot;&gt;Adding mutation testing&lt;/h3&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://pitest.org/&quot;&gt;Pitest&lt;/a&gt; system provides mutation testing in the Java world and can be added to a Maven project by including the &lt;a href=&quot;https://pitest.org/quickstart/maven/&quot;&gt;pitest maven plugin&lt;/a&gt; and configure it accordingly.&lt;/p&gt;
+
+&lt;p&gt;At a minimum we need to add the following to the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/code&gt; block:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.pitest&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;pitest-maven&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.5.2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;outputFormats&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--
+            XML for sonar and HTML to keep it as default
+            which would have been ignored if we had added only the XML
+            --&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;outputFormat&amp;gt;&lt;/span&gt;XML&lt;span class=&quot;nt&quot;&gt;&amp;lt;/outputFormat&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;outputFormat&amp;gt;&lt;/span&gt;HTML&lt;span class=&quot;nt&quot;&gt;&amp;lt;/outputFormat&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/outputFormats&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;phase&amp;gt;&lt;/span&gt;test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/phase&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;mutationCoverage&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.pitest&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;pitest-junit5-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;0.12&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This will bind the goal &lt;code class=&quot;highlighter-rouge&quot;&gt;org.pitest:pitest-maven:mutationCoverage&lt;/code&gt; to the &lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt; phase, 
+which means it will run whenever the test phase runs, such as by &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn clean verify&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 1:&lt;/em&gt;&lt;/strong&gt; bear in mind that mutation testing can slow your unit tests, so you might want to separate them from the other tests.
+Without further configuring the plugin &lt;em&gt;&lt;strong&gt;all&lt;/strong&gt;&lt;/em&gt; your tests will be mutated, which could lead to longer than expected test execution time.
+Something similar should be done for the integration tests too. I will address all of this in the following posts, as the project progresses.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE 2:&lt;/em&gt;&lt;/strong&gt; I had to add some dummy logic to the project to avoid pitest from failing when it does not find any code to mutate, other than the code 
+scaffolding done by Spring Boot CLI when generating a new Spring Boot project. Check &lt;a href=&quot;https://github.com/hcoles/pitest/issues/781&quot;&gt;this link&lt;/a&gt; for more on this matter.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Before continuing with the next point, make sure your &lt;em&gt;SonarQube instance is running and configured correctly&lt;/em&gt; regarding mutation testing. 
+Check &lt;em&gt;Configure SonarQube&lt;/em&gt; section of &lt;a href=&quot;/sonarqube&quot;&gt;this post&lt;/a&gt; for some guidance.&lt;/p&gt;
+
+&lt;h3 id=&quot;push-the-code-analysis-to-sonarqube&quot;&gt;Push the code analysis to SonarQube&lt;/h3&gt;
+
+&lt;p&gt;We first have to add the &lt;code class=&quot;highlighter-rouge&quot;&gt;sonar-maven-plugin&lt;/code&gt; to the pom file, as illustrated below:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.sonarsource.scanner.maven&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;sonar-maven-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;3.7.0.1746&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Run the following command (change the Sonar host URL accordingly):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mvn clean verify sonar:sonar -Dsonar.host.url=http://&amp;lt;IP-Address&amp;gt;:9000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This should be it! Check the &lt;a href=&quot;https://github.com/vladflore/shopping-list-app&quot;&gt;state of the project&lt;/a&gt; 
+containing the changes mentioned above and have a look at the screen below to see how the project looks on SonarQube.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;./assets/images/sonar-pet-project.png&quot; alt=&quot;sonar-mt-plugin&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;final-words&quot;&gt;Final words&lt;/h3&gt;
+
+&lt;p&gt;In this post we hooked up our backend project to SonarQube (I am using an instance on AWS EC2), enabled code coverage, 
+added some code coverage constraints and mutation testing. This is more of a minimalistic configuration, feel free to explore more and 
+make changes as you see fit for your project.&lt;/p&gt;
+
+&lt;p&gt;Next, we will finally start writing some code to implement the first iteration of the project, as stated in &lt;a href=&quot;/pet-project-part1&quot;&gt;part 1&lt;/a&gt; of this series.&lt;/p&gt;</content><author><name>Vlad</name></author><summary type="html">This is part 2 of the Pet Project series about building a small web application from scratch.</summary></entry><entry><title type="html">Pet Project (1/)</title><link href="https://vladflore.github.io/pet-project-part1" rel="alternate" type="text/html" title="Pet Project (1/)" /><published>2020-07-06T00:00:00+02:00</published><updated>2020-07-06T00:00:00+02:00</updated><id>https://vladflore.github.io/pet-project-part1</id><content type="html" xml:base="https://vladflore.github.io/pet-project-part1">&lt;h2 id=&quot;whats-all-about&quot;&gt;What’s all about?&lt;/h2&gt;
+
+&lt;p&gt;This is &lt;strong&gt;part 1&lt;/strong&gt; of the &lt;strong&gt;Pet Project series&lt;/strong&gt; about building a small web application from scratch.&lt;/p&gt;
+
+&lt;p&gt;You may already ask yourself, why building a web application? Well, what is the best way of &lt;em&gt;learning something new&lt;/em&gt; or &lt;em&gt;sharpening/acquiring some skills&lt;/em&gt;?
 You are right, &lt;em&gt;&lt;strong&gt;practice&lt;/strong&gt;&lt;/em&gt; is the best way of achieving that.&lt;/p&gt;
+
+&lt;p&gt;Project posts:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/pet-project-part2&quot;&gt;part 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;the-motivation-behind&quot;&gt;The motivation behind&lt;/h2&gt;
 
@@ -40,7 +215,7 @@ and help me get rid of that never-ending Google Drive document ;)&lt;/p&gt;
 &lt;p&gt;I will split the app into three main areas, namely &lt;strong&gt;backend&lt;/strong&gt;, &lt;strong&gt;frontend&lt;/strong&gt; and &lt;strong&gt;devops&lt;/strong&gt;. 
 Each of them will include different technologies, language, frameworks, tools etc. as necessary.&lt;/p&gt;
 
-&lt;p&gt;Note on the versions: normally will go for the latest and greatest, but this might change as necessary.&lt;/p&gt;
+&lt;p&gt;Note on the versions: I will normally go for the latest and greatest, but this might change as necessary.&lt;/p&gt;
 
 &lt;h4 id=&quot;backend&quot;&gt;Backend&lt;/h4&gt;
 &lt;ul&gt;
@@ -76,7 +251,9 @@ Each of them will include different technologies, language, frameworks, tools et
   &lt;li&gt;&lt;a href=&quot;https://hub.github.com/&quot;&gt;hub&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;At a minimum, you should have an IDE, Git, Bash, Spring Boot CLI and hub.&lt;/p&gt;
+&lt;p&gt;I will update this list as necessary.&lt;/p&gt;
+
+&lt;p&gt;At a minimum, you should have: an IDE, Git, Bash, Spring Boot CLI and hub.&lt;/p&gt;
 
 &lt;h2 id=&quot;initial-preparation&quot;&gt;Initial preparation&lt;/h2&gt;
 &lt;p&gt;Let’s first set up the project skeleton considering the above.&lt;/p&gt;
@@ -89,7 +266,7 @@ Each of them will include different technologies, language, frameworks, tools et
 &lt;span class=&quot;c&quot;&gt;# this will create a folder named backend containing the Spring Boot Maven project&lt;/span&gt;
 spring init &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; shopping-list-backend &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; com.example &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;web,h2,data-jpa &lt;span class=&quot;nt&quot;&gt;--description&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;shopping list backend powered by spring boot&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; shopping-list-backend backend&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Now it is time to initialize the GH repository, we’ll be doing this from the command line too (we’ll be needing &lt;em&gt;hub&lt;/em&gt; for this).&lt;/p&gt;
+&lt;p&gt;Now it is time to initialize the GH repository, we’ll be doing this from the command line too (here comes &lt;em&gt;hub&lt;/em&gt; into play).&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;pwd&lt;/span&gt;
 &amp;lt;your-project-location&amp;gt;/shopping-list
@@ -105,15 +282,15 @@ hub create &lt;span class=&quot;nt&quot;&gt;-po&lt;/span&gt; &lt;span class=&quo
 &lt;span class=&quot;c&quot;&gt;# push the project to GitHub&lt;/span&gt;
 git push &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; origin master&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;If everything went fine, we should have by now a new project folder, &lt;code class=&quot;highlighter-rouge&quot;&gt;shopping-list&lt;/code&gt;, containing the &lt;code class=&quot;highlighter-rouge&quot;&gt;backend&lt;/code&gt; component in which resides a Spring Boot project. The content of the application project is versioned and pushed to a GitHub repository called &lt;code class=&quot;highlighter-rouge&quot;&gt;shopping-list-app&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If everything went fine, we should have now a new project folder, &lt;code class=&quot;highlighter-rouge&quot;&gt;shopping-list&lt;/code&gt;, containing the &lt;code class=&quot;highlighter-rouge&quot;&gt;backend&lt;/code&gt; component in which resides a Spring Boot project. The content of the application project is versioned and pushed to a GitHub repository called &lt;code class=&quot;highlighter-rouge&quot;&gt;shopping-list-app&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;To ascertain that the backend project runs flawlessly we can do a &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn clean install&lt;/code&gt; inside the &lt;code class=&quot;highlighter-rouge&quot;&gt;backend&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;To ascertain that the backend component is so far free of problems we can do a &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn clean verify&lt;/code&gt; inside the &lt;code class=&quot;highlighter-rouge&quot;&gt;backend&lt;/code&gt; folder.&lt;/p&gt;
 
-&lt;p&gt;The project can be found on GitHub at this &lt;a href=&quot;https://github.com/vladflore/shopping-list-app&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The GitHub repository for this project can be found at this &lt;a href=&quot;https://github.com/vladflore/shopping-list-app&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;final-words&quot;&gt;Final words&lt;/h2&gt;
 &lt;p&gt;Having done all the above gives us the grounds on which to further build our application.
-There are still some technical points to be addressed, before actually starting with the implementation, like hooking the project up to a SonarQube Server, adding an initial process of CI to it.&lt;/p&gt;
+There are still some technical points to be addressed, before actually starting with the implementation, like hooking the project up to a SonarQube Server and defining a set of quality constraints.&lt;/p&gt;
 
 &lt;p&gt;All of these will be addressed in a new post, so stay tuned!&lt;/p&gt;</content><author><name>Vlad</name></author><summary type="html">What’s all about?</summary></entry><entry><title type="html">Code Kata</title><link href="https://vladflore.github.io/code-kata" rel="alternate" type="text/html" title="Code Kata" /><published>2020-06-28T00:00:00+02:00</published><updated>2020-06-28T00:00:00+02:00</updated><id>https://vladflore.github.io/code-katas</id><content type="html" xml:base="https://vladflore.github.io/code-kata">&lt;p&gt;Lately I’ve been taking a keen interest in the idea of &lt;em&gt;writing code and getting better at it&lt;/em&gt;, and what I mean by this is not just 
 the fact of &lt;em&gt;writing code&lt;/em&gt; itself and &lt;em&gt;making it work&lt;/em&gt;, but also improving your &lt;em&gt;coding skills&lt;/em&gt;, and &lt;em&gt;the way you code&lt;/em&gt;.&lt;/p&gt;

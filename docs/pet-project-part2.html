@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Pet Project (2/) | Vlad’s Blog</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Pet Project (2/)" />
+<meta name="author" content="Vlad" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is part 2 of the Pet Project series about building a small web application from scratch." />
+<meta property="og:description" content="This is part 2 of the Pet Project series about building a small web application from scratch." />
+<link rel="canonical" href="https://vladflore.github.io/pet-project-part2" />
+<meta property="og:url" content="https://vladflore.github.io/pet-project-part2" />
+<meta property="og:site_name" content="Vlad’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-13T00:00:00+02:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Pet Project (2/)","dateModified":"2020-07-13T00:00:00+02:00","datePublished":"2020-07-13T00:00:00+02:00","url":"https://vladflore.github.io/pet-project-part2","mainEntityOfPage":{"@type":"WebPage","@id":"https://vladflore.github.io/pet-project-part2"},"author":{"@type":"Person","name":"Vlad"},"description":"This is part 2 of the Pet Project series about building a small web application from scratch.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/custom.css"><link type="application/atom+xml" rel="alternate" href="https://vladflore.github.io/feed.xml" title="Vlad's Blog" /><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171602576-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-171602576-1');
+</script>
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Vlad&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about">About</a><a class="page-link" href="/contact">Contact</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">Pet Project (2/)</h1>
+        <p class="post-meta">
+            created on:
+            <time class="dt-published" datetime="2020-07-13T00:00:00+02:00" itemprop="datePublished">Jul 13, 2020
+            </time>&nbsp;by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Vlad</span></span></p>
+    </header>
+
+    <div class="post-content e-content" itemprop="articleBody">
+        <p>This is <strong>part 2</strong> of the <strong>Pet Project series</strong> about building a small web application from scratch.</p>
+
+<p>Project posts:</p>
+<ul>
+  <li><a href="/pet-project-part1">part 1</a></li>
+</ul>
+
+<p>As stated in the final words section of the <a href="/pet-project-part1">part 1</a> post, there are still some technical points I want to address, before starting with
+the actual implementation: hooking up the project to a <em>SonarQube</em> Server and define a set of <em>quality constraints</em> for it.</p>
+
+<p>Let’s start with hooking up the backend component to the SonarQube. I will be using the SonarQube instance I installed and configured 
+in a previous post. The post <a href="/sonarqube">SonarQube on EC2</a> explains the steps required to get yourself a running instance of SonarQube. In case 
+you do not want to deal with AWS, you can as easily install SonarQube locally on your own working machine, be it physical or virtual.</p>
+
+<p>Having the infrastructure up and running let us now update the backend component with respect to the quality constraints, and 
+by this I mean enabling code coverage, <a href="https://en.wikipedia.org/wiki/Mutation_testing">mutation testing</a>, setting some code coverage metric constraints and 
+making the reports available in SonarQube.</p>
+
+<h3 id="enabling-code-coverage">Enabling code coverage</h3>
+<p>For this I will be using <a href="https://www.eclemma.org/jacoco/trunk/doc/maven.html">Maven JaCoCo Plug-in</a>. Add <code class="highlighter-rouge">jacoco-maven-plugin</code> to the <code class="highlighter-rouge">&lt;build&gt;&lt;plugins&gt;...&lt;/plugins&gt;&lt;/build&gt;</code> 
+section of your <code class="highlighter-rouge">pom.xml</code> file, as illustrated below.</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.jacoco<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jacoco-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.8.5<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>prepare-agent<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>report<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>prepare-package<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>report<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span></code></pre></figure>
+
+<p>Now do a <code class="highlighter-rouge">mvn clean verify</code> and observe that unter <code class="highlighter-rouge">/target</code> we now have a file called <code class="highlighter-rouge">jacoco.exec</code> and another folder <code class="highlighter-rouge">/site/jacoco</code>.
+The file can be interpreted by other applications, like Sonar, IntelliJ, or by plugins.
+The folder contains the code coverage report in multiple formats - HTML, XML and CSV.</p>
+
+<h3 id="adding-code-coverage-metrics-constraints">Adding code coverage metrics constraints</h3>
+<p>Adding constraints for some code coverage metrics requires configuring the jacoco plugin as below (put the block inside the <code class="highlighter-rouge">&lt;plugin&gt;&lt;/plugin&gt;</code> tags):</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;rules&gt;</span>
+        <span class="nt">&lt;rule&gt;</span>
+            <span class="nt">&lt;element&gt;</span>BUNDLE<span class="nt">&lt;/element&gt;</span>
+            <span class="nt">&lt;limits&gt;</span>
+                <span class="nt">&lt;limit&gt;</span>
+                    <span class="nt">&lt;counter&gt;</span>INSTRUCTION<span class="nt">&lt;/counter&gt;</span>
+                    <span class="nt">&lt;value&gt;</span>COVEREDRATIO<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;minimum&gt;</span>0.90<span class="nt">&lt;/minimum&gt;</span>
+                <span class="nt">&lt;/limit&gt;</span>
+                <span class="nt">&lt;limit&gt;</span>
+                    <span class="nt">&lt;counter&gt;</span>CLASS<span class="nt">&lt;/counter&gt;</span>
+                    <span class="nt">&lt;value&gt;</span>MISSEDCOUNT<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;maximum&gt;</span>0<span class="nt">&lt;/maximum&gt;</span>
+                <span class="nt">&lt;/limit&gt;</span>
+            <span class="nt">&lt;/limits&gt;</span>
+        <span class="nt">&lt;/rule&gt;</span>
+        <span class="nt">&lt;rule&gt;</span>
+            <span class="nt">&lt;element&gt;</span>CLASS<span class="nt">&lt;/element&gt;</span>
+            <span class="nt">&lt;excludes&gt;</span>
+                <span class="nt">&lt;exclude&gt;</span>*Test<span class="nt">&lt;/exclude&gt;</span>
+            <span class="nt">&lt;/excludes&gt;</span>
+            <span class="nt">&lt;limits&gt;</span>
+                <span class="nt">&lt;limit&gt;</span>
+                    <span class="nt">&lt;counter&gt;</span>LINE<span class="nt">&lt;/counter&gt;</span>
+                    <span class="nt">&lt;value&gt;</span>COVEREDRATIO<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;minimum&gt;</span>90%<span class="nt">&lt;/minimum&gt;</span>
+                <span class="nt">&lt;/limit&gt;</span>
+            <span class="nt">&lt;/limits&gt;</span>
+        <span class="nt">&lt;/rule&gt;</span>
+    <span class="nt">&lt;/rules&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span></code></pre></figure>
+
+<p>In this case I say that I want a minimum instruction coverage ratio of 90% for the whole application, our backend, no classes should be omitted, and at the class level 
+I want a minimum line coverage ratio of 90%, but not for the test classes.</p>
+
+<p>Failing to meet these conditions will result in a build fail.</p>
+
+<p>Check <a href="https://www.eclemma.org/jacoco/trunk/doc/check-mojo.html#rules">code coverage metrics</a> documentation page for more details.</p>
+
+<h3 id="adding-mutation-testing">Adding mutation testing</h3>
+
+<p>The <a href="https://pitest.org/">Pitest</a> system provides mutation testing in the Java world and can be added to a Maven project by including the <a href="https://pitest.org/quickstart/maven/">pitest maven plugin</a> and configure it accordingly.</p>
+
+<p>At a minimum we need to add the following to the <code class="highlighter-rouge">&lt;plugins&gt;</code> block:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.pitest<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>pitest-maven<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.5.2<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;outputFormats&gt;</span>
+            <span class="c">&lt;!--
+            XML for sonar and HTML to keep it as default
+            which would have been ignored if we had added only the XML
+            --&gt;</span>
+            <span class="nt">&lt;outputFormat&gt;</span>XML<span class="nt">&lt;/outputFormat&gt;</span>
+            <span class="nt">&lt;outputFormat&gt;</span>HTML<span class="nt">&lt;/outputFormat&gt;</span>
+        <span class="nt">&lt;/outputFormats&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;phase&gt;</span>test<span class="nt">&lt;/phase&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>mutationCoverage<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.pitest<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>pitest-junit5-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>0.12<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span></code></pre></figure>
+
+<p>This will bind the goal <code class="highlighter-rouge">org.pitest:pitest-maven:mutationCoverage</code> to the <code class="highlighter-rouge">test</code> phase, 
+which means it will run whenever the test phase runs, such as by <code class="highlighter-rouge">mvn clean verify</code>.</p>
+
+<blockquote>
+  <p><strong><em>NOTE 1:</em></strong> bear in mind that mutation testing can slow your unit tests, so you might want to separate them from the other tests.
+Without further configuring the plugin <em><strong>all</strong></em> your tests will be mutated, which could lead to longer than expected test execution time.
+Something similar should be done for the integration tests too. I will address all of this in the following posts, as the project progresses.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong><em>NOTE 2:</em></strong> I had to add some dummy logic to the project to avoid pitest from failing when it does not find any code to mutate, other than the code 
+scaffolding done by Spring Boot CLI when generating a new Spring Boot project. Check <a href="https://github.com/hcoles/pitest/issues/781">this link</a> for more on this matter.</p>
+</blockquote>
+
+<p>Before continuing with the next point, make sure your <em>SonarQube instance is running and configured correctly</em> regarding mutation testing. 
+Check <em>Configure SonarQube</em> section of <a href="/sonarqube">this post</a> for some guidance.</p>
+
+<h3 id="push-the-code-analysis-to-sonarqube">Push the code analysis to SonarQube</h3>
+
+<p>We first have to add the <code class="highlighter-rouge">sonar-maven-plugin</code> to the pom file, as illustrated below:</p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.sonarsource.scanner.maven<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>sonar-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.7.0.1746<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span></code></pre></figure>
+
+<p>Run the following command (change the Sonar host URL accordingly):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn clean verify sonar:sonar -Dsonar.host.url=http://&lt;IP-Address&gt;:9000
+</code></pre></div></div>
+
+<p>This should be it! Check the <a href="https://github.com/vladflore/shopping-list-app">state of the project</a> 
+containing the changes mentioned above and have a look at the screen below to see how the project looks on SonarQube.</p>
+
+<p><img src="./assets/images/sonar-pet-project.png" alt="sonar-mt-plugin" /></p>
+
+<h3 id="final-words">Final words</h3>
+
+<p>In this post we hooked up our backend project to SonarQube (I am using an instance on AWS EC2), enabled code coverage, 
+added some code coverage constraints and mutation testing. This is more of a minimalistic configuration, feel free to explore more and 
+make changes as you see fit for your project.</p>
+
+<p>Next, we will finally start writing some code to implement the first iteration of the project, as stated in <a href="/pet-project-part1">part 1</a> of this series.</p>
+
+
+    </div><a class="u-url" href="/pet-project-part2" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+    <div class="wrapper">
+        <h2 class="footer-heading">Vlad&#39;s Blog</h2>
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Vlad&#39;s Blog</li></ul>
+            </div>
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/vladflore"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">vladflore</span></a></li><li><a href="https://www.twitter.com/vlad_flore"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">vlad_flore</span></a></li></ul>
+</div>
+            <div class="footer-col footer-col-3">
+                <p>A place to share stuff about IT and life.</p>
+            </div>
+        </div>
+        <div align="center" class="copyright">
+            &copy; Vlad Flore 2020 | All rights reserved<br>
+            powered by <a href="https://jekyllrb.com/" target="_blank">jekyll</a> and <a href="https://github.com/jekyll/minima" target="_blank">minima theme</a>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>
