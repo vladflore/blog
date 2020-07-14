@@ -127,6 +127,10 @@ At a minimum we need to add the following to the `<plugins>` block:
 This will bind the goal `org.pitest:pitest-maven:mutationCoverage` to the `test` phase, 
 which means it will run whenever the test phase runs, such as by `mvn clean verify`.
 
+> **_NOTE:_** bare in mind that mutation testing can slow your unit tests, so you might want to separate them from the other tests.
+>Without further configuring the plugin _**all**_ your tests will be mutated, which could lead to longer than expected test execution time.
+>Something similar should be done for the integration tests too. I will address all of this in the following posts, as the project progresses.
+
 Before continuing with the next point, make sure your _SonarQube instance is running and configured correctly_ regarding mutation testing. 
 Check _Configure SonarQube_ section of [this post]({{ site.baseurl }}{% post_url 2020-06-04-aws-ec2-sonarqube %}) for some guidance. 
 
