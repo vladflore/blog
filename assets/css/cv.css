@@ -1,3 +1,28 @@
 body {
-    background: #B0C4DE;
+    background: #ffffff;
 }
+
+section div p:nth-child(1) {
+    background: #000000;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: fit-content;
+    padding: 1px 3px 1px 3px;
+}
+
+#links a {
+    text-decoration: underline;
+    color: #000000;
+    margin-right: 0.5rem;
+}
+
+#links a:hover {
+    color: #000000;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+
