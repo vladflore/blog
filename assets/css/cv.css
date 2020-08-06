@@ -10,7 +10,7 @@ section {
     margin-bottom: 2rem;
 }
 
-section p:nth-child(1) {
+.section-head {
     background: #000000;
     color: #ffffff;
     text-transform: uppercase;
