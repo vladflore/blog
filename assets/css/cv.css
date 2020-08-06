@@ -2,13 +2,30 @@ body {
     background: #ffffff;
 }
 
-section div p:nth-child(1) {
+.container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section p:nth-child(1) {
     background: #000000;
     color: #ffffff;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     width: fit-content;
-    padding: 1px 3px 1px 3px;
+    padding: 2px 12px 2px 12px;
+    font-size: small;
+}
+
+.job-title, .education-title, .course-title, .cert-title, .ref-title, .pres-title {
+    font-weight: 700;
+}
+
+.working-years, .education-years, .course-years, .cert-years, .pres-years {
+    color: grey;
 }
 
 #links a {
@@ -21,8 +38,14 @@ section div p:nth-child(1) {
     color: #000000;
 }
 
-section {
-    margin-bottom: 2rem;
+.jumbotron {
+    background-color: #FFE14C;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
-
+.online-profiles {
+    font-size: 2rem;
+}
