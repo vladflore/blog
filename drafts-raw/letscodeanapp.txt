@@ -1,25 +1,22 @@
-install spring boot cli
-see https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-cli.html#cli-installation
-I used the sdkman to install it
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+feature: add shopping lists and add items to each of them
 
-choose location for your app
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+shopping list
+	id
+	name
 
-create the backend using the sb cli
-spring init -a shopping-list -g dev.vladflore -d=web,h2,data-jpa --description "shopping list backend powered by spring boot" -n shopping-list-backend backend
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+item
+	id
+	name
+	quantity
+	measurement
+	dictionary_id
 
-install hub
-see https://hub.github.com/
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+dictionary
+	id
+	german
+	romanian
 
-start a new GH project something along the lines
-# create a repo to host a new project on GitHub
-git init
-git add .
-git commit -m "And so, it begins."
-hub create
-→ (creates a new GitHub repository with the name of the current directory)
-git push -u origin HEAD
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+restructured the application to accommodate multiple modules -> specification, backend etc.	
+moved .gitignore from /backend to the app parent folder
+add the openapi generator maven plugin in module specification
+define the api.yml
