@@ -9,14 +9,48 @@ item
 	name
 	quantity
 	measurement
-	dictionary_id
+	language
 
 dictionary
 	id
-	german
-	romanian
+	item_id
+	language
+	translation
 
 restructured the application to accommodate multiple modules -> specification, backend etc.	
 moved .gitignore from /backend to the app parent folder
 add the openapi generator maven plugin in module specification
 define the api.yml
+    not only post requests, but also get requests
+creating a resource should return a 201, but to comply with what defines a web service as a restful web service, the Location header should be returned too, and so we come to the HAL and HATEOAS world, in our case spring hateoas
+removed dummy class
+handled error:
+Parameter 0 of method linkDiscoverers in org.springframework.hateoas.config.HateoasConfiguration required a single bean, but 17 were found:
+	- modelBuilderPluginRegistry: defined in null
+	- modelPropertyBuilderPluginRegistry: defined in null
+	- typeNameProviderPluginRegistry: defined in null
+	- syntheticModelProviderPluginRegistry: defined in null
+	- documentationPluginRegistry: defined in null
+	- apiListingBuilderPluginRegistry: defined in null
+	- operationBuilderPluginRegistry: defined in null
+	- parameterBuilderPluginRegistry: defined in null
+	- expandedParameterBuilderPluginRegistry: defined in null
+	- resourceGroupingStrategyRegistry: defined in null
+	- operationModelsProviderPluginRegistry: defined in null
+	- defaultsProviderPluginRegistry: defined in null
+	- pathDecoratorRegistry: defined in null
+	- apiListingScannerPluginRegistry: defined in null
+	- relProviderPluginRegistry: defined by method 'relProviderPluginRegistry' in class path resource [org/springframework/hateoas/config/HateoasConfiguration.class]
+	- linkDiscovererRegistry: defined in null
+	- entityLinksPluginRegistry: defined by method 'entityLinksPluginRegistry' in class path resource [org/springframework/hateoas/config/WebMvcEntityLinksConfiguration.class]
+
+
+!!!!!!!!!!!!!!!!! GAVE UP on generating the API using generating tools! !!!!!!!!!!!!!!!!! Will continue without this!
+
+
+Documentation
+https://spring.io/guides/tutorials/rest/
+
+https://github.com/spring-projects/spring-hateoas/issues/1094
+https://github.com/springfox/springfox
+https://github.com/OpenAPITools/openapi-generator
