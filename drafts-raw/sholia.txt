@@ -54,3 +54,19 @@ https://spring.io/guides/tutorials/rest/
 https://github.com/spring-projects/spring-hateoas/issues/1094
 https://github.com/springfox/springfox
 https://github.com/OpenAPITools/openapi-generator
+
+=======================================================
+///////////////////////////////////////////////////////
+20.09.2020 + 21.09.2020
+///////////////////////////////////////////////////////
+=======================================================
+- moved to java 11
+- renamed to sholia
+- java 11 code
+- H2 file mode
+- add item unit price
+- add mapstruct and lombok
+- add ut
+- lombok fluent accessors is still experimental
+- created bash script
+- dto - entity separation

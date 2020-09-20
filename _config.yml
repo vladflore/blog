@@ -60,7 +60,6 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - publish.sh
-  - topost.txt
   - docs/
   - drafts-raw/
   - README.md
