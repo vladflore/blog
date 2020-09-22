@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/" rel="alternate" type="text/html" /><updated>2020-09-22T18:21:17+02:00</updated><id>https://vladflore.github.io/feed.xml</id><title type="html">VF_Tech</title><subtitle>A place to share stuff about software engineering and life...but mostly about software engineering</subtitle><entry><title type="html">Java 11</title><link href="https://vladflore.github.io/java-11" rel="alternate" type="text/html" title="Java 11" /><published>2020-09-22T00:00:00+02:00</published><updated>2020-09-22T00:00:00+02:00</updated><id>https://vladflore.github.io/java11</id><content type="html" xml:base="https://vladflore.github.io/java-11">&lt;p&gt;But &lt;a href=&quot;https://www.oracle.com/java/technologies/javase-downloads.html&quot; target=&quot;_blank&quot;&gt;Java&lt;/a&gt; is already at version 15, why talk about 11 ?! Well,…but before that, a note of caution:
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/" rel="alternate" type="text/html" /><updated>2020-09-22T18:24:49+02:00</updated><id>https://vladflore.github.io/feed.xml</id><title type="html">VF_Tech</title><subtitle>A place to share stuff about software engineering and life...but mostly about software engineering</subtitle><entry><title type="html">Java 11</title><link href="https://vladflore.github.io/java-11" rel="alternate" type="text/html" title="Java 11" /><published>2020-09-22T00:00:00+02:00</published><updated>2020-09-22T00:00:00+02:00</updated><id>https://vladflore.github.io/java11</id><content type="html" xml:base="https://vladflore.github.io/java-11">&lt;p&gt;But &lt;a href=&quot;https://www.oracle.com/java/technologies/javase-downloads.html&quot; target=&quot;_blank&quot;&gt;Java&lt;/a&gt; is already at version 15, why talk about 11 ?! Well,…but before that, a note of caution:
 considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this 
 is bigger than 15, it was 15 when I wrote this post!&lt;/p&gt;
 
@@ -77,10 +77,10 @@ By the way, we can choose any name we want for the script file.&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;make it executable:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ chmod u+x greet
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;u+x greet
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;and execute it:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ./greet Vlad
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./greet Vlad
 Hello Vlad!
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
