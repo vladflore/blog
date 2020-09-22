@@ -68,14 +68,13 @@ somewhere around the end of 2021, which is then the new LTS version (all of this
 
 <p>Oracle’s latest <a href="https://education.oracle.com/java-se-11-developer/pexam_1Z0-819" target="_blank">certification</a> related to Java is for version 11, again, if they do not change anything, by the time you are reading this.</p>
 
-<p>Besides, Java 11 has lots of new cool features, some of which I will be addressing in this post. Please note, that some features reached maturity with this version
-and were included as stable enhancements in the language.</p>
+<p>Besides, Java 11 has lots of new cool features, some of which I will be addressing in this post. Please note, that some features reached maturity with <em>this</em> version and were included as stable enhancements in the language.</p>
 
 <p>For a complete, detailed and kinda scary compilation of all the changes check <a href="https://cr.openjdk.java.net/~iris/se/11/latestSpec/apidiffs/overview-summary.html" target="_blank">this link</a>.</p>
 
 <p>In this post I’ll be giving a short intro with examples about <a href="https://openjdk.java.net/jeps/330" target="_blank">JEP 330</a> and <em>shebang</em> files.</p>
 
-<p>Environment configuration</p>
+<h4 id="environment-configuration">Environment configuration</h4>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OS: Ubuntu 20.04.1 LTS
 </code></pre></div></div>
@@ -100,7 +99,7 @@ drwxr-xr-x 9 vlad vlad 4096 Jul 15 11:13 14.0.2.hs-adpt/
 drwxr-xr-x 8 vlad vlad 4096 Jul 28 17:21 8.0.265.hs-adpt/
 lrwxrwxrwx 1 vlad vlad   14 Sep 21 23:21 current -&gt; 11.0.8.hs-adpt/</code></pre></figure>
 
-<p>Now, on to some cool features of Java 11…</p>
+<p>Now, on to some cool feature of Java 11…</p>
 
 <h3 id="launch-single-file-source-code-programs">Launch single-file source-code programs</h3>
 
@@ -121,7 +120,7 @@ but now we can just do:</p>
 Hello Vlad!
 </code></pre></div></div>
 
-<p>Now let’s turn this into a <em>shebang</em> file and use it like a script, a Java Script…mind the gap ;)</p>
+<p>Now let’s turn this into a <em>shebang file</em> and use it like a script, a Java Script…mind the gap ;)</p>
 
 <p>The main idea is to add a line (contains the path to the java binary) similar to this <code class="highlighter-rouge">#!/home/vlad/.sdkman/candidates/java/11.0.8.hs-adpt/bin/java --source 11</code> 
 at the beginning of a file and then the Java code after it, make the new file executable and execute it like any other sh file. 

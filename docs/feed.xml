@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/" rel="alternate" type="text/html" /><updated>2020-09-22T18:14:37+02:00</updated><id>https://vladflore.github.io/feed.xml</id><title type="html">VF_Tech</title><subtitle>A place to share stuff about software engineering and life...but mostly about software engineering</subtitle><entry><title type="html">Java 11</title><link href="https://vladflore.github.io/java-11" rel="alternate" type="text/html" title="Java 11" /><published>2020-09-22T00:00:00+02:00</published><updated>2020-09-22T00:00:00+02:00</updated><id>https://vladflore.github.io/java11</id><content type="html" xml:base="https://vladflore.github.io/java-11">&lt;p&gt;But &lt;a href=&quot;https://www.oracle.com/java/technologies/javase-downloads.html&quot; target=&quot;_blank&quot;&gt;Java&lt;/a&gt; is already at version 15, why talk about 11 ?! Well,…but before that, a note of caution:
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/" rel="alternate" type="text/html" /><updated>2020-09-22T18:21:17+02:00</updated><id>https://vladflore.github.io/feed.xml</id><title type="html">VF_Tech</title><subtitle>A place to share stuff about software engineering and life...but mostly about software engineering</subtitle><entry><title type="html">Java 11</title><link href="https://vladflore.github.io/java-11" rel="alternate" type="text/html" title="Java 11" /><published>2020-09-22T00:00:00+02:00</published><updated>2020-09-22T00:00:00+02:00</updated><id>https://vladflore.github.io/java11</id><content type="html" xml:base="https://vladflore.github.io/java-11">&lt;p&gt;But &lt;a href=&quot;https://www.oracle.com/java/technologies/javase-downloads.html&quot; target=&quot;_blank&quot;&gt;Java&lt;/a&gt; is already at version 15, why talk about 11 ?! Well,…but before that, a note of caution:
 considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this 
 is bigger than 15, it was 15 when I wrote this post!&lt;/p&gt;
 
@@ -9,14 +9,13 @@ somewhere around the end of 2021, which is then the new LTS version (all of this
 
 &lt;p&gt;Oracle’s latest &lt;a href=&quot;https://education.oracle.com/java-se-11-developer/pexam_1Z0-819&quot; target=&quot;_blank&quot;&gt;certification&lt;/a&gt; related to Java is for version 11, again, if they do not change anything, by the time you are reading this.&lt;/p&gt;
 
-&lt;p&gt;Besides, Java 11 has lots of new cool features, some of which I will be addressing in this post. Please note, that some features reached maturity with this version
-and were included as stable enhancements in the language.&lt;/p&gt;
+&lt;p&gt;Besides, Java 11 has lots of new cool features, some of which I will be addressing in this post. Please note, that some features reached maturity with &lt;em&gt;this&lt;/em&gt; version and were included as stable enhancements in the language.&lt;/p&gt;
 
 &lt;p&gt;For a complete, detailed and kinda scary compilation of all the changes check &lt;a href=&quot;https://cr.openjdk.java.net/~iris/se/11/latestSpec/apidiffs/overview-summary.html&quot; target=&quot;_blank&quot;&gt;this link&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In this post I’ll be giving a short intro with examples about &lt;a href=&quot;https://openjdk.java.net/jeps/330&quot; target=&quot;_blank&quot;&gt;JEP 330&lt;/a&gt; and &lt;em&gt;shebang&lt;/em&gt; files.&lt;/p&gt;
 
-&lt;p&gt;Environment configuration&lt;/p&gt;
+&lt;h4 id=&quot;environment-configuration&quot;&gt;Environment configuration&lt;/h4&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;OS: Ubuntu 20.04.1 LTS
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -41,7 +40,7 @@ drwxr-xr-x 9 vlad vlad 4096 Jul 15 11:13 14.0.2.hs-adpt/
 drwxr-xr-x 8 vlad vlad 4096 Jul 28 17:21 8.0.265.hs-adpt/
 lrwxrwxrwx 1 vlad vlad   14 Sep 21 23:21 current -&amp;gt; 11.0.8.hs-adpt/&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Now, on to some cool features of Java 11…&lt;/p&gt;
+&lt;p&gt;Now, on to some cool feature of Java 11…&lt;/p&gt;
 
 &lt;h3 id=&quot;launch-single-file-source-code-programs&quot;&gt;Launch single-file source-code programs&lt;/h3&gt;
 
@@ -62,7 +61,7 @@ but now we can just do:&lt;/p&gt;
 Hello Vlad!
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Now let’s turn this into a &lt;em&gt;shebang&lt;/em&gt; file and use it like a script, a Java Script…mind the gap ;)&lt;/p&gt;
+&lt;p&gt;Now let’s turn this into a &lt;em&gt;shebang file&lt;/em&gt; and use it like a script, a Java Script…mind the gap ;)&lt;/p&gt;
 
 &lt;p&gt;The main idea is to add a line (contains the path to the java binary) similar to this &lt;code class=&quot;highlighter-rouge&quot;&gt;#!/home/vlad/.sdkman/candidates/java/11.0.8.hs-adpt/bin/java --source 11&lt;/code&gt; 
 at the beginning of a file and then the Java code after it, make the new file executable and execute it like any other sh file. 
