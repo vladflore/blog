@@ -15,14 +15,13 @@ somewhere around the end of 2021, which is then the new LTS version (all of this
 
 Oracle's latest [certification]{:target="_blank"} related to Java is for version 11, again, if they do not change anything, by the time you are reading this.
 
-Besides, Java 11 has lots of new cool features, some of which I will be addressing in this post. Please note, that some features reached maturity with this version
-and were included as stable enhancements in the language.
+Besides, Java 11 has lots of new cool features, some of which I will be addressing in this post. Please note, that some features reached maturity with _this_ version and were included as stable enhancements in the language.
 
 For a complete, detailed and kinda scary compilation of all the changes check [this link][changes]{:target="_blank"}.
 
 In this post I'll be giving a short intro with examples about [JEP 330][jep330]{:target="_blank"} and _shebang_ files.
 
-Environment configuration
+#### Environment configuration
 
 ```
 OS: Ubuntu 20.04.1 LTS
@@ -52,7 +51,7 @@ drwxr-xr-x 8 vlad vlad 4096 Jul 28 17:21 8.0.265.hs-adpt/
 lrwxrwxrwx 1 vlad vlad   14 Sep 21 23:21 current -> 11.0.8.hs-adpt/
 {% endhighlight %}
 
-Now, on to some cool features of Java 11...
+Now, on to some cool feature of Java 11...
 
 ### Launch single-file source-code programs
 
@@ -76,7 +75,7 @@ $ java Greeter.java Vlad
 Hello Vlad!
 ```
 
-Now let's turn this into a _shebang_ file and use it like a script, a Java Script...mind the gap ;)
+Now let's turn this into a _shebang file_ and use it like a script, a Java Script...mind the gap ;)
 
 The main idea is to add a line (contains the path to the java binary) similar to this `#!/home/vlad/.sdkman/candidates/java/11.0.8.hs-adpt/bin/java --source 11` 
 at the beginning of a file and then the Java code after it, make the new file executable and execute it like any other sh file. 
