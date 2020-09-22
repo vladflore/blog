@@ -5,7 +5,8 @@ permalink: /about
 ---
 Hi Internet,
 
-this is Vlad writing.
+this is Vlad writing and welcome to my corner of Internet where I share things about **Software Engineering** in particular and **Computer Science** in general.
+
 I'm not that big on talking about myself, so I'm just gonna keep it short and to the point:
 
 _**Q:**_ Who are you, Vlad?
@@ -14,9 +15,9 @@ _**A:**_ Just a man on this planet, currently living in Germany and working as a
 I love learning new things and challenging myself with new endeavours, especially when it comes to Computer Science and Technology.
 I also like travelling and exploring new places.
 
-Check my [Linkedin][Linkedin](English) and [Xing][Xing](German) profiles should you want to learn more about the professional Vlad.
+Check my [Linkedin][Linkedin]{:target="_blank"} (English) and [Xing][Xing]{:target="_blank"} (German) profiles should you want to learn more about the professional Vlad.
 
-Fell free to have a look at the [GitHub] profile should you be interested into my commits.
+Fell free to have a look at the [GitHub]{:target="_blank"} profile should you be interested into my commits.
 
 _**Q:**_ Why a blog?
 
@@ -25,7 +26,7 @@ Because I do not give up that easily, I said to myself it was time to give it an
 
 _**Q:**_ What will you be blogging about?
 
-_**A:**_ Mainly about Information Technology (IT) / Computer Science (CS) and should the muses be on my side about life and co.
+_**A:**_ Mainly about **Software Engineering** / **Computer Science** and should the muses be on my side about life and co.
 
 Happy reading and c ya on the net!
 

@@ -1,0 +1,6 @@
+---
+layout: post
+title: Java 11
+permalink: /java-11
+author: Vlad
+---
