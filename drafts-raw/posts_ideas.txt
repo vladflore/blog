@@ -1,8 +1,2 @@
 POST
 ====
-jshell and jep 330 launch single-files source-code programms (scripting)
-
-see /home/vlad/vladflore.dev/sandbox/java11
-
-https://cr.openjdk.java.net/~iris/se/11/latestSpec/apidiffs/java/lang/String.html
-https://openjdk.java.net/jeps/330

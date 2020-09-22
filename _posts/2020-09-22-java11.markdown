@@ -4,3 +4,192 @@ title: Java 11
 permalink: /java-11
 author: Vlad
 ---
+But [Java]{:target="_blank"} is already at version 15, why talk about 11 ?! Well,...but before that, a note of caution:
+considering the release cycle of Java nowadays, it might be that the current version of Java at the time you are reading this 
+is bigger than 15, it was 15 when I wrote this post!
+
+Now, let's continue...
+
+Java 11 is the current (see note of caution above) LTS version, and will stay like that until Java 17 appears, which should be
+somewhere around the end of 2021, which is then the new LTS version (all of this hold true iff Oracle doesn't change something in the whole release plan).
+
+Oracle's latest [certification]{:target="_blank"} related to Java is for version 11, again, if they do not change anything, by the time you are reading this.
+
+Besides, Java 11 has lots of new cool features, some of which I will be addressing in this post. Please note, that some features reached maturity with this version
+and were included as stable enhancements in the language.
+
+For a complete, detailed and kinda scary compilation of all the changes check [this link][changes]{:target="_blank"}.
+
+In this post I'll be giving a short intro with examples about [JEP 330][jep330]{:target="_blank"} and _shebang_ files.
+
+Environment configuration
+
+```
+OS: Ubuntu 20.04.1 LTS
+```
+
+{% highlight sh%}
+$ java --version
+openjdk 11.0.8 2020-07-14
+OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.8+10)
+OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.8+10, mixed mode)
+{% endhighlight %}
+
+I use [sdkman] to manage the versions of Java I use on my system and as such I have this:
+
+{% highlight sh%}
+$ whereis java
+java: /etc/java /usr/share/java /home/vlad/.sdkman/candidates/java/11.0.8.hs-adpt/bin/java
+$ which java
+/home/vlad/.sdkman/candidates/java/current/bin/java
+$ ll /home/vlad/.sdkman/candidates/java/
+...
+drwxr-xr-x 5 vlad vlad 4096 Sep 21 23:22 ./
+drwxr-xr-x 5 vlad vlad 4096 Jun 30 17:24 ../
+drwxr-xr-x 9 vlad vlad 4096 Jul 15 11:08 11.0.8.hs-adpt/
+drwxr-xr-x 9 vlad vlad 4096 Jul 15 11:13 14.0.2.hs-adpt/
+drwxr-xr-x 8 vlad vlad 4096 Jul 28 17:21 8.0.265.hs-adpt/
+lrwxrwxrwx 1 vlad vlad   14 Sep 21 23:21 current -> 11.0.8.hs-adpt/
+{% endhighlight %}
+
+Now, on to some cool features of Java 11...
+
+### Launch single-file source-code programs
+
+As per [JEP 330][jep330]{:target="_blank"} we now have the possibility to launch single-file source-code programs.
+
+Let's code the simplest, politest Java program:
+
+{% highlight java%}
+public class Greeter {
+    public static void main(String[] args){
+        System.out.println("Hello " + args[0] + "!");
+    }
+}
+{% endhighlight %}
+
+Normally we would need to compile it with `javac` and get that `.class` file and then run it with `java` to see the greeting,
+but now we can just do:
+
+```sh
+$ java Greeter.java Vlad
+Hello Vlad!
+```
+
+Now let's turn this into a _shebang_ file and use it like a script, a Java Script...mind the gap ;)
+
+The main idea is to add a line (contains the path to the java binary) similar to this `#!/home/vlad/.sdkman/candidates/java/11.0.8.hs-adpt/bin/java --source 11` 
+at the beginning of a file and then the Java code after it, make the new file executable and execute it like any other sh file. 
+By the way, we can choose any name we want for the script file.
+
+Content of `greet` file:
+```java
+#!/home/vlad/.sdkman/candidates/java/11.0.8.hs-adpt/bin/java --source 11
+
+public class Greeter {
+    public static void main(String[] args){
+        System.out.println("Hello " + args[0] + "!");
+    }
+}
+```
+make it executable:
+```
+$ chmod u+x greet
+```
+and execute it:
+```
+$ ./greet Vlad
+Hello Vlad!
+```
+
+Let's spice things up a bit and implement another more complex example: this time we want to take some text, line by line, 
+and display only the lines that match a given regular expression (basically a simplified version of `grep` command).
+
+Content of `grep` file:
+```java
+#!/home/vlad/.sdkman/candidates/java/11.0.8.hs-adpt/bin/java --source 11
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
+
+public class Grep {
+    public static void main(String[] args) throws IOException {
+        // some arguments validation
+        if (args.length < 1 || args.length > 2) {
+            showUsage();
+            return;
+        }
+
+        var option = "";
+        var strPattern = "";
+
+        // some more arguments validation and extraction of the actual arguments
+        if (args.length == 1) {
+            if (args[0].startsWith("-")) {
+                showUsage();
+                return;
+            } else {
+                strPattern = args[0];
+            }
+        }
+
+        if (args.length == 2) {
+            if (args[0].startsWith("-")) {
+                option = args[0];
+                strPattern = args[1];
+            } else {
+                showUsage();
+                return;
+            }
+        }
+
+        // is it a case-insensitive search
+        var isCaseSensitive = true;
+        if (option.equals("-i")) {
+            isCaseSensitive = false;
+        }
+
+        var reader = new BufferedReader(new InputStreamReader(System.in));
+        Stream<String> lines = Stream.empty();
+        if (reader.ready()) {
+            lines = reader.lines();
+        }
+        var regex = (isCaseSensitive ? "" : "(?i)") + ".*" + strPattern + ".*";
+
+        // new Java 11 feature
+        // see https://cr.openjdk.java.net/~iris/se/11/latestSpec/apidiffs/java/util/regex/Pattern.html
+        var asMatchPredicate = Pattern.compile(regex).asMatchPredicate();
+        lines.filter(asMatchPredicate).forEach(System.out::println);
+    }
+
+    private static void showUsage() {
+        System.out.println("Usage: ./grep [-i] PATTERN");
+    }
+}
+```
+Make the file executable and then you can execute it like this:
+```sh
+$ echo -e "aaa\nbbb\nccc" | ./grep -i CCC
+ccc
+$ echo -e "aaa\nbbb\nccc" | ./grep -i C{3}
+ccc
+$ echo -e "aaa\nbbb\nccc\n" > content
+$ cat content | ./grep -i CCC
+ccc
+```
+
+There you have it, scripting in Java has never been easier.
+
+The examples are available [in this GitHub repo][repo]{:target="_blank"}.
+
+Happy coding in Java 11!
+
+[Java]:https://www.oracle.com/java/technologies/javase-downloads.html
+[certification]:https://education.oracle.com/java-se-11-developer/pexam_1Z0-819
+[changes]:https://cr.openjdk.java.net/~iris/se/11/latestSpec/apidiffs/overview-summary.html
+[jep330]:https://openjdk.java.net/jeps/330
+[sdkman]:https://sdkman.io/
+[repo]:https://github.com/vladflore/java11
