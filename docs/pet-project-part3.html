@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Pet Project (3/) | VF_Tech</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Pet Project (3/)" />
+<meta name="author" content="Vlad" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is part 3 of the Pet Project series about building a small web application from scratch." />
+<meta property="og:description" content="This is part 3 of the Pet Project series about building a small web application from scratch." />
+<link rel="canonical" href="https://vladflore.github.io/pet-project-part3" />
+<meta property="og:url" content="https://vladflore.github.io/pet-project-part3" />
+<meta property="og:site_name" content="VF_Tech" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-06T00:00:00+02:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Pet Project (3/)","dateModified":"2020-10-06T00:00:00+02:00","datePublished":"2020-10-06T00:00:00+02:00","author":{"@type":"Person","name":"Vlad"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://vladflore.github.io/pet-project-part3"},"description":"This is part 3 of the Pet Project series about building a small web application from scratch.","url":"https://vladflore.github.io/pet-project-part3","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/css/custom.css"><link type="application/atom+xml" rel="alternate" href="https://vladflore.github.io/feed.xml" title="VF_Tech" /><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171602576-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-171602576-1');
+</script>
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">VF_Tech</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about">About</a><a class="page-link" href="/contact">Contact</a><a class="page-link" href="/cv">Curriculum Vitae</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">Pet Project (3/)</h1>
+        <p class="post-meta">
+            created on:
+            <time class="dt-published" datetime="2020-10-06T00:00:00+02:00" itemprop="datePublished">Oct 6, 2020
+            </time>&nbsp;by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Vlad</span></span></p>
+    </header>
+
+    <div class="post-content e-content" itemprop="articleBody">
+        <p>This is <strong>part 3</strong> of the <strong>Pet Project series</strong> about building a small web application from scratch.</p>
+
+<h3 id="the-road-so-far">The road so far</h3>
+
+<p>Check the other posts to see where we are coming from:</p>
+<ul>
+  <li><a href="/pet-project-part1">part 1</a></li>
+  <li><a href="/pet-project-part2">part 2</a></li>
+</ul>
+
+<h3 id="the-present">The present</h3>
+
+<p>After some time off and dealing with other responsibilities, which required my attention, here is a new post on building
+a small web application from scratch. With this update we went pretty far on the implementation road, and we are now one step closer
+to having a functional backend. Just as a reminder, the application we are building is a shopping list application with the help of which
+the user can manage their shopping experience and keep track of items (to buy) by grouping them into lists.</p>
+
+<p>This is what I’ve added with this iteration:</p>
+
+<ul>
+  <li>endpoints for handling items and shopping lists:
+    <ul>
+      <li>create item</li>
+      <li>get items, either all of them, or only those which contain a given text in their name</li>
+      <li>create shopping list</li>
+      <li>get shopping lists, either all of them, or only those which contain a given text in their name</li>
+      <li>get items belonging to a shopping lists</li>
+      <li>add item to a shopping list</li>
+    </ul>
+  </li>
+</ul>
+
+<p>You may have noticed, there is no delete operation, this feature will come in the near future, so stay tuned.</p>
+
+<ul>
+  <li>in-memory database, H2, configured to save the database files on the file system (see <code class="highlighter-rouge">application.properties</code>)</li>
+  <li>H2 compliant script, <code class="highlighter-rouge">schema.sql</code>, which is executed when the app starts and creates the database objects required by the application (a complete wipe takes place beforehand)</li>
+  <li>ability to populate the database with real-life data (taken from my own shopping experience) by means of a <code class="highlighter-rouge">CommandLineRunner</code> bean</li>
+  <li>a test script, <code class="highlighter-rouge">requests.sh</code>, which depicts a real life scenario, for this I actually used the IntelliJ feature <code class="highlighter-rouge">Generate HTTP Request</code>
+to generate the requests and then I packed them all in an executable file</li>
+</ul>
+
+<h3 id="technical-implementation-aspects">Technical Implementation aspects</h3>
+
+<p>I tried to keep things as simple as possible and to follow good software development practices.
+Please note that this is a work in progress and that things <em>will</em> change.
+That being said, here is a summary of the development experience and status quo.</p>
+
+<p>I tried to go with a <strong>package by feature</strong> approach for organizing the code, with this approach we have two packages,
+which bring the attention to the domain of the application, domain which comprises <em>items</em> and <em>shopping lists</em>.
+All the <em>technical pieces</em> reside within these two packages, provided it makes sense for them to be there.
+By <em>technical pieces</em> I mean <strong>Controllers</strong> (web layer), <strong>Services</strong> (business), <strong>Repositories</strong> (database access), <strong>Models</strong> (domain itself)
+and other objects that together contribute to the business logic of the application.</p>
+
+<p>I use <code class="highlighter-rouge">Enum</code>s to group different related values under the same name, <strong>Data Transfer Objects</strong> (DTOs) to move data between boundaries,
+<strong>Mapstruct</strong> to convert one object into another, <strong>Lombok</strong> to get rid of that annoying boilerplate code, <strong>validation</strong> - <code class="highlighter-rouge">javax.validation.*</code> to insure
+data validity, <strong>Jackson</strong> to easily process JSON data. As I am using <strong>Spring Framework</strong> and <strong>Spring Boot</strong>, a huge part of the heavy lifting is done by the framework,
+dependency injection, database access and so on.</p>
+
+<p>The diagram below depicts a part of the model(note that it does not include all the objects involved in the business logic):</p>
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="391px" preserveAspectRatio="none" style="width:587px;height:391px;" version="1.1" viewBox="0 0 587 391" width="587px" zoomAndPan="magnify"><defs><filter height="300%" id="fu3g3glxc8ct3" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="143" x="225.5" y="16.708">Domain Objects</text><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="122" x="236" y="37.6611">Sholia Project</text><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="0" x="300" y="58.6143"/><!--MD5=[44a1b4afaef76c16e6c9ec4990ad0c8d]
+class Item--><rect fill="#FEFECE" filter="url(#fu3g3glxc8ct3)" height="163.2422" id="Item" style="stroke: #A80036; stroke-width: 1.5;" width="222" x="6" y="70.8594"/><ellipse cx="98.75" cy="86.8594" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M101.2344,92.7344 Q100.6563,93.0469 100.0156,93.2031 Q99.375,93.3594 98.6719,93.3594 Q96.1563,93.3594 94.8281,91.6875 Q93.5156,90.0156 93.5156,86.8594 Q93.5156,83.7031 94.8281,82.0313 Q96.1563,80.3594 98.6719,80.3594 Q99.375,80.3594 100.0156,80.5156 Q100.6719,80.6719 101.2344,80.9844 L101.2344,83.7813 Q100.5938,83.2031 100,82.9375 Q99.4063,82.6719 98.7813,82.6719 Q97.4375,82.6719 96.75,83.7344 Q96.0625,84.7813 96.0625,86.8594 Q96.0625,88.9375 96.75,90 Q97.4375,91.0469 98.7813,91.0469 Q99.4063,91.0469 100,90.7813 Q100.5938,90.5156 101.2344,89.9375 L101.2344,92.7344 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="28" x="119.25" y="91.0083">Item</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="227" y1="102.8594" y2="102.8594"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="110.8594"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="45" x="26" y="117.0698">id: Long</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="123.6641"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="26" y="129.8745">name: String</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="136.4688"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="93" x="26" y="142.6792">quantity: Double</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="149.2734"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="196" x="26" y="155.4839">measurement: MeasurementEnum</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="162.0781"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="147" x="26" y="168.2886">language: LanguageEnum</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="174.8828"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="142" x="26" y="181.0933">pricePerQuantity: Double</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="187.6875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="68" x="26" y="193.8979">shop: String</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="200.4922"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="72" x="26" y="206.7026">notes: String</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="213.2969"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="142" x="26" y="219.5073">currency: CurrencyEnum</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="227" y1="226.1016" y2="226.1016"/><!--MD5=[9630763e33facf945baa437552379d6e]
+class ShoppingList--><rect fill="#FEFECE" filter="url(#fu3g3glxc8ct3)" height="86.4141" id="ShoppingList" style="stroke: #A80036; stroke-width: 1.5;" width="127" x="263.5" y="109.3594"/><ellipse cx="285.7" cy="125.3594" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M288.1844,131.2344 Q287.6063,131.5469 286.9656,131.7031 Q286.325,131.8594 285.6219,131.8594 Q283.1063,131.8594 281.7781,130.1875 Q280.4656,128.5156 280.4656,125.3594 Q280.4656,122.2031 281.7781,120.5313 Q283.1063,118.8594 285.6219,118.8594 Q286.325,118.8594 286.9656,119.0156 Q287.6219,119.1719 288.1844,119.4844 L288.1844,122.2813 Q287.5438,121.7031 286.95,121.4375 Q286.3563,121.1719 285.7313,121.1719 Q284.3875,121.1719 283.7,122.2344 Q283.0125,123.2813 283.0125,125.3594 Q283.0125,127.4375 283.7,128.5 Q284.3875,129.5469 285.7313,129.5469 Q286.3563,129.5469 286.95,129.2813 Q287.5438,129.0156 288.1844,128.4375 L288.1844,131.2344 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="79" x="301.3" y="129.5083">ShoppingList</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="264.5" x2="389.5" y1="141.3594" y2="141.3594"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="271.5" y="149.3594"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="45" x="283.5" y="155.5698">id: Long</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="271.5" y="162.1641"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="283.5" y="168.3745">name: String</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="271.5" y="174.9688"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="101" x="283.5" y="181.1792">items: List&lt;Item&gt;</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="264.5" x2="389.5" y1="187.7734" y2="187.7734"/><!--MD5=[f942659406c6b8d57ba4bbf962e741bb]
+class MeasurementEnum--><rect fill="#FEFECE" filter="url(#fu3g3glxc8ct3)" height="99.2188" id="MeasurementEnum" style="stroke: #A80036; stroke-width: 1.5;" width="150" x="426" y="102.8594"/><ellipse cx="441" cy="118.8594" fill="#EB937F" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M445.125,125.3594 L437.3906,125.3594 L437.3906,112.3594 L445.125,112.3594 L445.125,114.625 L439.8438,114.625 L439.8438,117.3594 L444.625,117.3594 L444.625,119.625 L439.8438,119.625 L439.8438,123.0938 L445.125,123.0938 L445.125,125.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="118" x="455" y="123.0083">MeasurementEnum</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="427" x2="575" y1="134.8594" y2="134.8594"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="9" x="432" y="149.0698">G</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="16" x="432" y="161.8745">KG</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="6" x="432" y="174.6792">L</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="15" x="432" y="187.4839">PC</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="427" x2="575" y1="194.0781" y2="194.0781"/><!--MD5=[e2bf785f0e495272737a5e0f47020f68]
+class LanguageEnum--><rect fill="#FEFECE" filter="url(#fu3g3glxc8ct3)" height="86.4141" id="LanguageEnum" style="stroke: #A80036; stroke-width: 1.5;" width="128" x="53" y="293.8594"/><ellipse cx="68" cy="309.8594" fill="#EB937F" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M72.125,316.3594 L64.3906,316.3594 L64.3906,303.3594 L72.125,303.3594 L72.125,305.625 L66.8438,305.625 L66.8438,308.3594 L71.625,308.3594 L71.625,310.625 L66.8438,310.625 L66.8438,314.0938 L72.125,314.0938 L72.125,316.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="96" x="82" y="314.0083">LanguageEnum</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="54" x2="180" y1="325.8594" y2="325.8594"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="15" x="59" y="340.0698">EN</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="15" x="59" y="352.8745">DE</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="17" x="59" y="365.6792">RO</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="54" x2="180" y1="372.2734" y2="372.2734"/><!--MD5=[4260f3b4452d5e63cf2fdc2625c787c5]
+class CurrencyEnum--><rect fill="#FEFECE" filter="url(#fu3g3glxc8ct3)" height="86.4141" id="CurrencyEnum" style="stroke: #A80036; stroke-width: 1.5;" width="123" x="216.5" y="293.8594"/><ellipse cx="231.5" cy="309.8594" fill="#EB937F" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M235.625,316.3594 L227.8906,316.3594 L227.8906,303.3594 L235.625,303.3594 L235.625,305.625 L230.3438,305.625 L230.3438,308.3594 L235.125,308.3594 L235.125,310.625 L230.3438,310.625 L230.3438,314.0938 L235.625,314.0938 L235.625,316.3594 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="91" x="245.5" y="314.0083">CurrencyEnum</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="217.5" x2="338.5" y1="325.8594" y2="325.8594"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="32" x="222.5" y="340.0698">EURO</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="45" x="222.5" y="352.8745">DOLLAR</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="25" x="222.5" y="365.6792">RON</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="217.5" x2="338.5" y1="372.2734" y2="372.2734"/><!--MD5=[3e4f0a373ca11bbb549a93598af5f23e]
+link Item to ShoppingList--><!--MD5=[ce6969e8a0c437b7dc8ad8c699ce3b4a]
+link ShoppingList to MeasurementEnum--><!--MD5=[ba8fece8fddd616f651b1a0ad65073e5]
+link Item to LanguageEnum--><!--MD5=[5a3dee67b3893c4e27cb87e5d359c842]
+link LanguageEnum to CurrencyEnum--><!--MD5=[fe6bacac23326eba3c7555b4c88000ef]
+@startuml
+
+title Domain Objects\nSholia Project\n
+
+class Item {
+- id: Long
+- name: String
+- quantity: Double
+- measurement: MeasurementEnum
+- language: LanguageEnum
+- pricePerQuantity: Double
+- shop: String
+- notes: String
+- currency: CurrencyEnum
+}
+
+class ShoppingList{
+- id: Long
+- name: String
+- items: List<Item>
+}
+
+enum MeasurementEnum {
+G
+KG
+L
+PC
+}
+
+enum LanguageEnum{
+EN
+DE
+RO
+}
+
+enum CurrencyEnum{
+EURO
+DOLLAR
+RON
+}
+
+@enduml
+
+PlantUML version 1.2020.09(Sun May 10 12:51:06 CEST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.8+10-b944.31
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
+
+<p>The code is available on <a href="https://github.com/vladflore/shopping-list-app/tree/master/backend/src/main/java/tech/vladflore/sholia">GitHub</a>.</p>
+
+<p>Happy coding and see you next time!</p>
+
+
+    </div><a class="u-url" href="/pet-project-part3" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+    <div class="wrapper">
+        <h2 class="footer-heading">VF_Tech</h2>
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">VF_Tech</li></ul>
+            </div>
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/vladflore"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">vladflore</span></a></li><li><a href="https://www.twitter.com/vlad_flore"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">vlad_flore</span></a></li></ul>
+</div>
+            <div class="footer-col footer-col-3">
+                <p>A place to share stuff about software engineering and life...but mostly about software engineering</p>
+            </div>
+        </div>
+        <div align="center" class="copyright">
+            &copy; vladflore.tech 2020 | All rights reserved<br>
+            powered by <a href="https://jekyllrb.com/" target="_blank">jekyll</a> and <a href="https://github.com/jekyll/minima" target="_blank">minima theme</a>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>
