@@ -3,11 +3,13 @@ layout: post
 title: Pet Project (2/)
 permalink: /pet-project-part2
 author: Vlad
+modified_date: 2020-10-06
 ---
 This is **part 2** of the **Pet Project series** about building a small web application from scratch.
 
 Project posts:
 * [part 1]
+* [part 3]
 
 As stated in the final words section of the [part 1] post, there are still some technical points I want to address, before starting with
 the actual implementation: hooking up the project to a _SonarQube_ Server and define a set of _quality constraints_ for it. 
@@ -179,6 +181,7 @@ make changes as you see fit for your project.
 Next, we will finally start writing some code to implement the first iteration of the project, as stated in [part 1] of this series.
 
 [part 1]: {{ site.baseurl }}{% post_url 2020-07-06-pet-project-part1 %}
+[part 3]: {{ site.baseurl }}{% post_url 2020-10-06-pet-project-part3 %}
 [SonarQube on EC2]: {{ site.baseurl }}{% post_url 2020-06-04-aws-ec2-sonarqube %}
 [Maven JaCoCo Plug-in]: https://www.eclemma.org/jacoco/trunk/doc/maven.html
 [code coverage metrics]: https://www.eclemma.org/jacoco/trunk/doc/check-mojo.html#rules

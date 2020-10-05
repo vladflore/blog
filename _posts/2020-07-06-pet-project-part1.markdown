@@ -3,7 +3,7 @@ layout: post
 title: Pet Project (1/)
 permalink: /pet-project-part1
 author: Vlad
-modified_date: 2020-07-14
+modified_date: 2020-10-06
 ---
 ## What's all about?
 
@@ -14,6 +14,7 @@ You are right, _**practice**_ is the best way of achieving that.
 
 Project posts:
 * [part 2]({{ site.baseurl }}{% post_url 2020-07-14-pet-project-part2 %})
+* [part 3]({{ site.baseurl }}{% post_url 2020-10-06-pet-project-part3 %})
 
 ## The motivation behind
 
