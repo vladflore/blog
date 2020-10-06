@@ -33,14 +33,14 @@ You may have noticed, there is no delete operation, this feature will come in th
 
 * in-memory database, H2, configured to save the database files on the file system (see `application.properties`)
 * H2 compliant script, `schema.sql`, which is executed when the app starts and creates the database objects required by the application (a complete wipe takes place beforehand)
-* ability to populate the database with real-life data (taken from my own shopping experience) by means of a `CommandLineRunner` bean
-* a test script, `requests.sh`, which depicts a real life scenario, for this I actually used the IntelliJ feature `Generate HTTP Request`
+* ability to populate the database with real-life data by means of a `CommandLineRunner` bean, which reads a `.csv` file and inserts the data into the database
+* a test script, `requests.sh`, which depicts a real life scenario, for this I actually used the IntelliJ feature _Generate HTTP Request_
 to generate the requests and then I packed them all in an executable file
+* project uses now Java 11 (keeping up with the Java LTS versions)
 
 ### Technical Implementation aspects
 
-I tried to keep things as simple as possible and to follow good software development practices.
-Please note that this is a work in progress and that things _will_ change.
+I tried to keep things as simple as possible and to follow good software development practices. Please note that this is a work in progress and that things _will_ change.
 That being said, here is a summary of the development experience and status quo.
 
 I tried to go with a **package by feature** approach for organizing the code, with this approach we have two packages,
@@ -54,14 +54,26 @@ I use `Enum`s to group different related values under the same name, **Data Tran
 data validity, **Jackson** to easily process JSON data. As I am using **Spring Framework** and **Spring Boot**, a huge part of the heavy lifting is done by the framework,
 dependency injection, database access and so on.
 
-The diagram below depicts a part of the model(note that it does not include all the objects involved in the business logic):
+The diagram below depicts a part of the model:
 
 {% include_relative model.md %}
 
-The code is available on [GitHub].
+You will be seeing more of this kind of diagrams as the project advances (I created them using [PlantUML] and a [plugin] for IntelliJ and exporting them as .svg).
+Think of them as _diagram as code_, which means, one writes some special code, which is then transformed into a .svg or image of even .pdf, code which can be versioned.
 
-Happy coding and see you next time!
+### Final words
+
+This post is more of a status report, and a bird's-eye view of the current project iteration. We are now at the point where we could start building a fancier kind of client, 
+other than some .sh scripts, and send requests to the backend to create and get items and shopping lists. As necessary, the business logic will change to make room to other
+features as I discover them from my own shopping experience. There is still a lot of work ahead - new client, a more stable backend, CI/CD process, Infrastructure etc., so stay tuned
+for the next update.
+
+The current state of the project is available on [GitHub].
+
+Take care and 'til next time!
 
 [part 1]: {{ site.baseurl }}{% post_url 2020-07-06-pet-project-part1 %}
 [part 2]: {{ site.baseurl }}{% post_url 2020-07-14-pet-project-part2 %}
 [GitHub]: https://github.com/vladflore/shopping-list-app/tree/master/backend/src/main/java/tech/vladflore/sholia
+[PlantUML]: https://plantuml.com/
+[plugin]: https://plugins.jetbrains.com/plugin/7017-plantuml-integration
