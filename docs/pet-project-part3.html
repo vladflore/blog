@@ -94,15 +94,15 @@ the user can manage their shopping experience and keep track of items (to buy) b
 <ul>
   <li>in-memory database, H2, configured to save the database files on the file system (see <code class="highlighter-rouge">application.properties</code>)</li>
   <li>H2 compliant script, <code class="highlighter-rouge">schema.sql</code>, which is executed when the app starts and creates the database objects required by the application (a complete wipe takes place beforehand)</li>
-  <li>ability to populate the database with real-life data (taken from my own shopping experience) by means of a <code class="highlighter-rouge">CommandLineRunner</code> bean</li>
-  <li>a test script, <code class="highlighter-rouge">requests.sh</code>, which depicts a real life scenario, for this I actually used the IntelliJ feature <code class="highlighter-rouge">Generate HTTP Request</code>
+  <li>ability to populate the database with real-life data by means of a <code class="highlighter-rouge">CommandLineRunner</code> bean, which reads a <code class="highlighter-rouge">.csv</code> file and inserts the data into the database</li>
+  <li>a test script, <code class="highlighter-rouge">requests.sh</code>, which depicts a real life scenario, for this I actually used the IntelliJ feature <em>Generate HTTP Request</em>
 to generate the requests and then I packed them all in an executable file</li>
+  <li>project uses now Java 11 (keeping up with the Java LTS versions)</li>
 </ul>
 
 <h3 id="technical-implementation-aspects">Technical Implementation aspects</h3>
 
-<p>I tried to keep things as simple as possible and to follow good software development practices.
-Please note that this is a work in progress and that things <em>will</em> change.
+<p>I tried to keep things as simple as possible and to follow good software development practices. Please note that this is a work in progress and that things <em>will</em> change.
 That being said, here is a summary of the development experience and status quo.</p>
 
 <p>I tried to go with a <strong>package by feature</strong> approach for organizing the code, with this approach we have two packages,
@@ -116,7 +116,7 @@ and other objects that together contribute to the business logic of the applicat
 data validity, <strong>Jackson</strong> to easily process JSON data. As I am using <strong>Spring Framework</strong> and <strong>Spring Boot</strong>, a huge part of the heavy lifting is done by the framework,
 dependency injection, database access and so on.</p>
 
-<p>The diagram below depicts a part of the model(note that it does not include all the objects involved in the business logic):</p>
+<p>The diagram below depicts a part of the model:</p>
 
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="391px" preserveAspectRatio="none" style="width:587px;height:391px;" version="1.1" viewBox="0 0 587 391" width="587px" zoomAndPan="magnify"><defs><filter height="300%" id="fu3g3glxc8ct3" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="143" x="225.5" y="16.708">Domain Objects</text><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="122" x="236" y="37.6611">Sholia Project</text><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="0" x="300" y="58.6143"/><!--MD5=[44a1b4afaef76c16e6c9ec4990ad0c8d]
 class Item--><rect fill="#FEFECE" filter="url(#fu3g3glxc8ct3)" height="163.2422" id="Item" style="stroke: #A80036; stroke-width: 1.5;" width="222" x="6" y="70.8594"/><ellipse cx="98.75" cy="86.8594" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M101.2344,92.7344 Q100.6563,93.0469 100.0156,93.2031 Q99.375,93.3594 98.6719,93.3594 Q96.1563,93.3594 94.8281,91.6875 Q93.5156,90.0156 93.5156,86.8594 Q93.5156,83.7031 94.8281,82.0313 Q96.1563,80.3594 98.6719,80.3594 Q99.375,80.3594 100.0156,80.5156 Q100.6719,80.6719 101.2344,80.9844 L101.2344,83.7813 Q100.5938,83.2031 100,82.9375 Q99.4063,82.6719 98.7813,82.6719 Q97.4375,82.6719 96.75,83.7344 Q96.0625,84.7813 96.0625,86.8594 Q96.0625,88.9375 96.75,90 Q97.4375,91.0469 98.7813,91.0469 Q99.4063,91.0469 100,90.7813 Q100.5938,90.5156 101.2344,89.9375 L101.2344,92.7344 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="28" x="119.25" y="91.0083">Item</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="227" y1="102.8594" y2="102.8594"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="110.8594"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="45" x="26" y="117.0698">id: Long</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="123.6641"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="26" y="129.8745">name: String</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="136.4688"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="93" x="26" y="142.6792">quantity: Double</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="149.2734"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="196" x="26" y="155.4839">measurement: MeasurementEnum</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="162.0781"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="147" x="26" y="168.2886">language: LanguageEnum</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="174.8828"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="142" x="26" y="181.0933">pricePerQuantity: Double</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="187.6875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="68" x="26" y="193.8979">shop: String</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="200.4922"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="72" x="26" y="206.7026">notes: String</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="213.2969"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="142" x="26" y="219.5073">currency: CurrencyEnum</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="227" y1="226.1016" y2="226.1016"/><!--MD5=[9630763e33facf945baa437552379d6e]
@@ -182,9 +182,19 @@ Language: en
 Country: US
 --></g></svg>
 
-<p>The code is available on <a href="https://github.com/vladflore/shopping-list-app/tree/master/backend/src/main/java/tech/vladflore/sholia">GitHub</a>.</p>
+<p>You will be seeing more of this kind of diagrams as the project advances (I created them using <a href="https://plantuml.com/">PlantUML</a> and a <a href="https://plugins.jetbrains.com/plugin/7017-plantuml-integration">plugin</a> for IntelliJ and exporting them as .svg).
+Think of them as <em>diagram as code</em>, which means, one writes some special code, which is then transformed into a .svg or image of even .pdf, code which can be versioned.</p>
 
-<p>Happy coding and see you next time!</p>
+<h3 id="final-words">Final words</h3>
+
+<p>This post is more of a status report, and a bird’s-eye view of the current project iteration. We are now at the point where we could start building a fancier kind of client, 
+other than some .sh scripts, and send requests to the backend to create and get items and shopping lists. As necessary, the business logic will change to make room to other
+features as I discover them from my own shopping experience. There is still a lot of work ahead - new client, a more stable backend, CI/CD process, Infrastructure etc., so stay tuned
+for the next update.</p>
+
+<p>The current state of the project is available on <a href="https://github.com/vladflore/shopping-list-app/tree/master/backend/src/main/java/tech/vladflore/sholia">GitHub</a>.</p>
+
+<p>Take care and ‘til next time!</p>
 
 
     </div><a class="u-url" href="/pet-project-part3" hidden></a>
