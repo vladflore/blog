@@ -3,6 +3,7 @@ layout: post
 title: Pet Project (3/)
 permalink: /pet-project-part3
 author: Vlad
+modified_date: 2020-10-07
 ---
 This is **part 3** of the **Pet Project series** about building a small web application from scratch.
 
@@ -31,10 +32,10 @@ This is what I've added with this iteration:
     
 You may have noticed, there is no delete operation, this feature will come in the near future, so stay tuned.
 
-* in-memory database, H2, configured to save the database files on the file system (see `application.properties`)
+* [embedded H2 database](https://www.h2database.com/html/cheatSheet.html) - it saves the database files on the file system (see `application.properties`)
 * H2 compliant script, `schema.sql`, which is executed when the app starts and creates the database objects required by the application (a complete wipe takes place beforehand)
 * ability to populate the database with real-life data by means of a `CommandLineRunner` bean, which reads a `.csv` file and inserts the data into the database
-* a test script, `requests.sh`, which depicts a real life scenario, for this I actually used the IntelliJ feature _Generate HTTP Request_
+* test script, `requests.sh`, which depicts a real life scenario, for this I actually used the IntelliJ feature _Generate HTTP Request_
 to generate the requests and then I packed them all in an executable file
 * project uses now Java 11 (keeping up with the Java LTS versions)
 
@@ -61,6 +62,25 @@ The diagram below depicts a part of the model:
 You will be seeing more of this kind of diagrams as the project advances (I created them using [PlantUML] and a [plugin] for IntelliJ and exporting them as .svg).
 Think of them as _diagram as code_, which means, one writes some special code, which is then transformed into a .svg or image of even .pdf, code which can be versioned.
 
+Another interesting thing was how to take a peek inside the embedded H2 database from the terminal. Please note that the database has to be shut down in order to connect to it, we are basically having a look into the database file, which is locked as long as H2 is running.
+
+```sh
+java -cp <path-to-h2-jar> org.h2.tools.Shell \
+     -url "<h2-connection-string>;ifexists=true" \
+     -user "<user>" \
+     -password "<password>"
+```
+
+where:
+* `<path-to-h2-jar>` is something like `/home/vlad/.m2/repository/com/h2database/h2/1.4.200/h2-1.4.200.jar`, in my case I am using maven 
+* `<h2-connection-string>`, `<user>`, `<password>` is the information to connect to the H2 database, usually found in the `application.properties` file
+
+After connecting to the database we can interogate it by running commands like:
+
+```sql
+show tables;
+select * from item;
+```
 ### Final words
 
 This post is more of a status report, and a bird's-eye view of the current project iteration. We are now at the point where we could start building a fancier kind of client, 
