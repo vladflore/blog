@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/" rel="alternate" type="text/html" /><updated>2020-10-06T10:54:47+02:00</updated><id>https://vladflore.github.io/feed.xml</id><title type="html">VF_Tech</title><subtitle>A place to share stuff about software engineering and life...but mostly about software engineering</subtitle><entry><title type="html">Pet Project (3/)</title><link href="https://vladflore.github.io/pet-project-part3" rel="alternate" type="text/html" title="Pet Project (3/)" /><published>2020-10-06T00:00:00+02:00</published><updated>2020-10-06T00:00:00+02:00</updated><id>https://vladflore.github.io/pet-project-part3</id><content type="html" xml:base="https://vladflore.github.io/pet-project-part3">&lt;p&gt;This is &lt;strong&gt;part 3&lt;/strong&gt; of the &lt;strong&gt;Pet Project series&lt;/strong&gt; about building a small web application from scratch.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://vladflore.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vladflore.github.io/" rel="alternate" type="text/html" /><updated>2020-10-07T14:30:15+02:00</updated><id>https://vladflore.github.io/feed.xml</id><title type="html">VF_Tech</title><subtitle>A place to share stuff about software engineering and life...but mostly about software engineering</subtitle><entry><title type="html">Pet Project (3/)</title><link href="https://vladflore.github.io/pet-project-part3" rel="alternate" type="text/html" title="Pet Project (3/)" /><published>2020-10-06T00:00:00+02:00</published><updated>2020-10-06T00:00:00+02:00</updated><id>https://vladflore.github.io/pet-project-part3</id><content type="html" xml:base="https://vladflore.github.io/pet-project-part3">&lt;p&gt;This is &lt;strong&gt;part 3&lt;/strong&gt; of the &lt;strong&gt;Pet Project series&lt;/strong&gt; about building a small web application from scratch.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-road-so-far&quot;&gt;The road so far&lt;/h3&gt;
 
@@ -33,10 +33,10 @@ the user can manage their shopping experience and keep track of items (to buy) b
 &lt;p&gt;You may have noticed, there is no delete operation, this feature will come in the near future, so stay tuned.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;in-memory database, H2, configured to save the database files on the file system (see &lt;code class=&quot;highlighter-rouge&quot;&gt;application.properties&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.h2database.com/html/cheatSheet.html&quot;&gt;embedded H2 database&lt;/a&gt; - it saves the database files on the file system (see &lt;code class=&quot;highlighter-rouge&quot;&gt;application.properties&lt;/code&gt;)&lt;/li&gt;
   &lt;li&gt;H2 compliant script, &lt;code class=&quot;highlighter-rouge&quot;&gt;schema.sql&lt;/code&gt;, which is executed when the app starts and creates the database objects required by the application (a complete wipe takes place beforehand)&lt;/li&gt;
   &lt;li&gt;ability to populate the database with real-life data by means of a &lt;code class=&quot;highlighter-rouge&quot;&gt;CommandLineRunner&lt;/code&gt; bean, which reads a &lt;code class=&quot;highlighter-rouge&quot;&gt;.csv&lt;/code&gt; file and inserts the data into the database&lt;/li&gt;
-  &lt;li&gt;a test script, &lt;code class=&quot;highlighter-rouge&quot;&gt;requests.sh&lt;/code&gt;, which depicts a real life scenario, for this I actually used the IntelliJ feature &lt;em&gt;Generate HTTP Request&lt;/em&gt;
+  &lt;li&gt;test script, &lt;code class=&quot;highlighter-rouge&quot;&gt;requests.sh&lt;/code&gt;, which depicts a real life scenario, for this I actually used the IntelliJ feature &lt;em&gt;Generate HTTP Request&lt;/em&gt;
 to generate the requests and then I packed them all in an executable file&lt;/li&gt;
   &lt;li&gt;project uses now Java 11 (keeping up with the Java LTS versions)&lt;/li&gt;
 &lt;/ul&gt;
@@ -126,6 +126,25 @@ Country: US
 &lt;p&gt;You will be seeing more of this kind of diagrams as the project advances (I created them using &lt;a href=&quot;https://plantuml.com/&quot;&gt;PlantUML&lt;/a&gt; and a &lt;a href=&quot;https://plugins.jetbrains.com/plugin/7017-plantuml-integration&quot;&gt;plugin&lt;/a&gt; for IntelliJ and exporting them as .svg).
 Think of them as &lt;em&gt;diagram as code&lt;/em&gt;, which means, one writes some special code, which is then transformed into a .svg or image of even .pdf, code which can be versioned.&lt;/p&gt;
 
+&lt;p&gt;Another interesting thing was how to take a peek inside the embedded H2 database from the terminal. Please note that the database has to be shut down in order to connect to it, we are basically having a look into the database file, which is locked as long as H2 is running.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;java &lt;span class=&quot;nt&quot;&gt;-cp&lt;/span&gt; &amp;lt;path-to-h2-jar&amp;gt; org.h2.tools.Shell &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;-url&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;h2-connection-string&amp;gt;;ifexists=true&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;-user&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;user&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;-password&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;password&amp;gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;path-to-h2-jar&amp;gt;&lt;/code&gt; is something like &lt;code class=&quot;highlighter-rouge&quot;&gt;/home/vlad/.m2/repository/com/h2database/h2/1.4.200/h2-1.4.200.jar&lt;/code&gt;, in my case I am using maven&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;h2-connection-string&amp;gt;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;user&amp;gt;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;password&amp;gt;&lt;/code&gt; is the information to connect to the H2 database, usually found in the &lt;code class=&quot;highlighter-rouge&quot;&gt;application.properties&lt;/code&gt; file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;After connecting to the database we can interogate it by running commands like:&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;show&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tables&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;h3 id=&quot;final-words&quot;&gt;Final words&lt;/h3&gt;
 
 &lt;p&gt;This post is more of a status report, and a bird’s-eye view of the current project iteration. We are now at the point where we could start building a fancier kind of client, 

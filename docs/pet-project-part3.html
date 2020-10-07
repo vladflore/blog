@@ -53,6 +53,8 @@
         <p class="post-meta">
             created on:
             <time class="dt-published" datetime="2020-10-06T00:00:00+02:00" itemprop="datePublished">Oct 6, 2020
+            </time><time class="dt-published" datetime="2020-10-07T00:00:00+02:00" itemprop="datePublished">
+                <span style="color: #a61717;">(last modified on: Oct 7, 2020)</span>
             </time>&nbsp;by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Vlad</span></span></p>
     </header>
 
@@ -92,10 +94,10 @@ the user can manage their shopping experience and keep track of items (to buy) b
 <p>You may have noticed, there is no delete operation, this feature will come in the near future, so stay tuned.</p>
 
 <ul>
-  <li>in-memory database, H2, configured to save the database files on the file system (see <code class="highlighter-rouge">application.properties</code>)</li>
+  <li><a href="https://www.h2database.com/html/cheatSheet.html">embedded H2 database</a> - it saves the database files on the file system (see <code class="highlighter-rouge">application.properties</code>)</li>
   <li>H2 compliant script, <code class="highlighter-rouge">schema.sql</code>, which is executed when the app starts and creates the database objects required by the application (a complete wipe takes place beforehand)</li>
   <li>ability to populate the database with real-life data by means of a <code class="highlighter-rouge">CommandLineRunner</code> bean, which reads a <code class="highlighter-rouge">.csv</code> file and inserts the data into the database</li>
-  <li>a test script, <code class="highlighter-rouge">requests.sh</code>, which depicts a real life scenario, for this I actually used the IntelliJ feature <em>Generate HTTP Request</em>
+  <li>test script, <code class="highlighter-rouge">requests.sh</code>, which depicts a real life scenario, for this I actually used the IntelliJ feature <em>Generate HTTP Request</em>
 to generate the requests and then I packed them all in an executable file</li>
   <li>project uses now Java 11 (keeping up with the Java LTS versions)</li>
 </ul>
@@ -185,6 +187,25 @@ Country: US
 <p>You will be seeing more of this kind of diagrams as the project advances (I created them using <a href="https://plantuml.com/">PlantUML</a> and a <a href="https://plugins.jetbrains.com/plugin/7017-plantuml-integration">plugin</a> for IntelliJ and exporting them as .svg).
 Think of them as <em>diagram as code</em>, which means, one writes some special code, which is then transformed into a .svg or image of even .pdf, code which can be versioned.</p>
 
+<p>Another interesting thing was how to take a peek inside the embedded H2 database from the terminal. Please note that the database has to be shut down in order to connect to it, we are basically having a look into the database file, which is locked as long as H2 is running.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java <span class="nt">-cp</span> &lt;path-to-h2-jar&gt; org.h2.tools.Shell <span class="se">\</span>
+     <span class="nt">-url</span> <span class="s2">"&lt;h2-connection-string&gt;;ifexists=true"</span> <span class="se">\</span>
+     <span class="nt">-user</span> <span class="s2">"&lt;user&gt;"</span> <span class="se">\</span>
+     <span class="nt">-password</span> <span class="s2">"&lt;password&gt;"</span>
+</code></pre></div></div>
+
+<p>where:</p>
+<ul>
+  <li><code class="highlighter-rouge">&lt;path-to-h2-jar&gt;</code> is something like <code class="highlighter-rouge">/home/vlad/.m2/repository/com/h2database/h2/1.4.200/h2-1.4.200.jar</code>, in my case I am using maven</li>
+  <li><code class="highlighter-rouge">&lt;h2-connection-string&gt;</code>, <code class="highlighter-rouge">&lt;user&gt;</code>, <code class="highlighter-rouge">&lt;password&gt;</code> is the information to connect to the H2 database, usually found in the <code class="highlighter-rouge">application.properties</code> file</li>
+</ul>
+
+<p>After connecting to the database we can interogate it by running commands like:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">show</span> <span class="n">tables</span><span class="p">;</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">item</span><span class="p">;</span>
+</code></pre></div></div>
 <h3 id="final-words">Final words</h3>
 
 <p>This post is more of a status report, and a bird’s-eye view of the current project iteration. We are now at the point where we could start building a fancier kind of client, 
