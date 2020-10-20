@@ -15,7 +15,7 @@ _**A:**_ Just a man on this planet, currently living in Germany and working as a
 I love learning new things and challenging myself with new endeavours, especially when it comes to Computer Science and Technology.
 I also like travelling and exploring new places.
 
-Check my [Linkedin][Linkedin]{:target="_blank"} (English) and [Xing][Xing]{:target="_blank"} (German) profiles should you want to learn more about the professional Vlad.
+Check my [Linkedin][Linkedin]{:target="_blank"} (English) profile should you want to learn more about the professional Vlad.
 
 Fell free to have a look at the [GitHub]{:target="_blank"} profile should you be interested into my commits.
 
