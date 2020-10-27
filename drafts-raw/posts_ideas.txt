@@ -1,2 +1,6 @@
 POST
 ====
+
+whereis vim | tr ' ' '\n' | tail -n +2 | sudo xargs rm -rf
+replace space with new line, display starting with the second line, pass the lines as argument to 
+rm
