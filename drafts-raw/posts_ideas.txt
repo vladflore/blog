@@ -5,3 +5,6 @@ whereis vim | tr ' ' '\n' | tail -n +2 | sudo xargs rm -rf
 replace space with new line, display starting with the second line, pass the lines as argument to 
 rm
 sudo find . -name "*vim*"
+
+start intellij idea in the current directory, redirect stdout and stderr to nothing and detach the process
+idea . &> /dev/null &
