@@ -8,3 +8,11 @@ sudo find . -name "*vim*"
 
 start intellij idea in the current directory, redirect stdout and stderr to nothing and detach the process
 idea . &> /dev/null &
+nohup idea . &
+
+consuming a rest service from
+- Java (Spring/Spring Boot way - maven project, new HttpClient - single files)
+- JavaScript (before and after ES6)
+- Julia
+- curl (exemplify the jq tool)
+by using as source of data: https://jsonplaceholder.typicode.com/
