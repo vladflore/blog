@@ -15,4 +15,32 @@ consuming a rest service from
 - JavaScript (before and after ES6)
 - Julia
 - curl (exemplify the jq tool)
+- go, because why not ! :)
 by using as source of data: https://jsonplaceholder.typicode.com/
+
+Documentation:
+- https://openjdk.java.net/groups/net/httpclient/intro.html
+- https://java2blog.com/no-main-manifest-attribute/
+- http://www.jsonschema2pojo.org/
+- https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-cli.html#cli-init
+
+spring init -a consume-rest -g tech.vladflore -n consume-rest --package-name tech.vladflore.consumerest -d web consume-rest-spring.zip
+
+unzip consume-rest-spring.zip -d consume-rest-spring
+
+https://spring.io/blog/2021/01/11/ymnnalft-http-clients
+
+curl https://jsonplaceholder.typicode.com/users | jq . | jq length
+
+https://spring.io/guides/gs/reactive-rest-service/
+
+
+my first PR
+
+current status of sholia
+
+job hunting
+
+challenges to face as a software engineer
+
+
