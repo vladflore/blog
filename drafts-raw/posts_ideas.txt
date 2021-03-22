@@ -43,4 +43,7 @@ job hunting
 
 challenges to face as a software engineer
 
+write about Udacity
+
+My path to learning ML
 
