@@ -84,7 +84,7 @@ Challenging yourself is a good thing, sometimes you will feel really smart, some
 #### Algorithms and data structures
 
 You may like it, or you may hate it, but you need them! Any self-respecting software engineer should know some basics algorithms and data structures and should be prepared to look them up
-either online or in some CS textbook. Internet has no shortage of information on them and people have created entire businesses around them, plus if you want to work at one of the FANG companies
+either online or in some CS textbook. Internet has no shortage of information on them and people have created entire businesses around them, plus if you want to work at one of the FAANG(Facebook, Amazon, Apple, Netflix, Google) companies
 you definitely need to be comfortable solving algorithmic problems.
 
 Truth be told, if you do HTML and CSS you most likely do not need them, but as soon as you start writing code, you have to deal with algorithms,
@@ -92,7 +92,9 @@ maybe not with the complicated ones, but definitely with some common ones. In th
 
 #### Getting comfortable with the command line
 
-The cool kids use the command line not the graphical user interface! Now you know! If you are still reading, know that getting comfortable with the command line is not an easy thing.
+The cool kids use the command line not the graphical user interface! Now you know!
+
+If you are still reading, know that getting comfortable with the command line is not an easy thing.
 It has a lot of benefits and will make you look like a God. Imagine your fingers flying over the keyboard, text appearing in some transparent window, chunks of cryptic text flowing down,
 you are in the flow, and the computer obeys your every single command you type in...life is good, and all of a sudden you misspell something, and the text becomes red, or your put an `-r` or 
 `-f` or something similar, press `enter` and...boom...stuff gets uninstalled, deleted and...back to square one...installing the OS. 
