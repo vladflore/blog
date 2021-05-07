@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Nine months later
-permalink: /9-months-later
+permalink: /nine-months-later
 author: Vlad
 ---
 
