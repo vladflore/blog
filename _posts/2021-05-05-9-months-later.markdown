@@ -107,31 +107,59 @@ and hopping for the best. You should give it a try too!
 
 #### Software design and architecture
 
-tbd
+As software developers we _still_ get the chance to write code, if you are lucky enough and are not stuck in some meetings, than never seem to end. At some point in your career you may want to level up and start thinking about how to design and architect an application, or the code you are writing. There are good reasons to do that, I mean projects have failed because of bad architectures and designs, or at least swallowed way too much money then they should have.
+
+Again, the Internet is full of resources about this subject, one of those is this [Coursera specialization](https://www.coursera.org/specializations/software-design-architecture).
+
+I am strong believer of continuous improvement, as a professional, and as well as a human being. Online courses are, now more than never, in a boom, some are for free, some require some small payment, some cost quite a lot of money, but all of them can teach you something if you are willing to learn. So, learn! Invest in yourself!
+
 
 #### Creating a portfolio / side projects
 
-tbd
+In Romanian there is this saying, _teoria ca teoria, dar practica ne omoară_, which more or less translates to _theory is one thing, practice another_. Of course, you have to read, to inform yourself, to see what others think about something, but you also have to try things out, apply what you learned, create something.
 
-#### Frameworks for developing web applications
+Side projects are a good think, you get to make something, to apply what you learned, and you will eventually end up with a portfolio you can show off, but all of this requires time and effort. It is kind of a double-edged sword.
 
-tbd
+When looking for a new job, it is quite common to see that they are requiring from you to show them your portfolio, your GitHub account or similar. While this is fine, they should also understand that not having one, doesn't mean you are not capable of developing applications, writing code or solving problems, or that you are not interested into programming. Each and every one of us has their life, their time, and not having a GH profile doesn't make you any less capable or prepared to handle stuff.
+
+I personally have a bunch of projects on GH, of all sorts, some bigger, some smaller, some I would show off, some not. It is rather a place to save the stuff I am working on, than something to show off. So, practice, make something, but do not obsess over it, live your life too, you only have one!
+
+#### Frameworks and the like for developing web applications
+
+I have been in the field of developing web applications from the very beginning of my career life, in all sorts of capacities, so web application development is the field I know most, as opposed to, I don't know, compilers, desktop applications, machine learning and such.
+
+I am mostly interested into Spring Framework and its plethora of projects, but as life has it, you do not always get to work with what you are interested into, I guess this depends entirely on you. Other than targeting the JVM environment, I worked with NodeJs and its ecosystem, mostly in my side projects or while going through some course or class or workshop. You can build some serious stuff with it, but I'd rather prefer using Spring and remain in the JVM ecosystem - Java, Kotlin. 
+
+There are lots of other frameworks other than these two, it kind of depends on the main programming language you are using. Choose one or two and build something, get better at it and be curious...and patient...and resilient...frameworks and such tend to spring up like mushrooms after the rain.  
 
 #### Cloud
 
-tbd
+Yes, the Cloud, that thing which makes everybody's life easier, which looks cool on your CV, and promises lots of money. While that might be true, do not forget, it's more of a passing on responsibilities to someone else, there are still some physical boxes stashed somewhere, as they say it, it's just someone else's computer.
+
+Cloud and cloud computing is not something of recent times, the idea kind of started around 1960-1970, with the mainframes, they didn't call it _cloud_ back then, but it was, in its core, kind of similar to todays interpretation. Cloud computing in its modern context occurred in 2006, check [this link](https://www.technologyreview.com/2011/10/31/257406/who-coined-cloud-computing/#:~:text=The%20notion%20of%20network-based,term%20to%20an%20industry%20conference.) for more on this.
+
+Though I have heard about cloud, I didn't actually use it, up until like 3-4 years ago, when I became more aware of what Amazon is offering and what other competitors are pushing forward.
+
+Fast-forward to last year, I started with an Udacity program, to learn more about what it means to be a cloud developer, and learn more about this piece of technology. I also have in plan to get some official recognition in this field, but firstly I need more knowledge and experience.
 
 #### Machine learning
 
-tbd
+Machine learning, the cherry on the cake, the thing which could change our lives for better. By expanding it to the whole AI domain, this field of artificial intelligence, draws a lot of attention and turns a lot of heads. Some say it is the future of humanity some that is its doom. Believe what you want, this field is GOD DAMN AWESOME!
 
-As you can see there was a lot going on, and as I said earlier, this didn't make me an expert in any of those fields, but it did broaden my knowledge and offered me some new views and takes on the complexity and beauty of software engineering.
+I had my first encounter with AI while I was studying CS at the University, I did my master in Informatics with a focus on artificial intelligence and distributed computing, but that was pretty much it. I haven't actually applied it in real life, and have kind of lost contact with it.
+
+Last year, 2020, the year of damnation, I took an interest into AI field in general and ML in particular. I had some time on my hands, so I decided to look more closely at it. OMG! I freaking love it! Sadly, it's not something to finish in a couple of days, it's an huge field in itself with educational programs and literature to consume and is continuously evolving.
+
+As always, there are tons of information out there, Universities have made public parts of their resources, courses, classes, programs and the like. I am particularly intrigued by MIT and Stanford, which offer some cool programs to start with, or dive even deeper into this field. Coursera has a bunch of courses and specializations on this too, and _new_ programming languages emerge, promising better and faster implementation support for all those AI algorithms. Of course, the dominant language remains Python, but others are quite promising too.  
+
+Unfortunately, this field remains more of a hobby for me, than anything else, I have not studied or worked in this field, but I surely would want to. Maybe I will be one of those web application developers turning into ML engineers...time will tell!
+
+#### Final words
+
+As you can see there was/is a lot going on, and as I said earlier, this didn't make me an expert in any of those fields, but it did broaden my knowledge and offered me some new views and takes on the complexity and beauty of software engineering.
 
 Around the end of 2020 I started thinking about finding a new job, a remote one, not necessarily because of the Coronavirus, but rather because of the advantages and learning experiences it brings with. Finding a job is not an easy task, of course it's an experience more or less unique to every person, but it is definitely not a walk in the park. I might put together a [new post]() detailing my experience.
 
 Fast-forward, 01.03.2021, new job, new position, and a feeling of accomplishment to accompany me for the foreseeable future.
-
-### Conclusion
-tbd
 
 [at this post]: {{ site.baseurl }}{% post_url 2020-04-14-best-time-to-learn %}
