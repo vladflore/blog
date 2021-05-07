@@ -4,6 +4,9 @@ title: Nine months later
 permalink: /9-months-later
 author: Vlad
 ---
+
+> **_TL;DR_**
+
 ...if you were thinking about screaming little humans, I am afraid I will disappoint you and it might be that this post is not for you.
 
 If you are still reading, then you might be one of those people, who thought of something else what could have happened in a period of nine months. I salute you and encourage you to read on!
@@ -40,20 +43,21 @@ Btw, writing is a time-consuming process and doesn't work all the time, if you a
 
 Aah, yes, programming languages, you know, those languages you use to tell a computer what to do...there are plenty of them out there, and it is my intention to learn them all...just kidding, ain't going to do that, although it surely sounds appealing.
 
-I personally started with Pascal, this was in high school, then continued with C, C++ and C++ - - a.k.a. Java, at the university. There were some other languages along the way, but in the end Java stuck to me and remained one of my to-go languages when I wanted to make my computer do something for me..., and it also pays the bills, so yay Java.
+I personally started with Pascal, this was in high school, then continued with C, C++ and C++ - - a.k.a. Java, at the university. There were some other languages along the way, but in the end Java stuck to me and remained one of my go-to languages when I wanted to make my computer do something for me..., and it also pays the bills, so yay Java.
 
-Other than that, my appetite for other languages kind of grew bigger, and such I learned some Python, gave JavaScript another chance, started with Kotlin (I am using it at my current job), learned some Julia...and was getting very confused when I was switching from one language to another.
+Other than that, my appetite for other languages kind of grew bigger, and such I learned some Python, gave JavaScript another chance, started with Kotlin (I am using it at my current job), learned some Julia...and was getting very confused when I was switching between the languages.
 
-Remember my to-go language, well, learned some more of it too, and got two certifications. This 25+ years old language is still in top 5 in the [TIOBE Programming Community index](https://www.tiobe.com/tiobe-index/) and its two releases per year cadence makes things a bit more challenging to keep up with it..., but you know, bills are kind of important... :) 
+Remember my go-to language, well, learned some more of it too, and got two certifications. This 25+ years old language is still in top 5 in the [TIOBE Programming Community index](https://www.tiobe.com/tiobe-index/) and its two releases per year cadence makes things a bit more challenging to keep up with it..., but you know, bills are kind of important... :) 
 
 #### The art of writing code
 
 You know how they say, we write code for humans not for computers. While this is true, not many of us, those bestowed with understanding computer programs, really get the gist of it, in the end that code is intended to be understood by computers, rather than by humans...which complicates things for other...wait for it...humans!
-Writing code in that way that you can say _it is for humans_ is not necessarily an easy task to do, most of the time you get the algorithm working, it does what it is supposed to do, or at least it looks like it, and the next second you might think your job is done. NO! Your job is not done! Not by far, now you should make sure that the code is also written for you fellow programmers, colleagues or not.
+
+Writing code in that way that you can say _it is for humans_ is not necessarily an easy task to do, most of the time you get the algorithm working, it does what it is supposed to do, or at least it looks like it, and the next second you might think your job is done. NO! Your job is not done! Not by far, now you should make sure that the code is also written for your fellow programmers, colleagues or not.
 
 There are all sorts of resources out there that can teach you how to properly write code, and I do not mean the syntax and how idiomatic your code is, while those are important aspects, obviously, there is more to writing code, than we might want to admit. It has to read like a poem, they say, it has to be a pleasure to work with. So __stop__ doing the following, and you will be way ahead of others:
 * mutilate names
-* use way too generic names for you functions and variables
+* use way too generic names for your functions and variables
 * cram in lots of functionality into a class or method
 * over-engineer code to the point the functionality you were implementing is not recognizable anymore
 * being ignorant to the surroundings of where you are touching some code a.k.a leave the campground cleaner than you found it
@@ -88,26 +92,27 @@ either online or in some CS textbook. Internet has no shortage of information on
 you definitely need to be comfortable solving algorithmic problems.
 
 Truth be told, if you do HTML and CSS you most likely do not need them, but as soon as you start writing code, you have to deal with algorithms,
-maybe not with the complicated ones, but definitely with some common ones. In the end it depends on what you are doing as a software engineer.    
+maybe not with the complicated ones, but definitely with some common ones. In the end it depends on what you are doing as a software engineer.
+
+Here the Internet is again full of resources, some of the most notable ones being:
+* [Coursera, Algorithms, Part 1](https://www.coursera.org/learn/algorithms-part1)
+* [Coursera, Algorithms, Part 2](https://www.coursera.org/learn/algorithms-part2)
+* [Coursera, Algorithms specialization](https://www.coursera.org/specializations/algorithms) 
 
 #### Getting comfortable with the command line
 
 The cool kids use the command line not the graphical user interface! Now you know!
 
-If you are still reading, know that getting comfortable with the command line is not an easy thing.
-It has a lot of benefits and will make you look like a God. Imagine your fingers flying over the keyboard, text appearing in some transparent window, chunks of cryptic text flowing down,
-you are in the flow, and the computer obeys your every single command you type in...life is good, and all of a sudden you misspell something, and the text becomes red, or your put an `-r` or 
-`-f` or something similar, press `enter` and...boom...stuff gets uninstalled, deleted and...back to square one...installing the OS. 
+If you are still reading, know that getting comfortable with the command line is not an easy thing. It has a lot of benefits and will make you look like a God, but it is not an easy thing to really master it.
 
-I was just trying to highlight the fact that sometimes is better to just use the God damn mouse and click your way through all that. You will lose some popularity, but at least your files
-are intact.
+Considering the learning curve, sometimes it might be better to just use the God damn mouse and click your way through all that. You will be doing it to the detriment of losing some popularity points, though. 
 
 In my attempt to master the command line, I renounced at Windows, installed a fresh copy of Ubuntu and started...clicking my way through it, I am kidding, diligently typing in commands
 and hopping for the best. You should give it a try too!
 
 #### Software design and architecture
 
-As software developers we _still_ get the chance to write code, if you are lucky enough and are not stuck in some meetings, than never seem to end. At some point in your career you may want to level up and start thinking about how to design and architect an application, or the code you are writing. There are good reasons to do that, I mean projects have failed because of bad architectures and designs, or at least swallowed way too much money then they should have.
+As software developers we _still_ get the chance to write code, if you are lucky enough and are not stuck in some meetings, that never seem to end. At some point in your career you may want to level up and start thinking about how to design and architect an application, or the code you are writing. There are good reasons to do that, I mean projects have failed because of bad architectures and designs, or at least swallowed way too much money than they should have.
 
 Again, the Internet is full of resources about this subject, one of those is this [Coursera specialization](https://www.coursera.org/specializations/software-design-architecture).
 
@@ -116,13 +121,13 @@ I am strong believer of continuous improvement, as a professional, and as well a
 
 #### Creating a portfolio / side projects
 
-In Romanian there is this saying, _teoria ca teoria, dar practica ne omoară_, which more or less translates to _theory is one thing, practice another_. Of course, you have to read, to inform yourself, to see what others think about something, but you also have to try things out, apply what you learned, create something.
+In Romanian there is this saying, _teoria ca teoria, dar practica ne omoară_, which more or less translates to _theory is one thing, practice another_. Of course, you have to read, to inform yourself, to see what others think about something, but you also have to try things out, apply what you learned, build something.
 
-Side projects are a good think, you get to make something, to apply what you learned, and you will eventually end up with a portfolio you can show off, but all of this requires time and effort. It is kind of a double-edged sword.
+Side projects are a good think, you get to build something, to apply what you learned, and you will eventually end up with a portfolio you can show off, but all of this requires time and effort. It is kind of a double-edged sword.
 
 When looking for a new job, it is quite common to see that they are requiring from you to show them your portfolio, your GitHub account or similar. While this is fine, they should also understand that not having one, doesn't mean you are not capable of developing applications, writing code or solving problems, or that you are not interested into programming. Each and every one of us has their life, their time, and not having a GH profile doesn't make you any less capable or prepared to handle stuff.
 
-I personally have a bunch of projects on GH, of all sorts, some bigger, some smaller, some I would show off, some not. It is rather a place to save the stuff I am working on, than something to show off. So, practice, make something, but do not obsess over it, live your life too, you only have one!
+I personally have a bunch of projects on GH, of all sorts, some bigger, some smaller, some I would show off, some not. It is rather a place to save the stuff I am working on, than something to show off. So, practice, build something, but do not obsess over it, live your life too, you only have one!
 
 #### Frameworks and the like for developing web applications
 
@@ -134,9 +139,9 @@ There are lots of other frameworks other than these two, it kind of depends on t
 
 #### Cloud
 
-Yes, the Cloud, that thing which makes everybody's life easier, which looks cool on your CV, and promises lots of money. While that might be true, do not forget, it's more of a passing on responsibilities to someone else, there are still some physical boxes stashed somewhere, as they say it, it's just someone else's computer.
+Yes, the Cloud, that thing which makes everybody's life easier, which looks cool on your CV, and promises lots of money. While that might be true, do not forget, it's more a case of passing on responsibilities to someone else, there are still some physical boxes stacked somewhere, as they say, it's just someone else's computer.
 
-Cloud and cloud computing is not something of recent times, the idea kind of started around 1960-1970, with the mainframes, they didn't call it _cloud_ back then, but it was, in its core, kind of similar to todays interpretation. Cloud computing in its modern context occurred in 2006, check [this link](https://www.technologyreview.com/2011/10/31/257406/who-coined-cloud-computing/#:~:text=The%20notion%20of%20network-based,term%20to%20an%20industry%20conference.) for more on this.
+Cloud and cloud computing is not something of recent times, the idea kind of started around 1960-1970, with the mainframes, they didn't call it _cloud_ back then, but it was, in its core, kind of similar to todays interpretation of the word. Cloud computing in its modern context occurred in 2006, check [this link](https://www.technologyreview.com/2011/10/31/257406/who-coined-cloud-computing/#:~:text=The%20notion%20of%20network-based,term%20to%20an%20industry%20conference.) for more on this.
 
 Though I have heard about cloud, I didn't actually use it, up until like 3-4 years ago, when I became more aware of what Amazon is offering and what other competitors are pushing forward.
 
@@ -144,22 +149,30 @@ Fast-forward to last year, I started with an Udacity program, to learn more abou
 
 #### Machine learning
 
-Machine learning, the cherry on the cake, the thing which could change our lives for better. By expanding it to the whole AI domain, this field of artificial intelligence, draws a lot of attention and turns a lot of heads. Some say it is the future of humanity some that is its doom. Believe what you want, this field is GOD DAMN AWESOME!
+Machine learning, the cherry on the cake, the thing which could change our lives for better. Looking at the whole Artificial Intelligence domain, this ML subfield, draws a lot of attention and turns a lot of heads.
 
-I had my first encounter with AI while I was studying CS at the University, I did my master in Informatics with a focus on artificial intelligence and distributed computing, but that was pretty much it. I haven't actually applied it in real life, and have kind of lost contact with it.
+When it comes to AI, some say it is the future of humanity some that it is its doom. Believe what you want, this field is, in my opinion, GOD DAMN AWESOME!
 
-Last year, 2020, the year of damnation, I took an interest into AI field in general and ML in particular. I had some time on my hands, so I decided to look more closely at it. OMG! I freaking love it! Sadly, it's not something to finish in a couple of days, it's an huge field in itself with educational programs and literature to consume and is continuously evolving.
+I had my first encounter with AI while I was studying CS at the university, I did my master in Informatics with a focus on artificial intelligence and distributed computing, but that was pretty much it. I haven't actually applied it in real life, and have kind of lost contact with it.
+
+Last year, 2020, the year of damnation, I took an interest into AI field in general and ML in particular. I had some time on my hands, so I decided to look more closely at it. OMG! I freaking love it! Sadly, it's not something to finish in a couple of days or weeks, it's a huge field in itself with educational programs and literature to consume and it is continuously evolving.
 
 As always, there are tons of information out there, Universities have made public parts of their resources, courses, classes, programs and the like. I am particularly intrigued by MIT and Stanford, which offer some cool programs to start with, or dive even deeper into this field. Coursera has a bunch of courses and specializations on this too, and _new_ programming languages emerge, promising better and faster implementation support for all those AI algorithms. Of course, the dominant language remains Python, but others are quite promising too.  
 
-Unfortunately, this field remains more of a hobby for me, than anything else, I have not studied or worked in this field, but I surely would want to. Maybe I will be one of those web application developers turning into ML engineers...time will tell!
+Unfortunately, this field remains more of a hobby for me, than anything else. If I started with it, I'd have to start from the very beginning. Maybe, I will be one of those web application developers turned into ML engineers...time will tell!
 
 #### Final words
 
 As you can see there was/is a lot going on, and as I said earlier, this didn't make me an expert in any of those fields, but it did broaden my knowledge and offered me some new views and takes on the complexity and beauty of software engineering.
 
-Around the end of 2020 I started thinking about finding a new job, a remote one, not necessarily because of the Coronavirus, but rather because of the advantages and learning experiences it brings with. Finding a job is not an easy task, of course it's an experience more or less unique to every person, but it is definitely not a walk in the park. I might put together a [new post]() detailing my experience.
+Around the end of 2020 I started thinking about finding a new job, a remote one, not necessarily because of the Coronavirus, but rather because of the advantages and learning experiences it brings with. Finding a job is not an easy task, of course it's an experience more or less unique to every person, but it is definitely not a walk in the park. I might put together a [new post]() detailing this experience too.
 
 Fast-forward, 01.03.2021, new job, new position, and a feeling of accomplishment to accompany me for the foreseeable future.
+
+That's it, folks!
+
+Stay safe and healthy and never stop learning!
+
+Vlad
 
 [at this post]: {{ site.baseurl }}{% post_url 2020-04-14-best-time-to-learn %}
