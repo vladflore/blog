@@ -33,10 +33,10 @@ theme: minima
 plugins:
   - jekyll-feed
 
-# # Disqus Comments
-# disqus:
-#   # Leave shortname blank to disable comments site-wide.
-#   shortname: https-vladflore-github-io-blog
+# Disqus Comments
+disqus:
+  # Leave shortname blank to disable comments site-wide.
+  shortname: vladflore-tech
 
 google_analytics: UA-171602576-1
 

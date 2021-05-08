@@ -3,6 +3,7 @@ layout: post
 title: Nine months later
 permalink: /nine-months-later
 author: Vlad
+comments: true
 ---
 
 > **_TL;DR_**
