@@ -34,9 +34,6 @@ curl https://jsonplaceholder.typicode.com/users | jq . | jq length
 
 https://spring.io/guides/gs/reactive-rest-service/
 
-
-my first PR
-
 current status of sholia
 
 job hunting
@@ -48,4 +45,4 @@ write about Udacity
 
 My path to learning ML
 
-9 months later
+Remote working

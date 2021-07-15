@@ -2,7 +2,7 @@
 layout: post
 title: Shell Magic
 permalink: /shell-magic
-modified_date: 2020-05-17
+modified_date: 2021-07-15
 author: Vlad
 ---
 
@@ -13,11 +13,42 @@ and this will be reflected on this page in the date information displayed under 
 Some of them might also require sudo access, so I am just going to assume that you know what you are doing.
 You have been warned!_
 
-> **_NOTE 3:_** All the commands have been tried on _Ubuntu 18.04.4 LTS_
-
 <br/>
 
-### <a name="1"></a> 1. Forcibly removing all directories and their content recursively
+### <a name="10"></a> 10. Execute a program periodically 
+
+{% highlight sh %}
+watch du -sh <folder>
+{% endhighlight %}
+
+Execute the `du` command periodically, every 2 seconds, until interrupted. The command displays only the total size `-s` of the `<folder>`, in a human readable format `-h`.
+
+---
+<br/>
+
+### <a name="9"></a> 9. Display file space usage in human readable format 
+
+{% highlight sh %}
+du -hc . | sort -rh | head -5
+{% endhighlight %}
+
+Display size in human readable format `-h`, producing a grand total `-c`, then sort the output in reversed order `-r` by comparing human readable sizes `-h`, and finally taking only the first five lines of the output.
+
+---
+<br/>
+
+### <a name="8"></a> 8. Search for a pattern inside files
+
+{% highlight sh %}
+grep -rnw . -e 'pattern'
+{% endhighlight %}
+
+Search in the current `.` directory, recursively `-r`, matching `-e` the pattern `pattern`, considering only whole words `-w`, displaying the line number `-n` of the match.
+
+---
+<br/>
+
+### <a name="7"></a> 7. Forcibly removing all directories and their content recursively
 
 {% highlight sh %}
 ls -l | grep '^d' | awk '{print $9}' | xargs rm -rf
@@ -37,7 +68,7 @@ In plain English, list the content of the current directory `ls` using the long 
 ---
 <br/>
 
-### <a name="2"></a> 2. Switching between GitHub remote URLs (HTTPS vs. SSH)
+### <a name="6"></a> 6. Switching between GitHub remote URLs (HTTPS vs. SSH)
 
 {% highlight sh %}
 git remote -v
@@ -59,7 +90,7 @@ to replace the `USERNAME` and `REPOSITORY` with the real values.
 ---
 <br/>
 
-### <a name="3"></a> 3. Searching for files and creating an archive out of them
+### <a name="5"></a> 5. Searching for files and creating an archive out of them
 
 {% highlight sh %}
 find . -type f \( -name file1 -o -name file2 \) | zip -@ -j files
@@ -119,7 +150,7 @@ xkill
 ---
 <br/>
 
-### <a name="5"></a> 5. Print content of $PATH line-by-line
+### <a name="3"></a> 3. Print content of $PATH line-by-line
 
 {% highlight sh %}
 echo $PATH | tr ':' '\n'
@@ -143,7 +174,7 @@ line2
 ---
 <br/>
 
-### <a name="6"></a> 6. Show all users
+### <a name="2"></a> 2. Show all users
 
 {% highlight sh %}
 cat /etc/passwd | awk -F: '{print$1}'
@@ -160,7 +191,7 @@ printing out the first value (the user name).
 ---
 <br/>
 
-### <a name="7"></a> 7. Show all hidden files
+### <a name="1"></a> 1. Show all hidden files
 
 {% highlight sh %}
 ls -lap | grep -v / | awk '{print $9}' | grep '^\.'
