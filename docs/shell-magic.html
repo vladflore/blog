@@ -16,7 +16,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-25T00:00:00+01:00" />
 <script type="application/ld+json">
-{"datePublished":"2020-03-25T00:00:00+01:00","@type":"BlogPosting","description":"NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.","dateModified":"2020-03-25T00:00:00+01:00","url":"https://vladflore.github.io/shell-magic","mainEntityOfPage":{"@type":"WebPage","@id":"https://vladflore.github.io/shell-magic"},"author":{"@type":"Person","name":"Vlad"},"headline":"Shell Magic","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://vladflore.github.io/shell-magic"},"@type":"BlogPosting","url":"https://vladflore.github.io/shell-magic","author":{"@type":"Person","name":"Vlad"},"headline":"Shell Magic","dateModified":"2020-03-25T00:00:00+01:00","datePublished":"2020-03-25T00:00:00+01:00","description":"NOTE 1: This page contains some shell magic which I came across in my daily business. I will update this page continuously and this will be reflected on this page in the date information displayed under the post name.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css">
   <link rel="stylesheet" href="/assets/css/custom.css"><link type="application/atom+xml" rel="alternate" href="https://vladflore.github.io/feed.xml" title="VF_Tech" /><!-- Global site tag (gtag.js) - Google Analytics -->
@@ -53,8 +53,8 @@
         <p class="post-meta">
             created on:
             <time class="dt-published" datetime="2020-03-25T00:00:00+01:00" itemprop="datePublished">Mar 25, 2020
-            </time><time class="dt-published" datetime="2020-05-17T00:00:00+02:00" itemprop="datePublished">
-                <span style="color: #a61717;">(last modified on: May 17, 2020)</span>
+            </time><time class="dt-published" datetime="2021-07-15T00:00:00+02:00" itemprop="datePublished">
+                <span style="color: #a61717;">(last modified on: Jul 15, 2021)</span>
             </time>&nbsp;by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Vlad</span></span></p>
     </header>
 
@@ -70,13 +70,36 @@ Some of them might also require sudo access, so I am just going to assume that y
 You have been warned!</em></p>
 </blockquote>
 
-<blockquote>
-  <p><strong><em>NOTE 3:</em></strong> All the commands have been tried on <em>Ubuntu 18.04.4 LTS</em></p>
-</blockquote>
-
 <p><br /></p>
 
-<h3 id="-1-forcibly-removing-all-directories-and-their-content-recursively"><a name="1"></a> 1. Forcibly removing all directories and their content recursively</h3>
+<h3 id="-10-execute-a-program-periodically"><a name="10"></a> 10. Execute a program periodically</h3>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">watch <span class="nb">du</span> <span class="nt">-sh</span> &lt;folder&gt;</code></pre></figure>
+
+<p>Execute the <code class="highlighter-rouge">du</code> command periodically, every 2 seconds, until interrupted. The command displays only the total size <code class="highlighter-rouge">-s</code> of the <code class="highlighter-rouge">&lt;folder&gt;</code>, in a human readable format <code class="highlighter-rouge">-h</code>.</p>
+
+<hr />
+<p><br /></p>
+
+<h3 id="-9-display-file-space-usage-in-human-readable-format"><a name="9"></a> 9. Display file space usage in human readable format</h3>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">du</span> <span class="nt">-hc</span> <span class="nb">.</span> | <span class="nb">sort</span> <span class="nt">-rh</span> | <span class="nb">head</span> <span class="nt">-5</span></code></pre></figure>
+
+<p>Display size in human readable format <code class="highlighter-rouge">-h</code>, producing a grand total <code class="highlighter-rouge">-c</code>, then sort the output in reversed order <code class="highlighter-rouge">-r</code> by comparing human readable sizes <code class="highlighter-rouge">-h</code>, and finally taking only the first five lines of the output.</p>
+
+<hr />
+<p><br /></p>
+
+<h3 id="-8-search-for-a-pattern-inside-files"><a name="8"></a> 8. Search for a pattern inside files</h3>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">grep</span> <span class="nt">-rnw</span> <span class="nb">.</span> <span class="nt">-e</span> <span class="s1">'pattern'</span></code></pre></figure>
+
+<p>Search in the current <code class="highlighter-rouge">.</code> directory, recursively <code class="highlighter-rouge">-r</code>, matching <code class="highlighter-rouge">-e</code> the pattern <code class="highlighter-rouge">pattern</code>, considering only whole words <code class="highlighter-rouge">-w</code>, displaying the line number <code class="highlighter-rouge">-n</code> of the match.</p>
+
+<hr />
+<p><br /></p>
+
+<h3 id="-7-forcibly-removing-all-directories-and-their-content-recursively"><a name="7"></a> 7. Forcibly removing all directories and their content recursively</h3>
 
 <figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">ls</span> <span class="nt">-l</span> | <span class="nb">grep</span> <span class="s1">'^d'</span> | <span class="nb">awk</span> <span class="s1">'{print $9}'</span> | xargs <span class="nb">rm</span> <span class="nt">-rf</span></code></pre></figure>
 
@@ -99,7 +122,7 @@ You have been warned!</em></p>
 <hr />
 <p><br /></p>
 
-<h3 id="-2-switching-between-github-remote-urls-https-vs-ssh"><a name="2"></a> 2. Switching between GitHub remote URLs (HTTPS vs. SSH)</h3>
+<h3 id="-6-switching-between-github-remote-urls-https-vs-ssh"><a name="6"></a> 6. Switching between GitHub remote URLs (HTTPS vs. SSH)</h3>
 
 <figure class="highlight"><pre><code class="language-sh" data-lang="sh">git remote <span class="nt">-v</span>
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
@@ -119,7 +142,7 @@ to replace the <code class="highlighter-rouge">USERNAME</code> and <code class="
 <hr />
 <p><br /></p>
 
-<h3 id="-3-searching-for-files-and-creating-an-archive-out-of-them"><a name="3"></a> 3. Searching for files and creating an archive out of them</h3>
+<h3 id="-5-searching-for-files-and-creating-an-archive-out-of-them"><a name="5"></a> 5. Searching for files and creating an archive out of them</h3>
 
 <figure class="highlight"><pre><code class="language-sh" data-lang="sh">find <span class="nb">.</span> <span class="nt">-type</span> f <span class="se">\(</span> <span class="nt">-name</span> file1 <span class="nt">-o</span> <span class="nt">-name</span> file2 <span class="se">\)</span> | zip -@ <span class="nt">-j</span> files
 <span class="nb">mv </span>files.zip ~/tmp
@@ -182,7 +205,7 @@ xkill</code></pre></figure>
 <hr />
 <p><br /></p>
 
-<h3 id="-5-print-content-of-path-line-by-line"><a name="5"></a> 5. Print content of $PATH line-by-line</h3>
+<h3 id="-3-print-content-of-path-line-by-line"><a name="3"></a> 3. Print content of $PATH line-by-line</h3>
 
 <figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="nv">$PATH</span> | <span class="nb">tr</span> <span class="s1">':'</span> <span class="s1">'\n'</span></code></pre></figure>
 
@@ -204,7 +227,7 @@ line2</code></pre></figure>
 <hr />
 <p><br /></p>
 
-<h3 id="-6-show-all-users"><a name="6"></a> 6. Show all users</h3>
+<h3 id="-2-show-all-users"><a name="2"></a> 2. Show all users</h3>
 
 <figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cat</span> /etc/passwd | <span class="nb">awk</span> <span class="nt">-F</span>: <span class="s1">'{print$1}'</span></code></pre></figure>
 
@@ -221,7 +244,7 @@ printing out the first value (the user name).</p>
 <hr />
 <p><br /></p>
 
-<h3 id="-7-show-all-hidden-files"><a name="7"></a> 7. Show all hidden files</h3>
+<h3 id="-1-show-all-hidden-files"><a name="1"></a> 1. Show all hidden files</h3>
 
 <figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">ls</span> <span class="nt">-lap</span> | <span class="nb">grep</span> <span class="nt">-v</span> / | <span class="nb">awk</span> <span class="s1">'{print $9}'</span> | <span class="nb">grep</span> <span class="s1">'^\.'</span></code></pre></figure>
 
